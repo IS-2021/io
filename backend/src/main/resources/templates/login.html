@@ -1,33 +1,91 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<!doctype html>
+<html lang="en">
 <head>
-  <title>Logowanie</title>
-  <link rel="icon" type="image/x-icon" href="../static/css/favicon.ico">
-  <link href="../static/css/login.css" th:href="@{/css/login.css}" rel="stylesheet"/>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/cryptography-js/4.1.1/core.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/cryptography-js/4.1.1/sha512.js"></script>
-  <script>
-
-  </script>
-
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/x-icon" href="../static/css/favicon.ico">
+    <link href="../static/css/base.css" th:href="@{/css/base.css}" rel="stylesheet"/>
+    <link href="../static/css/login.css" th:href="@{/css/login.css}" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Zaloguj się</title>
 </head>
-<body>
-<div id="content">
-  <h1>Zaloguj się</h1>
-  <div th:if="${param.error}">
-    Błędne hasło lub login.
-  </div>
-  <form th:action="@{/login}" method="post" id="myForm">
-    <div>
-      <input type="text" name="username" placeholder="Nazwa użytkownika"/>
-    </div>
-    <div>
-      <input type="password" name="password" placeholder="Hasło" id="pass" value=""/>
-    </div>
-    <input type="submit" value="Zaloguj"/>
-  </form>
-  <a href="register.html"> Zarejestruj się </a>
+<body class="min-h-screen text-neutral-950 flex flex-col">
+<div class="h-full flex flex-col grow">
+    <header class="h-14 w-full flex justify-between px-10 py-2 bg-neutral-950 text-neutral-50 items-center">
+        <h1 class="text-2xl font-bold">Green game</h1>
+        <!--        TODO: Delete -->
+        <!--        <div>-->
+        <!--            <nav>-->
+        <!--                <ul>-->
+        <!--                    <li></li>-->
+        <!--                    <li></li>-->
+        <!--                    <li></li>-->
+        <!--                </ul>-->
+        <!--            </nav>-->
+        <!--            <div></div>-->
+        <!--        </div>-->
+    </header>
 
+    <div class="flex grow">
+        <div class="w-1/2">
+            <div class="background-image bg-center bg-cover h-full" style=""></div>
+        </div>
+        <main class="w-1/2">
+            <article class="grid items-center justify-center h-full">
+                <div>
+                    <div class="w-96 mb-3 rounded-md space-y-10 px-6 py-8 border border-neutral-300">
+                        <h1 class="font-bold text-3xl text-center">Zaloguj się</h1>
+
+                        <div>
+                            <div th:if="${param.error}"
+                                 class="relative mb-4 w-full space-x-2 rounded-lg border p-4 [&>svg~*]:pl-7 [&>svg+div]:translate-y-[-3px] [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 [&>svg]:text-foreground border-red-500/50 text-red-500 [&>svg]:text-red-500">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                     stroke-linejoin="round" class="lucide lucide-alert-circle">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="12" x2="12" y1="8" y2="12"/>
+                                    <line x1="12" x2="12.01" y1="16" y2="16"/>
+                                </svg>
+                                <p>Błędne hasło lub login.</p>
+                            </div>
+
+                            <form th:action="@{/login}" method="post" id="myForm">
+                                <div class="mb-3 flex items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                         stroke-linejoin="round" class="lucide lucide-user-2">
+                                        <circle cx="12" cy="8" r="5"/>
+                                        <path d="M20 21a8 8 0 1 0-16 0"/>
+                                    </svg>
+                                    <input type="text" name="username" placeholder="Nazwa użytkownika"
+                                           class="px-2 py-2 w-full bg-white rounded-md border border-neutral-300"/>
+                                </div>
+                                <div class="mb-10 flex items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                         stroke-linejoin="round" class="lucide lucide-lock-keyhole">
+                                        <circle cx="12" cy="16" r="1"/>
+                                        <rect x="3" y="10" width="18" height="12" rx="2"/>
+                                        <path d="M7 10V7a5 5 0 0 1 10 0v3"/>
+                                    </svg>
+                                    <input type="password" name="password" placeholder="Hasło" id="pass"
+                                           class="px-2 py-2 w-full bg-white rounded-md border border-neutral-300"/>
+                                </div>
+
+                                <button class="w-full rounded-md py-2 bg-neutral-950 text-neutral-50">
+                                    Zaloguj
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <p class="text-center text-sm font-medium">Nie masz konta? <span class="underline"><a
+                            href="register.html">Zarejestruj się</a></span></p>
+                </div>
+            </article>
+        </main>
+    </div>
 </div>
 </body>
 </html>
