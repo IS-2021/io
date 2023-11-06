@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+  <title>Logowanie</title>
+  <link rel="icon" type="image/x-icon" href="../static/css/favicon.ico">
+  <link href="../static/css/login.css" th:href="@{/css/login.css}" rel="stylesheet"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cryptography-js/4.1.1/core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cryptography-js/4.1.1/sha512.js"></script>
+  <script>
+
+  </script>
+
+</head>
+<body>
+<div id="content">
+  <h1>Zaloguj się</h1>
+  <div th:if="${param.error}">
+    Błędne hasło lub login.
+  </div>
+  <form th:action="@{/login}" method="post" id="myForm">
+    <div>
+      <input type="text" name="username" placeholder="Nazwa użytkownika"/>
+    </div>
+    <div>
+      <input type="password" name="password" placeholder="Hasło" id="pass" value=""/>
+    </div>
+    <input type="submit" value="Zaloguj"/>
+  </form>
+  <a href="register.html"> Zarejestruj się </a>
+
+</div>
+</body>
+</html>

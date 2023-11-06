@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+
+        function triggerPost() {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "http://localhost:8080/poziom1", true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send(JSON.stringify({
+                score: `115`,
+                passed: 'true'
+            }));
+        }
+
+    </script>
+</head>
+<body>
+
+<button onclick="triggerPost()"></button>
+
+</body>
+</html>
