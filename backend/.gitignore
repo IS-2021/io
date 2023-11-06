@@ -36,3 +36,5 @@ build/
 /mvnw.cmd
 /.mvn/
 /.idea/
+/.idea/
+/data/
