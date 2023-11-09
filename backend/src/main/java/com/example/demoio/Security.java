@@ -35,7 +35,7 @@ public class Security {
                                 -> response.sendRedirect("/login?error"))
                 .successHandler(
                         (request, response, authentication)
-                                -> response.sendRedirect("/mainPage"))
+                                -> response.sendRedirect("/home"))
                 .and().
                 logout().
                 logoutRequestMatcher(new AntPathRequestMatcher("/logout")).

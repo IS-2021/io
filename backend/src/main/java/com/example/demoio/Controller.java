@@ -1,25 +1,30 @@
 package com.example.demoio;
 
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @org.springframework.stereotype.Controller
 public class Controller {
+    @ModelAttribute("requestURI")
+    public String requestURI(final HttpServletRequest request) {
+        return request.getRequestURI();
+    }
 
-
-    @GetMapping("/mainPage")
+    @GetMapping("/home")
     public String checkAuth() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if(!(auth instanceof AnonymousAuthenticationToken)) {
-            return "mainPage";
+            return "home";
         }
         return "login";
 
     }
 
-    @PostMapping("/mainPage")
+    @PostMapping("/home")
     public String mainPagePost() {
         System.out.println("notAuthorized post req");
 
@@ -40,7 +45,7 @@ public class Controller {
     public String defaultPage() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if(!(auth instanceof AnonymousAuthenticationToken)) {
-            return "mainPage";
+            return "home";
         }
         return "redirect:login";
     }

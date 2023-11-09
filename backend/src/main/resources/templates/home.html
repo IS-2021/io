@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/x-icon" href="../static/css/favicon.ico">
+    <link href="../static/css/base.css" th:href="@{/css/base.css}" rel="stylesheet"/>
+    <link href="../static/css/login.css" th:href="@{/css/login.css}" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Homepage</title>
+</head>
+<body class="min-h-screen text-neutral-950 flex flex-col">
+<div class="h-full flex flex-col grow">
+    <header class="h-14 w-full flex justify-between px-10 py-2 bg-neutral-950 text-neutral-50 items-center">
+        <h1 class="text-2xl font-bold">Green game</h1>
+        <div class="flex gap-8 font-medium">
+            <nav class="flex items-center">
+                <ul class="flex gap-4">
+                    <li th:classappend="${requestURI == '/home' ? 'text-green-500 underline' : ''}"><a href="/home">Wybór
+                        gry</a></li>
+                    <li th:classappend="${requestURI == '/daily-task' ? 'text-green-500 underline' : ''}"><a
+                            href="/daily-task">Codzienne
+                        zadania</a></li>
+                    <li th:classappend="${requestURI == '/ranking' ? 'text-green-500 underline' : ''}">
+                        <a href="/ranking">Ranking</a></li>
+                </ul>
+            </nav>
+            <div class="flex items-center gap-4">
+                <span class="text-green-500 flex gap-2.5">
+                    12
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                         class="lucide lucide-coins"><circle cx="8" cy="8" r="6"/><path
+                            d="M18.09 10.37A6 6 0 1 1 10.34 18"/><path d="M7 6h1v4"/><path
+                            d="m16.71 13.88.7.71-2.82 2.82"/></svg>
+                </span>
+
+                <div class="border border-neutral-700 items-center rounded-full pl-4 gap-3 flex">
+                    testUser
+                    <div class="w-8 h-8 rounded-full bg-neutral-50">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="flex grow">
+        <main class="w-1/2">
+            <article class="grid items-center justify-center h-full">
+            </article>
+        </main>
+    </div>
+</div>
+</body>
+</html>
