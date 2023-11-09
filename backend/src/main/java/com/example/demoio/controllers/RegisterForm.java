@@ -1,5 +1,4 @@
-package com.example.demoio;
-
+package com.example.demoio.controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
 
