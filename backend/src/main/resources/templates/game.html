@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/x-icon" href="../static/css/favicon.ico">
+    <link href="../static/css/base.css" th:href="@{/css/base.css}" rel="stylesheet"/>
+    <link href="../static/css/login.css" th:href="@{/css/login.css}" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Gra </title>
+</head>
+<body class="min-h-screen text-neutral-950 flex flex-col">
+<div class="h-full flex flex-col grow">
+    <div th:replace="~{fragments/header}"></div>
+
+    <div class="flex mt-12 gap-20 grow max-w-screen-xl w-full mx-auto">
+        <main class="w-1/2">
+            <article class="mb-10">
+                <header class="w-full flex items-center mb-6">
+                    <h1 th:text="${gameName}" class="font-bold text-4xl mr-8">Oszczędzanie wody</h1>
+
+                    <div th:if="${points}" class="flex gap-2 items-center text-neutral-400">
+                        <svg th:replace="~{fragments/icons/trophy}"></svg>
+                        <p th:text="${points}" class="font-medium"> pkt</p>
+                    </div>
+                </header>
+
+                <p class="mb-5 text-justify">Twoim głównym celem jest zarządzanie dostępnymi zasobami wodnymi w mieście,
+                    dbając o
+                    zrównoważone zużycie i minimalizację marnotrawstwa. Musisz podejmować decyzje dotyczące zakupu
+                    efektywnych technologii, eliminowania wycieków i edukowania mieszkańców na temat oszczędzania wody.
+                    Czy
+                    uda ci się stworzyć ekologiczne miasto, w którym każdy przyczynia się do ochrony cennego zasobu
+                    jakim
+                    jest woda?</p>
+
+                <p class="font-medium mb-3 text-sm">Za ukończenie tej gry otrzymasz <span class="text-green-500">3 monety</span>
+                    <span
+                            class="w-4 h-4 text-green-500 inline-block"><svg
+                            th:replace="~{fragments/icons/coins}"></svg></span>
+                </p>
+                <a th:href="${requestURI} + '/play'"
+                   class="max-w-xs w-full text-center block rounded-md py-2 px-4 bg-neutral-950 text-neutral-50">
+                    Rozpocznij rozgrywkę
+                </a>
+            </article>
+
+            <article>
+                <header class="w-full flex items-center mb-6">
+                    <h1 class="font-bold text-4xl mr-8">Ranking</h1>
+                </header>
+            </article>
+        </main>
+
+        <div class="w-1/2">
+            <img th:src="@{${'/images/games/' + imageSlugName + '.jpg'}}" class="rounded-xl shadow-xl">
+        </div>
+    </div>
+</div>
+</body>
+</html>
