@@ -9,16 +9,76 @@
     <link href="../static/css/base.css" th:href="@{/css/base.css}" rel="stylesheet"/>
     <link href="../static/css/login.css" th:href="@{/css/login.css}" rel="stylesheet"/>
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Homepage</title>
+    <title>Wybór gry</title>
 </head>
 <body class="min-h-screen text-neutral-950 flex flex-col">
 <div class="h-full flex flex-col grow">
     <div th:replace="~{fragments/header}"></div>
 
     <div class="flex grow">
-        <main class="w-1/2">
-            <article class="grid items-center justify-center h-full">
-            </article>
+        <main class="w-full">
+            <div class="w-full">
+                <h1 class="font-bold text-4xl text-center my-20">Wybór gry</h1>
+
+                <div class="max-w-screen-lg mx-auto">
+                    <div class="flex justify-between mb-12">
+                        <a href="game/1">
+                            <div class="h-full p-4 rounded hover:shadow-md hover:scale-105 hover:bg-cyan-500/25 transition-all">
+                                <img th:src="@{/images/games/recykling.jpg}" alt="Recykling"
+                                     class="rounded-full w-44 h-44 mb-2 border-4 border-neutral-700">
+                                <p class="w-44 text-center font-medium text-lg">Recykling</p>
+                            </div>
+                        </a>
+                        <a href="game/2">
+                            <div class="h-full p-4 rounded hover:shadow-md hover:scale-105 hover:bg-cyan-500/25 transition-all">
+                                <img th:src="@{/images/games/oszczedzanie-wody.jpg}" alt="Oszczędzanie wody"
+                                     class="rounded-full w-44 h-44 mb-2 border-4 border-neutral-700">
+                                <p class="w-44 text-center font-medium text-lg">Oszczędzanie <br> wody</p>
+                            </div>
+                        </a>
+                        <a href="game/3">
+                            <div class="h-full p-4 rounded hover:shadow-md hover:scale-105 hover:bg-cyan-500/25 transition-all">
+                                <img th:src="@{/images/games/oszczedzanie-energii.jpg}" alt="Oszczędzanie energii"
+                                     class="rounded-full w-44 h-44 mb-2 border-4 border-neutral-700">
+                                <p class="w-44 text-center font-medium text-lg">Oszczędzanie energii</p>
+                            </div>
+                        </a>
+                        <a href="game/4">
+                            <div class="h-full p-4 rounded hover:shadow-md hover:scale-105 hover:bg-cyan-500/25 transition-all">
+                                <img th:src="@{/images/games/ponowne-wykorzystanie.jpg}" alt="Ponowne wykorzystanie"
+                                     class="rounded-full w-44 h-44 mb-2 border-4 border-neutral-700">
+                                <p class="w-44 text-center font-medium text-lg">Ponowne wykorzystanie</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="flex justify-evenly">
+                        <a href="game/5">
+                            <div class="h-full p-4 rounded hover:shadow-md hover:scale-105 hover:bg-cyan-500/25 transition-all">
+                                <img th:src="@{/images/games/korzystanie-transportu-publicznego.jpg}"
+                                     alt="Korzystanie z transportu publicznego"
+                                     class="rounded-full w-44 h-44 mb-2 border-4 border-neutral-700">
+                                <p class="w-44 text-center font-medium text-lg">Korzystanie z transportu publicznego</p>
+                            </div>
+                        </a>
+                        <a href="game/6">
+                            <div class="h-full p-4 rounded hover:shadow-md hover:scale-105 hover:bg-cyan-500/25 transition-all">
+                                <img th:src="@{/images/games/prawidlowe-pozbywanie-sie-odpadow.jpg}"
+                                     alt="Prawidłowe pozbywanie się odpadów"
+                                     class="rounded-full w-44 h-44 mb-2 border-4 border-neutral-700">
+                                <p class="w-44 text-center font-medium text-lg">Prawidłowe pozbywanie się odpadów</p>
+                            </div>
+                        </a>
+                        <a href="game/7">
+                            <div class="h-full p-4 rounded hover:shadow-md hover:scale-105 hover:bg-cyan-500/25 transition-all">
+                                <img th:src="@{/images/games/spozywanie-produktow-ekologicznych.jpg}"
+                                     alt="Spożywanie produktów ekologicznych"
+                                     class="rounded-full w-44 h-44 mb-2 border-4 border-neutral-700">
+                                <p class="w-44 text-center font-medium text-lg">Spożywanie produktów ekologicznych</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </main>
     </div>
 </div>
