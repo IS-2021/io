@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class Login {
     @GetMapping()
     public String loginPage(@RequestParam(value = "register", required = false) String registerParam, Model model) {
-        model.addAttribute("showRegisteredAlert", registerParam.equals("success"));
+        if (registerParam != null) {
+            model.addAttribute("showRegisteredAlert", registerParam.equals("success"));
+        }
 
         return "login";
     }
