@@ -6,13 +6,16 @@
     <div class="flex gap-8 font-medium">
         <nav class="flex items-center">
             <ul class="flex gap-4">
-                <li th:classappend="${requestURI == '/home' ? 'text-green-500 underline' : ''}"><a href="/home">Wybór
-                    gry</a></li>
-                <li th:classappend="${requestURI == '/daily-task' ? 'text-green-500 underline' : ''}"><a
-                        href="/daily-task">Codzienne
-                    zadania</a></li>
-                <li th:classappend="${requestURI == '/ranking' ? 'text-green-500 underline' : ''}">
-                    <a href="/ranking">Ranking</a></li>
+                <!--/*@thymesVar id="requestURI" type="java.lang.String"*/-->
+                <li th:classappend="${requestURI.equals('/home') ? 'text-green-500 underline' : ''}">
+                    <a href="/home">Wybór gry</a>
+                </li>
+                <li th:classappend="${requestURI.equals('/daily-task') ? 'text-green-500 underline' : ''}">
+                    <a href="/daily-task">Codzienne zadania</a>
+                </li>
+                <li th:classappend="${requestURI.contains('ranking') ? 'text-green-500 underline' : ''}">
+                    <a href="/ranking">Ranking</a>
+                </li>
             </ul>
         </nav>
         <div class="flex items-center gap-4">
