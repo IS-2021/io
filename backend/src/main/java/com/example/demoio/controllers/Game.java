@@ -11,11 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class Game extends BaseController {
     @GetMapping("/{id}")
     public String gameDescriptionPage(@PathVariable int id, Model model) {
-        model.addAttribute("points", 420);
         model.addAttribute("gameName", "Oszczędzanie wody");
-        // TODO: Integrate into template
-//        model.addAttribute("gameDescription", "Description");
+        model.addAttribute("gameDescription", "Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
         model.addAttribute("imageSlugName", "oszczedzanie-wody");
+
+        // Optional attributes
+        model.addAttribute("points", 420);
+        model.addAttribute("coinReward", 3);
 
         return "game";
     }

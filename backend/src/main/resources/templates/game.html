@@ -19,16 +19,9 @@
                     </div>
                 </header>
 
-                <p class="mb-5 text-justify">Twoim głównym celem jest zarządzanie dostępnymi zasobami wodnymi w mieście,
-                    dbając o
-                    zrównoważone zużycie i minimalizację marnotrawstwa. Musisz podejmować decyzje dotyczące zakupu
-                    efektywnych technologii, eliminowania wycieków i edukowania mieszkańców na temat oszczędzania wody.
-                    Czy
-                    uda ci się stworzyć ekologiczne miasto, w którym każdy przyczynia się do ochrony cennego zasobu
-                    jakim
-                    jest woda?</p>
+                <p th:text="${gameDescription}" class="mb-5 text-justify"></p>
 
-                <p class="font-medium mb-3 text-sm">Za ukończenie tej gry otrzymasz <span class="text-green-500">3 monety</span>
+                <p th:if="${coinReward}" class="font-medium mb-3 text-sm">Za ukończenie tej gry otrzymasz <span th:text="${coinReward} + ' monet'" class="text-green-500"></span>
                     <span
                             class="w-4 h-4 text-green-500 inline-block"><svg
                             th:replace="~{fragments/icons/coins}"></svg></span>
