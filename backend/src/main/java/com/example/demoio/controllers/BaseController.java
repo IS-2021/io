@@ -10,4 +10,14 @@ public class BaseController {
     public String requestURI(final HttpServletRequest request) {
         return request.getRequestURI();
     }
+
+    @ModelAttribute("username")
+    public String username() {
+        return "unknownUsername";
+    }
+
+    @ModelAttribute("userCoins")
+    public int userCoins() {
+        return 4096;
+    }
 }

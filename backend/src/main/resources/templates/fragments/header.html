@@ -20,12 +20,12 @@
         </nav>
         <div class="flex items-center gap-4">
             <span class="text-green-500 flex gap-2.5">
-                12
+                <span th:text="${userCoins}"> </span>
                 <svg th:replace="~{fragments/icons/coins}"></svg>
             </span>
 
             <div class="border border-neutral-700 items-center rounded-full pl-4 gap-3 flex">
-                testUser
+                <span th:text="${username}"></span>
                 <div class="w-8 h-8 rounded-full bg-neutral-50"></div>
             </div>
         </div>
