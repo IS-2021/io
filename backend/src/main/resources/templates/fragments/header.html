@@ -1,33 +1,35 @@
-<header th:fragment="header"
-        class="h-14 w-full flex justify-between px-10 py-2 bg-neutral-950 text-neutral-50 items-center">
-    <a href="/home">
-        <h1 class="text-2xl font-bold">Green game</h1>
-    </a>
-    <div class="flex gap-8 font-medium">
-        <nav class="flex items-center">
-            <ul class="flex gap-4">
-                <!--/*@thymesVar id="requestURI" type="java.lang.String"*/-->
-                <li th:classappend="${requestURI.equals('/home') ? 'text-green-500 underline' : ''}">
-                    <a href="/home">Wybór gry</a>
-                </li>
-                <li th:classappend="${requestURI.equals('/daily-tasks') ? 'text-green-500 underline' : ''}">
-                    <a href="/daily-tasks">Codzienne zadania</a>
-                </li>
-                <li th:classappend="${requestURI.contains('ranking') ? 'text-green-500 underline' : ''}">
-                    <a href="/ranking">Ranking</a>
-                </li>
-            </ul>
-        </nav>
-        <div class="flex items-center gap-4">
-            <span class="text-green-500 flex gap-2.5">
-                <span th:text="${userCoins}"> </span>
-                <svg th:replace="~{fragments/icons/coins}"></svg>
-            </span>
+<header
+	th:fragment="header"
+	class="flex h-14 w-full items-center justify-between bg-neutral-950 px-10 py-2 text-neutral-50"
+>
+	<a href="/home">
+		<h1 class="text-2xl font-bold">Green game</h1>
+	</a>
+	<div class="flex gap-8 font-medium">
+		<nav class="flex items-center">
+			<ul class="flex gap-4">
+				<!--/*@thymesVar id="requestURI" type="java.lang.String"*/-->
+				<li th:classappend="${requestURI.equals('/home') ? 'text-green-500 underline' : ''}">
+					<a href="/home">Wybór gry</a>
+				</li>
+				<li th:classappend="${requestURI.equals('/daily-tasks') ? 'text-green-500 underline' : ''}">
+					<a href="/daily-tasks">Codzienne zadania</a>
+				</li>
+				<li th:classappend="${requestURI.contains('ranking') ? 'text-green-500 underline' : ''}">
+					<a href="/ranking">Ranking</a>
+				</li>
+			</ul>
+		</nav>
+		<div class="flex items-center gap-4">
+			<span class="flex gap-2.5 text-green-500">
+				<span th:text="${userCoins}"> </span>
+				<svg th:replace="~{fragments/icons/coins}"></svg>
+			</span>
 
-            <div class="border border-neutral-700 items-center rounded-full pl-4 gap-3 flex">
-                <span th:text="${username}"></span>
-                <div class="w-8 h-8 rounded-full bg-neutral-50"></div>
-            </div>
-        </div>
-    </div>
+			<div class="flex items-center gap-3 rounded-full border border-neutral-700 pl-4">
+				<span th:text="${username}"></span>
+				<div class="h-8 w-8 rounded-full bg-neutral-50"></div>
+			</div>
+		</div>
+	</div>
 </header>
