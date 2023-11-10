@@ -17,11 +17,17 @@
         <main class="w-1/2">
             <article class="grid items-center justify-center h-full">
                 <div>
-                    <div class="w-96 mb-3 rounded-md space-y-10 px-6 py-8 border border-neutral-300">
-                        <h1 class="font-bold text-3xl text-center">Zaloguj się</h1>
+                    <div class="w-96 mb-3 rounded-md px-6 py-8 border border-neutral-300">
+                        <h1 class="font-bold text-3xl text-center mb-10">Zaloguj się</h1>
 
-                        <div th:if="${param.error}">
-                            Błędne hasło lub login.
+                        <div th:if="${showRegisteredAlert}" class="mb-4 relative w-full rounded-lg border px-4 py-3 text-sm [&>svg+div]:translate-y-[-3px] [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-3 [&>svg]:text-foreground [&>svg~*]:pl-7 border-green-500/50 text-green-500 [&>svg]:text-green-500">
+                            <svg th:replace="~{fragments/icons/check-circle-16}"></svg>
+                            <h5 class="leading-none tracking-tight">Zarejestrowano pomyślnie! Możesz się zalogować.</h5>
+                        </div>
+
+                        <div th:if="${param.error}" class="mb-4 relative w-full rounded-lg border px-4 py-3 text-sm [&>svg+div]:translate-y-[-3px] [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-3 [&>svg]:text-foreground [&>svg~*]:pl-7 border-red-500/50 text-red-500 [&>svg]:text-red-500">
+                            <svg th:replace="~{fragments/icons/alert-circle-16}"></svg>
+                            <h5 class="leading-none tracking-tight">Błędne hasło lub login.</h5>
                         </div>
 
                         <form th:action="@{/login}" method="post" id="myForm">
