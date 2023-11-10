@@ -9,7 +9,7 @@
 
     <div class="flex justify-center items-center grow">
         <div>
-            <h1 class="font-bold text-4xl text-center mb-4">Zadanie na dzisiaj</h1>
+            <h1 class="font-bold text-4xl text-center mb-4">Zadania na dzisiaj</h1>
             <p class="text-center mb-1.5">Wybranie zadania spowoduje odblokowanie danej gry.</p>
             <p class="text-center mb-5">Za wykonanie wybranego zadania dostaniesz
                 <span th:text="${coinReward} + ' monet'" class="text-green-500">
@@ -19,17 +19,21 @@
                 </span>.
             </p>
 
-            <div class="max-w-xl w-full mx-auto bg-neutral-100 p-5 rounded-xl mb-6">
+            <!--/*@thymesVar id="task" type="com.example.demoio.models.DailyTask"*/-->
+            <div th:each="task : ${availableTasks}" class="w-[600px] mx-auto bg-neutral-100 p-5 rounded-xl mb-6">
                 <header class="flex justify-between items-center mb-4">
-                    <h2 class="font-semibold text-2xl">Recykling</h2>
-                    <button class="rounded-md px-4 py-2 bg-neutral-950 text-neutral-50 text-sm font-medium">
-                        Wybierz
-                    </button>
+                    <h2 th:text="${task.gameName}" class="font-semibold text-2xl">Nazwa zadania</h2>
+                    <form th:action="@{/daily-tasks}" method="POST">
+                        <input type="text" name="callbackValue" th:value="${task.callbackValue()}" readonly hidden>
+                        <button class="rounded-md px-4 py-2 bg-neutral-950 text-neutral-50 text-sm font-medium">
+                            Wybierz
+                        </button>
+                    </form>
                 </header>
                 <div class="flex gap-4">
-                    <img th:src="@{/images/games/recykling.jpg}" class="rounded-xl w-44 h-44">
+                    <img th:src="@{${'/images/games/' + task.imageSlugName + '.jpg'}}" class="rounded-xl w-44 h-44">
                     <div class="flex flex-col justify-between">
-                        <p class="mb-5">Lorem ipsum dolor sit amet consectetur. Ut non turpis felis cras amet eros. Arcu in aenean sed pretium porta sit sagittis. Malesuada tellus dolor risus consectetur placerat enim vitae. Facilisi egestas sapien ut cursus at.</p>
+                        <p th:text="${task.taskDescription}" class="mb-5"></p>
                     </div>
                 </div>
             </div>
