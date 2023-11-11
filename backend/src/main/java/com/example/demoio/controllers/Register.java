@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping("/register")
 public class Register {
+
     @Autowired
     private ApplicationContext ctx;
 
@@ -23,9 +24,13 @@ public class Register {
     }
 
     @PostMapping()
-    public String handleRegister(@RequestParam("username") String username, @RequestParam("password") String password) {
+    public String handleRegister(@RequestParam("username") String username,
+                                 @RequestParam("password") String password) {
         User newUser = new User(username, password);
         UserRepository userRepository = ctx.getBean(UserRepository.class);
+        if(userRepository.findByUsername(username) != null) {
+            return "redirect:/register?error";
+        }
 
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String hashedPassword = passwordEncoder.encode(newUser.getPassword());
