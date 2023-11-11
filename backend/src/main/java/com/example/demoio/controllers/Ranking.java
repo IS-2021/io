@@ -5,6 +5,8 @@ import com.example.demoio.UserRepository;
 import com.example.demoio.models.DisplayRankingData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -51,12 +53,24 @@ public class Ranking extends BaseController {
     @GetMapping()
     public String showTotalRankingPage(Model model) {
         model.addAttribute("rankingData", getOverallRankingData());
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        UserRepository userRepository = ctx.getBean(UserRepository.class);
+        User user =  userRepository.findByUsername(auth.getName());
+
+        model.addAttribute("username",user.getUsername());
+        model.addAttribute("userCoins",user.getUserCoins());
 
         return "ranking";
     }
 
     @GetMapping("/{gameID}")
     public String showTotalRankingPage(@PathVariable int gameID, Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        UserRepository userRepository = ctx.getBean(UserRepository.class);
+        User user =  userRepository.findByUsername(auth.getName());
+
+        model.addAttribute("username",user.getUsername());
+        model.addAttribute("userCoins",user.getUserCoins());
         model.addAttribute("rankingData", getRankingByGameID(gameID));
 
         return "ranking";

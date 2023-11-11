@@ -1,6 +1,12 @@
 package com.example.demoio.controllers;
 
+import com.example.demoio.User;
+import com.example.demoio.UserRepository;
 import com.example.demoio.models.DailyTask;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +20,9 @@ import java.util.List;
 @Controller
 @RequestMapping("/daily-tasks")
 public class DailyTasks extends BaseController {
+
+    @Autowired
+    private ApplicationContext ctx;
     private List<DailyTask> getDailyTasks() {
 
         return Arrays.asList(
@@ -24,6 +33,12 @@ public class DailyTasks extends BaseController {
 
     @GetMapping()
     public String showDailyTasksPage(Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        UserRepository userRepository = ctx.getBean(UserRepository.class);
+        User user =  userRepository.findByUsername(auth.getName());
+
+        model.addAttribute("username",user.getUsername());
+        model.addAttribute("userCoins",user.getUserCoins());
         model.addAttribute("coinReward", 2);
         model.addAttribute("availableTasks", getDailyTasks());
 
