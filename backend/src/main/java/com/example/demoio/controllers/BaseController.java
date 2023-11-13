@@ -16,31 +16,36 @@ public class BaseController {
     @Autowired
     private ApplicationContext ctx;
 
-    private int userCoins;
-
     private String username;
+
+    private double userCoins;
+
+    public void setValues() {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        UserRepository userRepository = ctx.getBean(UserRepository.class);
+        User user =  userRepository.findByUsername(auth.getName());
+
+        username = user.getUsername();
+        userCoins = user.getUserCoins();
+
+    }
 
     @ModelAttribute("requestURI")
     public String requestURI(final HttpServletRequest request) {
 
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        UserRepository userRepository = ctx.getBean(UserRepository.class);
-        User user =  userRepository.findByUsername(auth.getName());
-        userCoins = (int) user.getUserCoins();
-        username = user.getUsername();
 
         return request.getRequestURI();
     }
-
     @ModelAttribute("username")
     public String username() {
-
+        setValues();
 
         return username;
     }
 
     @ModelAttribute("userCoins")
-    public int userCoins() {
+    public double userCoins() {
+        setValues();
 
         return userCoins;
     }
