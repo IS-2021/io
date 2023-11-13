@@ -53,24 +53,14 @@ public class Ranking extends BaseController {
     @GetMapping()
     public String showTotalRankingPage(Model model) {
         model.addAttribute("rankingData", getOverallRankingData());
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        UserRepository userRepository = ctx.getBean(UserRepository.class);
-        User user =  userRepository.findByUsername(auth.getName());
 
-        model.addAttribute("username",user.getUsername());
-        model.addAttribute("userCoins",user.getUserCoins());
 
         return "ranking";
     }
 
     @GetMapping("/{gameID}")
     public String showTotalRankingPage(@PathVariable int gameID, Model model) {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        UserRepository userRepository = ctx.getBean(UserRepository.class);
-        User user =  userRepository.findByUsername(auth.getName());
 
-        model.addAttribute("username",user.getUsername());
-        model.addAttribute("userCoins",user.getUserCoins());
         model.addAttribute("rankingData", getRankingByGameID(gameID));
 
         return "ranking";

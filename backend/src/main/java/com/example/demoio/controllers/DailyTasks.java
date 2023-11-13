@@ -21,8 +21,6 @@ import java.util.List;
 @RequestMapping("/daily-tasks")
 public class DailyTasks extends BaseController {
 
-    @Autowired
-    private ApplicationContext ctx;
     private List<DailyTask> getDailyTasks() {
 
         return Arrays.asList(
@@ -33,12 +31,7 @@ public class DailyTasks extends BaseController {
 
     @GetMapping()
     public String showDailyTasksPage(Model model) {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        UserRepository userRepository = ctx.getBean(UserRepository.class);
-        User user =  userRepository.findByUsername(auth.getName());
 
-        model.addAttribute("username",user.getUsername());
-        model.addAttribute("userCoins",user.getUserCoins());
         model.addAttribute("coinReward", 2);
         model.addAttribute("availableTasks", getDailyTasks());
 

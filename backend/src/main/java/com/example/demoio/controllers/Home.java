@@ -15,17 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/home")
 public class Home extends BaseController {
 
-    @Autowired
-    private ApplicationContext ctx;
     @GetMapping()
     public String showHomepage(Model model) {
 
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        UserRepository userRepository = ctx.getBean(UserRepository.class);
-        User user =  userRepository.findByUsername(auth.getName());
-
-        model.addAttribute("username",user.getUsername());
-        model.addAttribute("userCoins",user.getUserCoins());
 
 
         return "home";
