@@ -24,7 +24,7 @@ public class Ranking extends BaseController {
     private ApplicationContext ctx;
 
 
-    public List<DisplayRankingData> getRankingByGameID(int gameID) {
+    public List<DisplayRankingData> getRankingByGameID(int gameID,ApplicationContext ctx) {
 
         UserRepository userRepository = ctx.getBean(UserRepository.class);
         List<User_Games> userRank = userRepository.getUsersRankByGameID(gameID);
@@ -70,7 +70,7 @@ public class Ranking extends BaseController {
     @GetMapping("/{gameID}")
     public String showTotalRankingPage(@PathVariable int gameID, Model model) {
 
-        model.addAttribute("rankingData", getRankingByGameID(gameID));
+        model.addAttribute("rankingData", getRankingByGameID(gameID, this.ctx));
 
         return "ranking";
     }

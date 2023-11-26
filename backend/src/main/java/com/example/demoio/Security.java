@@ -38,10 +38,10 @@ public class Security {
                 .permitAll()
                 .and()
                 .logout()
-                .permitAll();
-
-        // Disable CSRF for simplicity (you might want to enable it in a production environment)
-        //http.csrf().disable();
+                .permitAll()
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutSuccessUrl("/login?logout")
+                .invalidateHttpSession(true);
 
         return http.build();
     }

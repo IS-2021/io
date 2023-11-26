@@ -40,6 +40,14 @@
 									<h5 class="leading-none tracking-tight">Błędne hasło lub login.</h5>
 								</div>
 
+								<div
+										th:if="${param.logout}"
+										class="[&>svg]:text-foreground relative mb-4 w-full rounded-lg border border-red-500/50 px-4 py-3 text-sm text-red-500 [&>svg+div]:translate-y-[-3px] [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-3 [&>svg]:text-red-500 [&>svg~*]:pl-7"
+								>
+									<svg th:replace="~{fragments/icons/alert-circle-16}"></svg>
+									<h5 class="leading-none tracking-tight">Wylogowano.</h5>
+								</div>
+
 								<form th:action="@{/login}" method="post" id="myForm">
 									<div class="mb-3 flex items-center gap-2">
 										<svg th:replace="~{fragments/icons/user-2}"></svg>

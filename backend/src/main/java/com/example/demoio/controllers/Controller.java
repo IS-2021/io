@@ -7,14 +7,5 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @org.springframework.stereotype.Controller
 public class Controller extends BaseController {
-//    @GetMapping("/login")
-//    public String defaultPage() {
-////        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-////
-////        if (!(auth instanceof AnonymousAuthenticationToken)) {
-////            return "redirect:/home";
-////        }
-//
-//        return "login";
-//    }
+
 }
