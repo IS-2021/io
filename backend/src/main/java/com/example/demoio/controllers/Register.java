@@ -11,33 +11,55 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 @Controller
 @RequestMapping("/register")
 public class Register {
 
-    @Autowired
-    private ApplicationContext ctx;
+	@Autowired
+	private ApplicationContext ctx;
 
-    @GetMapping()
-    public String showRegisterPage() {
-        return "register";
-    }
+	@GetMapping()
+	public String showRegisterPage() {
+		return "register";
+	}
 
-    @PostMapping()
-    public String handleRegister(@RequestParam("username") String username,
-                                 @RequestParam("password") String password) {
-        User newUser = new User(username, password);
-        UserRepository userRepository = ctx.getBean(UserRepository.class);
-        if(userRepository.findByUsername(username) != null) {
-            return "redirect:/register?error";
-        }
+	@PostMapping()
+	public String handleRegister(@RequestParam("username") String username,
+								 @RequestParam("password") String password) {
+		User newUser = new User(username, password);
+		UserRepository userRepository = ctx.getBean(UserRepository.class);
+		if(userRepository.findByUsername(username) != null) {
+			return "redirect:/register?error";
+		}
 
-        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        String hashedPassword = passwordEncoder.encode(newUser.getPassword());
-        newUser.setPassword(hashedPassword);
+		if(!isValidPassword(password)) {
+			return "redirect:/register?bpass";
+		}
 
-        userRepository.save(newUser);
+		if(username.length() < 5) {
+			return "redirect:/register?blogin";
+		}
 
-        return "redirect:/login?register=success";
-    }
+		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		String hashedPassword = passwordEncoder.encode(newUser.getPassword());
+		newUser.setPassword(hashedPassword);
+
+		userRepository.save(newUser);
+
+		return "redirect:/login?register=success";
+	}
+
+	public static boolean isValidPassword(String password) {
+//		String regex = "^(?=.*[0-9])(?=.*[@#$%^&+=])(?=.*[a-zA-Z]).{8,}$";
+
+//		Pattern pattern = Pattern.compile(regex);
+
+//		Matcher matcher = pattern.matcher(password);
+
+//		return matcher.matches();
+		return true;
+	}
 }

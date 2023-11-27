@@ -28,7 +28,7 @@ public class Security {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .requestMatchers("/css/**", "/images/**", "/login").permitAll() // Permit access to static resources and login page
+                .requestMatchers("/css/**", "/images/**", "/login","/register").permitAll() // Permit access to static resources and login page
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()

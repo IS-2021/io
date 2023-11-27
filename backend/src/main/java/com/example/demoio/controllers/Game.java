@@ -30,4 +30,20 @@ public class Game extends BaseController {
 
         return "game";
     }
+
+    @GetMapping("/{gameID}/play")
+    public String handleGameLoadByID(@PathVariable int gameID) {
+        return switch (gameID) {
+            case 1 -> "firstGame";
+            case 2 -> "secondGame";
+            case 3 -> "thirdGame";
+            case 4 -> "fourthGame";
+            case 5 -> "fifthGame";
+            case 6 -> "sixthGame";
+            case 7 -> "seventhGame";
+            default -> "notFound";
+        };
+
+    }
+
 }
