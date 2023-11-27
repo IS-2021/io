@@ -53,13 +53,12 @@ public class Register {
 	}
 
 	public static boolean isValidPassword(String password) {
-//		String regex = "^(?=.*[0-9])(?=.*[@#$%^&+=])(?=.*[a-zA-Z]).{8,}$";
+		String regex = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$";
 
-//		Pattern pattern = Pattern.compile(regex);
+		Pattern pattern = Pattern.compile(regex);
 
-//		Matcher matcher = pattern.matcher(password);
+		Matcher matcher = pattern.matcher(password);
 
-//		return matcher.matches();
-		return true;
+		return matcher.matches();
 	}
 }
