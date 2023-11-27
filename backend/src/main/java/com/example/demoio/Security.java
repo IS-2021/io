@@ -25,24 +25,23 @@ public class Security {
     private CustomUserDetails userDetailsService;
 
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
+                .authorizeRequests()
+                .requestMatchers("/css/**", "/images/**", "/login").permitAll() // Permit access to static resources and login page
+                .anyRequest().authenticated()
+                .and()
                 .formLogin()
                 .loginPage("/login")
-
-                .failureHandler(
-                        (request, response, exception)
-                                -> response.sendRedirect("/login?error"))
-                .successHandler(
-                        (request, response, authentication)
-                                -> response.sendRedirect("/mainPage"))
-                .and().
-                logout().
-                logoutRequestMatcher(new AntPathRequestMatcher("/logout")).
-                logoutSuccessUrl("/login").
-                invalidateHttpSession(true);
-               // .and().
-               // authorizeHttpRequests((authorize) -> authorize.anyRequest().authenticated());
+                .failureHandler((request, response, exception) -> response.sendRedirect("/login?error"))
+                .successHandler((request, response, authentication) -> response.sendRedirect("/home"))
+                .permitAll()
+                .and()
+                .logout()
+                .permitAll()
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutSuccessUrl("/login?logout")
+                .invalidateHttpSession(true);
 
         return http.build();
     }

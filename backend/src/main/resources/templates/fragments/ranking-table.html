@@ -1,0 +1,16 @@
+<table th:fragment="ranking-table" class="w-full max-w-xl table-auto">
+	<thead class="border-b border-neutral-950">
+		<tr class="font-medium">
+			<td class="pl-5">Użytkownik</td>
+			<td class="max-w-min text-center">Ilość monet</td>
+			<td class="max-w-min pr-5 text-right">Ilość punktów</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr th:each="rankingRow : ${rankingData}">
+			<td th:text="${rankingRow.username}" class="pl-5"></td>
+			<td th:text="${rankingRow.coins}" class="text-center"></td>
+			<td th:text="${rankingRow.score} + ' pkt'" class="pr-5 text-right"></td>
+		</tr>
+	</tbody>
+</table>

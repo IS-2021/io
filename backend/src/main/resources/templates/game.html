@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+	<head th:insert="~{fragments/head :: htmlHead(~{::title},~{})}">
+		<title th:text="${gameName}"></title>
+	</head>
+	<body class="flex min-h-screen flex-col text-neutral-950">
+		<div class="flex h-full grow flex-col">
+			<div th:replace="~{fragments/header}"></div>
+
+			<div class="mx-auto mt-12 flex w-full max-w-screen-xl grow gap-20">
+				<main class="w-1/2">
+					<article class="mb-10">
+						<header class="mb-6 flex w-full items-center">
+							<h1 th:text="${gameName}" class="mr-8 text-4xl font-bold">Oszczędzanie wody</h1>
+
+							<div th:if="${points}" class="flex items-center gap-2 text-neutral-400">
+								<svg th:replace="~{fragments/icons/trophy}"></svg>
+								<p th:text="${points}" class="font-medium">pkt</p>
+							</div>
+						</header>
+
+						<p th:text="${gameDescription}" class="mb-5 text-justify"></p>
+
+						<p th:if="${coinReward}" class="mb-3 text-sm font-medium">
+							Za ukończenie tej gry otrzymasz
+							<span th:text="${coinReward} + ' monet'" class="text-green-500"></span>
+							<span class="inline-block h-4 w-4 text-green-500"
+								><svg th:replace="~{fragments/icons/coins}"></svg
+							></span>
+						</p>
+						<a
+							th:href="${requestURI} + '/play'"
+							class="block w-full max-w-xs rounded-md bg-neutral-950 px-4 py-2 text-center text-neutral-50"
+						>
+							Rozpocznij rozgrywkę
+						</a>
+					</article>
+
+					<article>
+						<header class="mb-6 flex w-full items-center">
+							<h1 class="mr-8 text-4xl font-bold">Ranking</h1>
+						</header>
+
+						<p th:if="${#lists.isEmpty(rankingData)}">
+							Obecnie trochę tu pusto, ale możesz być pierwszy! Wystarczy, że ukończysz tą grę
+							chociaż jeden raz.
+						</p>
+						<table
+							th:unless="${#lists.isEmpty(rankingData)}"
+							th:replace="~{fragments/ranking-table}"
+						></table>
+					</article>
+				</main>
+
+				<div class="w-1/2">
+					<img
+						th:src="@{${'/images/games/' + imageSlugName + '.jpg'}}"
+						class="rounded-xl shadow-xl"
+					/>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

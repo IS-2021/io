@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+	<head th:insert="~{/fragments/head :: htmlHead(~{::title},~{})}">
+		<title>Ranking</title>
+	</head>
+	<body class="flex min-h-screen flex-col text-neutral-950">
+		<div class="flex h-full grow flex-col">
+			<div th:replace="~{fragments/header}"></div>
+
+			<div class="flex grow">
+				<div class="mx-auto mt-12 w-full max-w-screen-xl">
+					<h1 class="mb-5 text-4xl font-bold">Ranking</h1>
+
+					<div class="flex gap-20">
+						<div>
+							<ul class="w-56 space-y-2.5 font-medium">
+								<li>
+									<a
+										href="/ranking"
+										class="flex items-center gap-2"
+										th:classappend="${requestURI == '/ranking' ? 'text-green-500' : ''}"
+									>
+										<span class="h-4 w-4">
+											<svg th:replace="~{fragments/icons/chevron-right-16}"></svg>
+										</span>
+										Ogólny
+									</a>
+								</li>
+								<li>
+									<a
+										href="/ranking/1"
+										class="flex items-center gap-2"
+										th:classappend="${requestURI == '/ranking/1' ? 'text-green-500' : ''}"
+									>
+										<span class="h-4 w-4">
+											<svg th:replace="~{fragments/icons/chevron-right-16}"></svg>
+										</span>
+										Recykling
+									</a>
+								</li>
+								<li>
+									<a
+										href="/ranking/2"
+										class="flex items-center gap-2"
+										th:classappend="${requestURI == '/ranking/2' ? 'text-green-500' : ''}"
+									>
+										<span class="h-4 w-4">
+											<svg th:replace="~{fragments/icons/chevron-right-16}"></svg>
+										</span>
+										Oszczędzanie wody
+									</a>
+								</li>
+								<li>
+									<a
+										href="/ranking/3"
+										class="flex items-center gap-2"
+										th:classappend="${requestURI == '/ranking/3' ? 'text-green-500' : ''}"
+									>
+										<span class="h-4 w-4">
+											<svg th:replace="~{fragments/icons/chevron-right-16}"></svg>
+										</span>
+										Oszczędzanie energii
+									</a>
+								</li>
+								<li>
+									<a
+										href="/ranking/4"
+										class="flex items-center gap-2"
+										th:classappend="${requestURI == '/ranking/4' ? 'text-green-500' : ''}"
+									>
+										<span class="h-4 w-4">
+											<svg th:replace="~{fragments/icons/chevron-right-16}"></svg>
+										</span>
+										Ponowne wykorzystanie
+									</a>
+								</li>
+								<li>
+									<a
+										href="/ranking/5"
+										class="flex items-center gap-2"
+										th:classappend="${requestURI == '/ranking/5' ? 'text-green-500' : ''}"
+									>
+										<span class="h-4 w-4">
+											<svg th:replace="~{fragments/icons/chevron-right-16}"></svg>
+										</span>
+										Korzystanie z transportu publicznego
+									</a>
+								</li>
+								<li>
+									<a
+										href="/ranking/6"
+										class="flex items-center gap-2"
+										th:classappend="${requestURI == '/ranking/6' ? 'text-green-500' : ''}"
+									>
+										<span class="h-4 w-4">
+											<svg th:replace="~{fragments/icons/chevron-right-16}"></svg>
+										</span>
+										Prawidłowe pozbywanie się odpadów
+									</a>
+								</li>
+								<li>
+									<a
+										href="/ranking/7"
+										class="flex items-center gap-2"
+										th:classappend="${requestURI == '/ranking/7' ? 'text-green-500' : ''}"
+									>
+										<span class="h-4 w-4">
+											<svg th:replace="~{fragments/icons/chevron-right-16}"></svg>
+										</span>
+										Spożywanie produktów ekologicznych
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div class="grow">
+							<table th:replace="~{fragments/ranking-table}"></table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

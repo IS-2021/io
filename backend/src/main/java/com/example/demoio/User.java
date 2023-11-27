@@ -17,6 +17,26 @@ public class User {
 
     private String password;
 
+    private double userCoins;
+
+    public double getUserCoins() {
+        return userCoins;
+    }
+
+    public void setUserCoins(double userCoins) {
+        this.userCoins = userCoins;
+    }
+
+    private double userScore;
+
+    public double getUserScore() {
+        return userScore;
+    }
+
+    public void setUserScore(double userScore) {
+        this.userScore = userScore;
+    }
+
     public User(String username, String password) {
         this.username = username;
         this.password = password;

@@ -1,32 +1,5 @@
-html,body{
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    background-color: #fffee4;
-
-}
- #content{
-     text-align: center;
-     position: relative;
-     left: 50%;
-     transform: translateX(-50%);
-     top:50%;
-     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
- }
-input[type=text],input[type=password]{
-     text-align: center;
-     width: 30em;
-     height: 3em;
-     border: solid 1px;
-     margin-top: 10px;
-}
-input[type=submit]{
-    position: relative;
-    width: 27em;
-    height: 3em;
-    margin-top: 20px;
-    background-color: #ccb629;
-    border: none;
-    color: white;
-    font-size: 15px;
+.background-image {
+	background-image: url("../images/background.webp");
+	background-size: cover;
+	background-position: center;
 }
