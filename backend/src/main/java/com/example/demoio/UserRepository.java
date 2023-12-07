@@ -1,6 +1,7 @@
 package com.example.demoio;
 
 import com.example.demoio.models.User_Games;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -18,4 +19,13 @@ public interface UserRepository extends CrudRepository<User,Long> {
     List<User_Games> getUsersRankByGameID(@Param("gameID") int gameID);
     User save(User user);
 
+    @Modifying
+    @Query("UPDATE User u SET u.userCoins=:ucoins WHERE u.username=:uname")
+    void updateUserCoins(@Param("ucoins") double coins,@Param("uname") String username);
+
+    User_Games save(User_Games userGames);
+
+
+    //@Query("INSERT INTO User_Games ug(ug.game_id,ug.user_coins,ug.user_score,ug.username) VALUES(:gameID,:ucoins,:uscore,:uname)")
+    //void saveUserScore(@Param("gameID") int gameId,@Param("ucoins") double coins,@Param("uscore") double uscore,@Param("uname") String username);
 }

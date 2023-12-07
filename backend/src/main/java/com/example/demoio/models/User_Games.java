@@ -20,6 +20,12 @@ public class User_Games {
 
     private int userCoins;
 
+    public User_Games(int game_id, String username, double userScore, int userCoins) {
+        this.game_id = game_id;
+        this.username = username;
+        this.userScore = userScore;
+        this.userCoins = userCoins;
+    }
 
     public int getGame_id() {
         return game_id;
