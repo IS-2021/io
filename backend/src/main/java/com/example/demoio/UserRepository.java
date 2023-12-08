@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface UserRepository extends CrudRepository<User,Long> {
+public interface UserRepository extends CrudRepository<User, Long> {
 
     User findByUsername(String username);
 
@@ -17,6 +17,7 @@ public interface UserRepository extends CrudRepository<User,Long> {
 
     @Query("SELECT ug FROM User_Games ug WHERE ug.game_id =:gameID ORDER BY ug.userScore DESC LIMIT 10")
     List<User_Games> getUsersRankByGameID(@Param("gameID") int gameID);
+
     User save(User user);
 
     @Modifying
