@@ -1,7 +1,7 @@
-package com.example.demoio;
+package com.example.demoio.repositories;
 
+import com.example.demoio.User;
 import com.example.demoio.models.User_Games;
-import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;

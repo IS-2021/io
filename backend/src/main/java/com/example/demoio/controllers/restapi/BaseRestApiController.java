@@ -1,7 +1,7 @@
 package com.example.demoio.controllers.restapi;
 
 import com.example.demoio.User;
-import com.example.demoio.UserRepository;
+import com.example.demoio.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.security.core.Authentication;

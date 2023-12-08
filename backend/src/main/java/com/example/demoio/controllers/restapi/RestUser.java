@@ -1,7 +1,7 @@
 package com.example.demoio.controllers.restapi;
 
 import com.example.demoio.User;
-import com.example.demoio.UserRepository;
+import com.example.demoio.repositories.UserRepository;
 import com.example.demoio.models.dto.UpdateUserCoinsRequest;
 import com.example.demoio.models.dto.UserDataResponse;
 import io.swagger.v3.oas.annotations.Operation;

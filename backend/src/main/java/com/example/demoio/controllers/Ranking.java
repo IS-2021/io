@@ -1,7 +1,7 @@
 package com.example.demoio.controllers;
 
 import com.example.demoio.User;
-import com.example.demoio.UserRepository;
+import com.example.demoio.repositories.UserRepository;
 import com.example.demoio.models.DisplayRankingData;
 import com.example.demoio.models.User_Games;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @Controller

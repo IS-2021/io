@@ -1,7 +1,7 @@
 package com.example.demoio.controllers;
 
 import com.example.demoio.User;
-import com.example.demoio.UserRepository;
+import com.example.demoio.repositories.UserRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
