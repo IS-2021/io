@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.*;
 @Tag(name = "User")
 @RestController
 @RequestMapping("/api/user")
-public class UserController extends BaseRestApiController {
+public class RestUser extends BaseRestApiController {
     @Operation(summary = "Zwraca ilość monet użytkownika.")
-    @GetMapping("")
+    @GetMapping
     public UserDataResponse returnUserInfo() {
         com.example.demoio.User user = getCurrentUser();
 
