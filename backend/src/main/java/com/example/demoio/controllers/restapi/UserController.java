@@ -4,15 +4,16 @@ import com.example.demoio.User;
 import com.example.demoio.UserRepository;
 import com.example.demoio.models.dto.UpdateUserCoinsRequest;
 import com.example.demoio.models.dto.UserDataResponse;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+@Tag(name = "User")
 @RestController
 @RequestMapping("/api/user")
 public class UserController extends BaseRestApiController {
-    /**
-     * Zwraca ilość monet użytkownika.
-     */
+    @Operation(summary = "Zwraca ilość monet użytkownika.")
     @GetMapping("")
     public UserDataResponse returnUserInfo() {
         com.example.demoio.User user = getCurrentUser();
@@ -20,14 +21,9 @@ public class UserController extends BaseRestApiController {
         return new UserDataResponse(user.getUsername(), user.getUserCoins());
     }
 
-    /**
-     * Zmienia ilość monet użytkownika.
-     * Przykłady:
-     * - user miał 500 monet, w grze zużył 20, więc trzeba tu odesłać 480
-     * - user miał 500 monet, w grze zdobył 50, więc trzeba tu odesłać 550
-     *
-     * @param userData Obiekt zawierający ilość monet do dodania/odjęcia.
-     */
+    @Operation(summary = "Zmienia ilość monet użytkownika.", description = "Przykłady:\n" +
+            "- user miał 500 monet, w grze zużył 20, więc trzeba tu odesłać 480\n" +
+            "- user miał 500 monet, w grze zdobył 50, więc trzeba tu odesłać 550")
     @Transactional
     @PostMapping("/coins")
     public void updateUserCoins(@RequestBody UpdateUserCoinsRequest userData) {
