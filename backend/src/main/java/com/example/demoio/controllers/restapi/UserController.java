@@ -1,13 +1,15 @@
 package com.example.demoio.controllers.restapi;
 
+import com.example.demoio.User;
 import com.example.demoio.UserRepository;
 import com.example.demoio.models.dto.UpdateUserCoinsRequest;
 import com.example.demoio.models.dto.UserDataResponse;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/user")
-public class User extends BaseRestApiController {
+public class UserController extends BaseRestApiController {
     /**
      * Zwraca ilość monet użytkownika.
      */
@@ -26,11 +28,13 @@ public class User extends BaseRestApiController {
      *
      * @param userData Obiekt zawierający ilość monet do dodania/odjęcia.
      */
+    @Transactional
     @PostMapping("/coins")
     public void updateUserCoins(@RequestBody UpdateUserCoinsRequest userData) {
-        String username = getCurrentUserName();
+        User user = getCurrentUser();
         UserRepository userRepository = ctx.getBean(UserRepository.class);
 
-        userRepository.updateUserCoins(userData.coins(), username);
+        user.setUserCoins(userData.coins());
+        userRepository.save(user);
     }
 }

@@ -20,10 +20,6 @@ public interface UserRepository extends CrudRepository<User, Long> {
 
     User save(User user);
 
-    @Modifying
-    @Query("UPDATE User u SET u.userCoins=:ucoins WHERE u.username=:uname")
-    void updateUserCoins(@Param("ucoins") double coins,@Param("uname") String username);
-
     User_Games save(User_Games userGames);
 
 
