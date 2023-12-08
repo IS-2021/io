@@ -18,40 +18,56 @@ public class BaseRestApiController {
     @Autowired
     private ApplicationContext ctx;
 
+    private User getCurrentUser() {
+        String username = getCurrentUserName();
 
-    // CZYTAJCIE KOMENTARZE !!!!!!!!!!!
+        UserRepository userRepository = ctx.getBean(UserRepository.class);
+        return userRepository.findByUsername(username);
+    }
 
-    // User ukonczyl gre uzywajac coinsow. Pobieracie coinsy z endpointa /api/getUserCoins.
-    // Na endpoint /api/saveUserCoins wysylacie ile coinsow powinien miec w bazie.
-    // Na endpoint /api/saveUserScore wysylacie id waszej gry, ile coinsow ZDOBYŁ i jaki wynik uzyskał
+    private String getCurrentUserName() {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        return auth.getName();
+    }
+
+    /**
+     * Zwraca ilość monet użytkownika.
+     */
     @GetMapping("/api/getUserCoins")
     public String returnUserCoins() {
-        // robicie tutaj get i zostanie wam zwrocona liczba coinsow aktualnie grajacego usera sparsowana do stringa
-        // po pobraniu coinsow na was spada odpowiedzialnosc za zarządzanie nimi
-        System.out.println("próba get");
-
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        UserRepository userRepository = ctx.getBean(UserRepository.class);
-        User user =  userRepository.findByUsername(auth.getName());
+        User user = getCurrentUser();
 
         return String.valueOf(user.getUserCoins());
     }
 
+    /**
+     * Zmienia ilość monet użytkownika.
+     * Przykłady:
+     * - user miał 500 monet, w grze zużył 20, więc trzeba tu odesłać 480
+     * - user miał 500 monet, w grze zdobył 50, więc trzeba tu odesłać 550
+     *
+     * @param userCoins Ilość monet do zapisania
+     */
     @PostMapping("/api/saveUserCoins")
     public void editUserCoins(@RequestBody int userCoins) {
-        //user mial 500 coinsow, w grze zuzyl 20, wiec trzeba tu odeslac 480 i zostanie to podmienione w bazie
-        //user mial 500 coinsow, w grze zdobyl 50, wiec trzeba tu odeslac 550 i zostanie to podmienione w bazie
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String username = getCurrentUserName();
         UserRepository userRepository = ctx.getBean(UserRepository.class);
-        userRepository.updateUserCoins(userCoins, auth.getName());
+
+        userRepository.updateUserCoins(userCoins, username);
     }
 
+    /**
+     * Zmienia ilość punktów zdobytych przez gracza w danej grze.
+     *
+     * @param gameID ID gry
+     * @param coins Ilość monet zdobytych przez gracza
+     * @param score Wynik gracza w danej grze
+     */
     @PostMapping("/api/saveUserScore")
-    public void saveUserScore(@RequestBody int gameID,int coins,double score) {
-        // user ukonczyl gre, wiec tutaj przesylamy id swojej gry, ile zdobyl coinsow i jaki wynik osiagnal,
-        // zostanie wtedy zapisany do bazy: id gry, ile coinsow dostal, jaki wynik zdobyl, jego nick zostanie dodanie automatycznie
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+    public void saveUserScore(@RequestBody int gameID, int coins, double score) {
+        String username = getCurrentUserName();
         UserRepository userRepository = ctx.getBean(UserRepository.class);
-        userRepository.save(new User_Games(gameID, auth.getName(),score,coins));
+
+        userRepository.save(new User_Games(gameID, username, score, coins));
     }
 }
