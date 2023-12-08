@@ -7,12 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/api")
 public class BaseRestApiController {
 
     @Autowired
@@ -33,7 +31,7 @@ public class BaseRestApiController {
     /**
      * Zwraca ilość monet użytkownika.
      */
-    @GetMapping("/api/getUserCoins")
+    @GetMapping("/getUserCoins")
     public String returnUserCoins() {
         User user = getCurrentUser();
 
@@ -48,7 +46,7 @@ public class BaseRestApiController {
      *
      * @param userCoins Ilość monet do zapisania
      */
-    @PostMapping("/api/saveUserCoins")
+    @PostMapping("/saveUserCoins")
     public void editUserCoins(@RequestBody int userCoins) {
         String username = getCurrentUserName();
         UserRepository userRepository = ctx.getBean(UserRepository.class);
@@ -63,7 +61,7 @@ public class BaseRestApiController {
      * @param coins Ilość monet zdobytych przez gracza
      * @param score Wynik gracza w danej grze
      */
-    @PostMapping("/api/saveUserScore")
+    @PostMapping("/saveUserScore")
     public void saveUserScore(@RequestBody int gameID, int coins, double score) {
         String username = getCurrentUserName();
         UserRepository userRepository = ctx.getBean(UserRepository.class);
