@@ -36,6 +36,10 @@ public class Security {
                         .logoutSuccessUrl("/login?logout")
                         .permitAll()
                         .invalidateHttpSession(true)
+                )
+                .csrf(httpSecurityCsrfConfigurer ->
+                        httpSecurityCsrfConfigurer
+                                .ignoringRequestMatchers("/api/**")
                 );
 
         return http.build();
