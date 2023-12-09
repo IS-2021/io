@@ -1,6 +1,6 @@
 package com.example.demoio.controllers.restapi;
 
-import com.example.demoio.User;
+import com.example.demoio.models.orm.User;
 import com.example.demoio.repositories.UserRepository;
 import com.example.demoio.models.dto.UpdateUserCoinsRequest;
 import com.example.demoio.models.dto.UserDataResponse;
@@ -16,7 +16,7 @@ public class RestUser extends BaseRestApiController {
     @Operation(summary = "Zwraca ilość monet użytkownika.")
     @GetMapping
     public UserDataResponse returnUserInfo() {
-        com.example.demoio.User user = getCurrentUser();
+        User user = getCurrentUser();
 
         return new UserDataResponse(user.getUsername(), user.getUserCoins());
     }

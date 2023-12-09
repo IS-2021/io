@@ -1,6 +1,6 @@
 package com.example.demoio.controllers;
 
-import com.example.demoio.models.DailyTask;
+import com.example.demoio.models.thymeleaf.DailyTask;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

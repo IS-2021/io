@@ -1,6 +1,6 @@
 package com.example.demoio.controllers;
 
-import com.example.demoio.User;
+import com.example.demoio.models.orm.User;
 import com.example.demoio.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;

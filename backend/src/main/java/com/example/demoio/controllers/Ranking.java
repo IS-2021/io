@@ -1,9 +1,9 @@
 package com.example.demoio.controllers;
 
-import com.example.demoio.User;
+import com.example.demoio.models.orm.User;
 import com.example.demoio.repositories.UserRepository;
-import com.example.demoio.models.DisplayRankingData;
-import com.example.demoio.models.User_Games;
+import com.example.demoio.models.thymeleaf.DisplayRankingData;
+import com.example.demoio.models.orm.UserGames;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
@@ -26,10 +26,10 @@ public class Ranking extends BaseController {
     public List<DisplayRankingData> getRankingByGameID(int gameID,ApplicationContext ctx) {
 
         UserRepository userRepository = ctx.getBean(UserRepository.class);
-        List<User_Games> userRank = userRepository.getUsersRankByGameID(gameID);
+        List<UserGames> userRank = userRepository.getUsersRankByGameID(gameID);
         List<DisplayRankingData> recordList = new ArrayList<>();
 
-        for (User_Games user : userRank) {
+        for (UserGames user : userRank) {
             DisplayRankingData drd = new DisplayRankingData(
                     user.getUsername(),
                     user.getUserScore(),

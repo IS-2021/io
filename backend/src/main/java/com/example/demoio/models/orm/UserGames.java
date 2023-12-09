@@ -1,4 +1,4 @@
-package com.example.demoio.models;
+package com.example.demoio.models.orm;
 
 
 import jakarta.persistence.Entity;
@@ -7,7 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class User_Games {
+public class UserGames {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,11 +20,14 @@ public class User_Games {
 
     private int userCoins;
 
-    public User_Games(int game_id, String username, double userScore, int userCoins) {
+    public UserGames(int game_id, String username, double userScore, int userCoins) {
         this.game_id = game_id;
         this.username = username;
         this.userScore = userScore;
         this.userCoins = userCoins;
+    }
+
+    public UserGames() {
     }
 
     public int getGame_id() {
