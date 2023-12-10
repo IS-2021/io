@@ -1,20 +1,14 @@
 package com.example.demoio;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 
 @Configuration
@@ -27,21 +21,26 @@ public class Security {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .authorizeRequests()
-                .requestMatchers("/css/**", "/images/**", "/login","/register").permitAll() // Permit access to static resources and login page
-                .anyRequest().authenticated()
-                .and()
-                .formLogin()
-                .loginPage("/login")
-                .failureHandler((request, response, exception) -> response.sendRedirect("/login?error"))
-                .successHandler((request, response, authentication) -> response.sendRedirect("/home"))
-                .permitAll()
-                .and()
-                .logout()
-                .permitAll()
-                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/login?logout")
-                .invalidateHttpSession(true);
+                .authorizeHttpRequests(authorize -> authorize
+                        .requestMatchers("/css/**", "/images/**", "/login", "/register").permitAll() // Permit access to static resources and login page
+                        .anyRequest().authenticated()
+                )
+                .formLogin(httpSecurityFormLoginConfigurer -> httpSecurityFormLoginConfigurer
+                        .loginPage("/login")
+                        .failureUrl("/login?error")
+                        .defaultSuccessUrl("/home", true)
+                        .permitAll()
+                )
+                .logout(httpSecurityLogoutConfigurer -> httpSecurityLogoutConfigurer
+                        .logoutUrl("/logout")
+                        .logoutSuccessUrl("/login?logout")
+                        .permitAll()
+                        .invalidateHttpSession(true)
+                )
+                .csrf(httpSecurityCsrfConfigurer ->
+                        httpSecurityCsrfConfigurer
+                                .ignoringRequestMatchers("/api/**")
+                );
 
         return http.build();
     }

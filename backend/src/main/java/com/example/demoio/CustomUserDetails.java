@@ -1,5 +1,7 @@
 package com.example.demoio;
 
+import com.example.demoio.models.orm.User;
+import com.example.demoio.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -13,6 +15,7 @@ public class CustomUserDetails implements UserDetailsService {
 
     @Autowired
     private UserRepository userRepository;
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByUsername(username);

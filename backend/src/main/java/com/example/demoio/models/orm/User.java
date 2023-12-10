@@ -1,4 +1,4 @@
-package com.example.demoio;
+package com.example.demoio.models.orm;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,6 +17,7 @@ public class User {
 
     private String password;
 
+    // TODO: Change to int or long
     private double userCoins;
 
     public double getUserCoins() {
