@@ -28,7 +28,8 @@ public class Security {
                 .cors(httpSecurityCorsConfigurer -> {
                     CorsConfiguration configuration = new CorsConfiguration();
                     configuration.setAllowedOriginPatterns(Arrays.asList("http://localhost:*"));
-                    configuration.setAllowedMethods(Arrays.asList("GET", "POST"));
+                    configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+                    configuration.setAllowedHeaders(Arrays.asList("*"));
                     configuration.setAllowCredentials(true);
 
                     UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
