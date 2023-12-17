@@ -13,5 +13,6 @@ public interface GameProgressRepository extends CrudRepository<GameProgress,Long
     @Query("SELECT gp FROM GameProgress gp WHERE gp.game_id = :gameID ORDER BY gp.bestScore DESC")
     List<GameProgress> getProgressByGameId(@Param("gameID") int gameID, Pageable pageable);
 
-
+    @Query("SELECT gp FROM GameProgress gp WHERE gp.game_id = :gameID AND gp.user.id = :userID")
+    GameProgress getUserProgressByGameId(@Param("gameID") int gameID, @Param("userID") int userID);
 }

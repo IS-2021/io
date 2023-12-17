@@ -23,12 +23,26 @@ public class RestRanking extends BaseRestApiController {
         User user = getCurrentUser();
         UserRepository userRepository = ctx.getBean(UserRepository.class);
         GameProgressRepository gameProgressRepository = ctx.getBean(GameProgressRepository.class);
-        
-        GameProgress newGameProgress = new GameProgress(updateData.gameID(), updateData.score());
-        newGameProgress.setUser(user);
-        gameProgressRepository.save(newGameProgress);
 
-        user.setTotalUserScore(user.getTotalUserScore() + updateData.score());
-        userRepository.save(user);
+        GameProgress userProgress = gameProgressRepository.getUserProgressByGameId(updateData.gameID(), user.getId());
+        if (userProgress != null && updateData.score() < userProgress.getBestScore()) {
+            return;
+        }
+        else if (userProgress != null && updateData.score() > userProgress.getBestScore()) {
+            user.setTotalUserScore(user.getTotalUserScore() - userProgress.getBestScore() + updateData.score());
+            userProgress.setBestScore(updateData.score());
+
+            userRepository.save(user);
+            gameProgressRepository.save(userProgress);
+            return;
+        }
+        if (userProgress == null) {
+            GameProgress newGameProgress = new GameProgress(updateData.gameID(), updateData.score());
+            newGameProgress.setUser(user);
+            gameProgressRepository.save(newGameProgress);
+
+            user.setTotalUserScore(user.getTotalUserScore() + updateData.score());
+            userRepository.save(user);
+        }
     }
 }
