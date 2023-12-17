@@ -18,23 +18,23 @@ public class User {
     private String password;
 
     // TODO: Change to int or long
-    private double userCoins;
+    private int userCoins;
 
-    public double getUserCoins() {
+    public int getUserCoins() {
         return userCoins;
     }
 
-    public void setUserCoins(double userCoins) {
+    public void setUserCoins(int userCoins) {
         this.userCoins = userCoins;
     }
 
-    private double userScore;
+    private int userScore;
 
-    public double getUserScore() {
+    public int getUserScore() {
         return userScore;
     }
 
-    public void setUserScore(double userScore) {
+    public void setUserScore(int userScore) {
         this.userScore = userScore;
     }
 

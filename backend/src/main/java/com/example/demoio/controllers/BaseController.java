@@ -18,7 +18,7 @@ public class BaseController {
 
     private String username;
 
-    private double userCoins;
+    private int userCoins;
 
     public void setValues() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -44,7 +44,7 @@ public class BaseController {
     }
 
     @ModelAttribute("userCoins")
-    public double userCoins() {
+    public int userCoins() {
         setValues();
 
         return userCoins;

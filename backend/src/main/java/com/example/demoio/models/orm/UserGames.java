@@ -16,11 +16,11 @@ public class UserGames {
     private int game_id;
     private String username;
 
-    private double userScore;
+    private int userScore;
 
     private int userCoins;
 
-    public UserGames(int game_id, String username, double userScore, int userCoins) {
+    public UserGames(int game_id, String username, int userScore, int userCoins) {
         this.game_id = game_id;
         this.username = username;
         this.userScore = userScore;
@@ -54,11 +54,11 @@ public class UserGames {
         this.username = username;
     }
 
-    public double getUserScore() {
+    public int getUserScore() {
         return userScore;
     }
 
-    public void setUserScore(double userScore) {
+    public void setUserScore(int userScore) {
         this.userScore = userScore;
     }
 
