@@ -1,9 +1,11 @@
 package com.example.demoio.controllers.restapi;
 
 
-import com.example.demoio.models.orm.GameProgress;
-import com.example.demoio.repositories.UserRepository;
 import com.example.demoio.models.dto.UpdateRanking;
+import com.example.demoio.models.orm.GameProgress;
+import com.example.demoio.models.orm.User;
+import com.example.demoio.repositories.GameProgressRepository;
+import com.example.demoio.repositories.UserRepository;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,10 +20,15 @@ public class RestRanking extends BaseRestApiController {
     @Operation(summary = "Zmienia ilość punktów zdobytych przez gracza w danej grze.")
     @PostMapping
     public void saveUserScore(@RequestBody UpdateRanking updateData) {
-        String username = getCurrentUserName();
+        User user = getCurrentUser();
         UserRepository userRepository = ctx.getBean(UserRepository.class);
+        GameProgressRepository gameProgressRepository = ctx.getBean(GameProgressRepository.class);
+        
+        GameProgress newGameProgress = new GameProgress(updateData.gameID(), updateData.score());
+        newGameProgress.setUser(user);
+        gameProgressRepository.save(newGameProgress);
 
-        // TODO: Remove coins from this object
-//        userRepository.save(new GameProgress(updateData.gameID(), username, updateData.score()));
+        user.setTotalUserScore(user.getTotalUserScore() + updateData.score());
+        userRepository.save(user);
     }
 }

@@ -35,7 +35,7 @@ public class Ranking extends BaseController {
 
         for (GameProgress gameProgress : gameProgressesList) {
             DisplayRankingData drd = new DisplayRankingData(
-                    gameProgress.getUsername(),
+                    gameProgress.getUser().getUsername(),
                     gameProgress.getBestScore());
             recordList.add(drd);
         }

@@ -1,10 +1,7 @@
 package com.example.demoio.models.orm;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -19,12 +16,14 @@ public class GameProgress {
     private Long id;
 
     private int game_id;
-    private String username;
     private int bestScore;
 
-    public GameProgress(int game_id, String username, int bestScore) {
+    @ManyToOne()
+    @JoinColumn(name = "user_fk")
+    private User user;
+
+    public GameProgress(int game_id, int bestScore) {
         this.game_id = game_id;
-        this.username = username;
         this.bestScore = bestScore;
     }
 }

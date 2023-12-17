@@ -1,12 +1,13 @@
 package com.example.demoio.models.orm;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Entity
 @Getter
@@ -15,13 +16,16 @@ import lombok.Setter;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "user_id")
+    private int id;
 
     private String username;
     private String password;
-
     private int userCoins;
     private int totalUserScore;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<GameProgress> gameProgressList = new ArrayList<>();
 
     public User(String username, String password) {
         this.username = username;
