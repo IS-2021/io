@@ -1,4 +1,4 @@
 package com.example.demoio.models.thymeleaf;
 
-public record DisplayRankingData(String username, int score, int coins) {
+public record DisplayRankingData(String username, int score) {
 }

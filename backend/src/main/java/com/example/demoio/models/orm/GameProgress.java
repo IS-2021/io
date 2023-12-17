@@ -1,5 +1,6 @@
 package com.example.demoio.models.orm;
 
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,19 +13,18 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class User {
+public class GameProgress {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private int game_id;
     private String username;
-    private String password;
+    private int bestScore;
 
-    private int userCoins;
-    private int totalUserScore;
-
-    public User(String username, String password) {
+    public GameProgress(int game_id, String username, int bestScore) {
+        this.game_id = game_id;
         this.username = username;
-        this.password = password;
+        this.bestScore = bestScore;
     }
 }

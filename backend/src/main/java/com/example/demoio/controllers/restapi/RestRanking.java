@@ -1,7 +1,7 @@
 package com.example.demoio.controllers.restapi;
 
 
-import com.example.demoio.models.orm.UserGames;
+import com.example.demoio.models.orm.GameProgress;
 import com.example.demoio.repositories.UserRepository;
 import com.example.demoio.models.dto.UpdateRanking;
 import io.swagger.v3.oas.annotations.Operation;
@@ -22,6 +22,6 @@ public class RestRanking extends BaseRestApiController {
         UserRepository userRepository = ctx.getBean(UserRepository.class);
 
         // TODO: Remove coins from this object
-        userRepository.save(new UserGames(updateData.gameID(), username, updateData.score(), 0));
+//        userRepository.save(new GameProgress(updateData.gameID(), username, updateData.score()));
     }
 }
