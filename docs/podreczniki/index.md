@@ -7,7 +7,7 @@ Ta strona zawiera dokumentacje dotyczące różnych gier dostępnych w ramach pl
 -   :material-login: __[Logowanie i rejestracja]__
 -   :material-plus-box: __[Codzienne bonusy]__
 -   :material-gamepad-variant: __[Wybór gry]__
--   :material-check: __[Codzienne zadania]__
+-   :octicons-tasklist-24: __[Codzienne zadania]__
 -   :fontawesome-solid-coins: __[Monety]__
 -   :fontawesome-solid-ranking-star: __[Punkty i ranking]__
 
