@@ -1,0 +1,88 @@
+site_name: Greengame
+# site_url: TBD
+repo_name: is-2021/io
+repo_url: https://github.com/is-2021/io
+
+edit_uri: edit/main/docs/
+
+nav:
+      - Strona główna: index.md
+      - Dokumentacja użytkownika:
+              - podreczniki/index.md
+              - Platforma:
+                      - Logowanie i rejestracja: podreczniki/system/logowanie-i-rejestracja.md
+                      - Codzienne bonusy: podreczniki/system/codzienne-bonusy.md
+                      - Wybór gry: podreczniki/system/wybor-gry.md
+                      - Codzienne zadania: podreczniki/system/codzienne-zadania.md
+                      - Monety: podreczniki/system/monety.md
+                      - Punkty i ranking: podreczniki/system/punkty-i-ranking.md
+              - Gry:
+                      - Recykling: podreczniki/gry/recykling.md
+                      - Oszczędzanie wody: podreczniki/gry/oszczedzanie-wody.md
+                      - Oszczędzanie energii: podreczniki/gry/oszczedzanie-energii.md
+                      - Ponowne wykorzystanie: podreczniki/gry/ponowne-wykorzystanie.md
+                      - Korzystanie z transportu publicznego: podreczniki/gry/korzystanie-z-transportu-publicznego.md
+                      - Prawidłowe pozbywanie się odpadów: podreczniki/gry/prawidlowe-pozbywanie-sie-odpadow.md
+                      - Spożywanie produktów ekologicznych: podreczniki/gry/spozywanie-produktow-ekologicznych.md
+      - Dokumentacja techniczna:
+              - techniczna/index.md
+
+plugins:
+      - search:
+              separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+      - git-committers:
+              repository: is-2021/io
+              branch: master
+      - glightbox
+
+markdown_extensions:
+      - toc:
+              permalink: true
+      - def_list
+      - attr_list
+      - md_in_html
+      - pymdownx.emoji:
+              emoji_index: !!python/name:material.extensions.emoji.twemoji
+              emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      - footnotes
+
+theme:
+      language: pl
+      icon:
+            repo: fontawesome/brands/github
+            edit: material/pencil
+      name: material
+      features:
+            # - navigation.instant
+            # - navigation.instant.prefetch
+            # - navigation.instant.progress
+            - navigation.tracking
+            - navigation.tabs
+            - navigation.path
+            - navigation.top
+            - navigation.footer
+            - navigation.expand
+            - toc.follow
+            - content.action.edit
+
+      palette:
+            - media: "(prefers-color-scheme)"
+              toggle:
+                    icon: material/brightness-auto
+                    name: Switch to light mode
+
+            - media: "(prefers-color-scheme: light)"
+              scheme: default
+              primary: green
+              accent: indigo
+              toggle:
+                    icon: material/brightness-7
+                    name: Switch to dark mode
+
+            - media: "(prefers-color-scheme: dark)"
+              scheme: slate
+              primary: black
+              accent: indigo
+              toggle:
+                    icon: material/brightness-4
+                    name: Switch to system preference
