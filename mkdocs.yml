@@ -6,83 +6,104 @@ repo_url: https://github.com/is-2021/io
 edit_uri: edit/main/docs/
 
 nav:
-      - Strona główna: index.md
-      - Dokumentacja użytkownika:
-              - podreczniki/index.md
-              - Platforma:
-                      - Logowanie i rejestracja: podreczniki/system/logowanie-i-rejestracja.md
-                      - Codzienne bonusy: podreczniki/system/codzienne-bonusy.md
-                      - Wybór gry: podreczniki/system/wybor-gry.md
-                      - Codzienne zadania: podreczniki/system/codzienne-zadania.md
-                      - Monety: podreczniki/system/monety.md
-                      - Punkty i ranking: podreczniki/system/punkty-i-ranking.md
-              - Gry:
-                      - Recykling: podreczniki/gry/recykling.md
-                      - Oszczędzanie wody: podreczniki/gry/oszczedzanie-wody.md
-                      - Oszczędzanie energii: podreczniki/gry/oszczedzanie-energii.md
-                      - Ponowne wykorzystanie: podreczniki/gry/ponowne-wykorzystanie.md
-                      - Korzystanie z transportu publicznego: podreczniki/gry/korzystanie-z-transportu-publicznego.md
-                      - Prawidłowe pozbywanie się odpadów: podreczniki/gry/prawidlowe-pozbywanie-sie-odpadow.md
-                      - Spożywanie produktów ekologicznych: podreczniki/gry/spozywanie-produktow-ekologicznych.md
-      - Dokumentacja techniczna:
-              - techniczna/index.md
+  - Strona główna: index.md
+  - Dokumentacja użytkownika:
+      - podreczniki/index.md
+      - Platforma:
+          - Logowanie i rejestracja: podreczniki/system/logowanie-i-rejestracja.md
+          - Codzienne bonusy: podreczniki/system/codzienne-bonusy.md
+          - Wybór gry: podreczniki/system/wybor-gry.md
+          - Codzienne zadania: podreczniki/system/codzienne-zadania.md
+          - Monety: podreczniki/system/monety.md
+          - Punkty i ranking: podreczniki/system/punkty-i-ranking.md
+      - Gry:
+          - Recykling: podreczniki/gry/recykling.md
+          - Oszczędzanie wody: podreczniki/gry/oszczedzanie-wody.md
+          - Oszczędzanie energii: podreczniki/gry/oszczedzanie-energii.md
+          - Ponowne wykorzystanie: podreczniki/gry/ponowne-wykorzystanie.md
+          - Korzystanie z transportu publicznego: podreczniki/gry/korzystanie-z-transportu-publicznego.md
+          - Prawidłowe pozbywanie się odpadów: podreczniki/gry/prawidlowe-pozbywanie-sie-odpadow.md
+          - Spożywanie produktów ekologicznych: podreczniki/gry/spozywanie-produktow-ekologicznych.md
+  - Dokumentacja techniczna:
+      - techniczna/index.md
+      - Platforma:
+          - Moduł aplikacji: techniczna/system/modul-aplikacji.md
+          - Moduł gier: techniczna/system/modul-gier.md
+          - Moduł codziennych zadań: techniczna/system/modul-codziennych-zadan.md
+          - Moduł przechowywania danych: techniczna/system/modul-przechowywania-danych.md
+          - Moduł rankingu: techniczna/system/modul-rankingu.md
+      - Gry:
+          - Recykling: techniczna/gry/recykling.md
+          - Oszczędzanie wody: techniczna/gry/oszczedzanie-wody.md
+          - Oszczędzanie energii: techniczna/gry/oszczedzanie-energii.md
+          - Ponowne wykorzystanie: techniczna/gry/ponowne-wykorzystanie.md
+          - Korzystanie z transportu publicznego: techniczna/gry/korzystanie-z-transportu-publicznego.md
+          - Prawidłowe pozbywanie się odpadów: techniczna/gry/prawidlowe-pozbywanie-sie-odpadow.md
+          - Spożywanie produktów ekologicznych: techniczna/gry/spozywanie-produktow-ekologicznych.md
 
 plugins:
-      - search:
-              separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
-      - git-committers:
-              repository: is-2021/io
-              branch: master
-      - glightbox
+  - search:
+      separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+  - git-committers:
+      repository: is-2021/io
+      branch: master
+      enabled: !ENV [CI, false]
+  - glightbox
 
 markdown_extensions:
-      - toc:
-              permalink: true
-      - def_list
-      - attr_list
-      - md_in_html
-      - pymdownx.emoji:
-              emoji_index: !!python/name:material.extensions.emoji.twemoji
-              emoji_generator: !!python/name:material.extensions.emoji.to_svg
-      - footnotes
+  - toc:
+      permalink: true
+  - def_list
+  - attr_list
+  - md_in_html
+  - tables
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - footnotes
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
 
 theme:
-      language: pl
-      icon:
-            repo: fontawesome/brands/github
-            edit: material/pencil
-      name: material
-      features:
-            # - navigation.instant
-            # - navigation.instant.prefetch
-            # - navigation.instant.progress
-            - navigation.tracking
-            - navigation.tabs
-            - navigation.path
-            - navigation.top
-            - navigation.footer
-            - navigation.expand
-            - toc.follow
-            - content.action.edit
+  language: pl
+  icon:
+    repo: fontawesome/brands/github
+    edit: material/pencil
+  name: material
+  features:
+    # - navigation.instant
+    # - navigation.instant.prefetch
+    # - navigation.instant.progress
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.path
+    - navigation.top
+    - navigation.footer
+    - navigation.expand
+    - toc.follow
+    - content.action.edit
 
-      palette:
-            - media: "(prefers-color-scheme)"
-              toggle:
-                    icon: material/brightness-auto
-                    name: Switch to light mode
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
 
-            - media: "(prefers-color-scheme: light)"
-              scheme: default
-              primary: green
-              accent: indigo
-              toggle:
-                    icon: material/brightness-7
-                    name: Switch to dark mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: green
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
 
-            - media: "(prefers-color-scheme: dark)"
-              scheme: slate
-              primary: black
-              accent: indigo
-              toggle:
-                    icon: material/brightness-4
-                    name: Switch to system preference
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
