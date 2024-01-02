@@ -11,11 +11,11 @@
 
 </div>
 
-  [Moduł rankingu]: system/modul-rankingu.md
-  [Moduł gier]: system/modul-gier.md
-  [Moduł przechowywania danych]: system/modul-przechowywania-danych.md
-  [Moduł codziennych zadań]: system/modul-codziennych-zadan.md
   [Moduł aplikacji]: system/modul-aplikacji.md
+  [Moduł gier]: system/modul-gier.md
+  [Moduł codziennych zadań]: system/modul-codziennych-zadan.md
+  [Moduł przechowywania danych]: system/modul-przechowywania-danych.md
+  [Moduł rankingu]: system/modul-rankingu.md
 
 
 ## Moduły gier

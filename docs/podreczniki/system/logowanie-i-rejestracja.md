@@ -3,7 +3,7 @@
 Aby korzystać z platformy użytkownik musi utworzyć konto. W celu utworzenia konta należy skorzystać z funkcji rejestracji, dostępnej pod formularzem logowania. Następnie należy uzupełnić formularz danymi:
 
 - nazwa użytkownika,
-- hasło.
+- hasło,
 
 oraz przesłać formularz klikając na przycisk "Zarejestruj". Po pomyślnej rejestracji aplikacja przekieruje użytkownika do strony logowania, gdzie można się zalogować przy użyciu danych użytych podczas rejestracji.
 

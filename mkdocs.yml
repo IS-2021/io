@@ -26,6 +26,20 @@ nav:
                       - Spożywanie produktów ekologicznych: podreczniki/gry/spozywanie-produktow-ekologicznych.md
       - Dokumentacja techniczna:
               - techniczna/index.md
+              - Platforma:
+                        - Moduł aplikacji: techniczna/system/modul-aplikacji.md
+                        - Moduł gier: techniczna/system/modul-gier.md
+                        - Moduł codziennych zadań: techniczna/system/modul-codziennych-zadan.md
+                        - Moduł przechowywania danych: techniczna/system/modul-przechowywania-danych.md
+                        - Moduł rankingu: techniczna/system/modul-rankingu.md
+              - Gry:
+                      - Recykling: techniczna/gry/recykling.md
+                      - Oszczędzanie wody: techniczna/gry/oszczedzanie-wody.md
+                      - Oszczędzanie energii: techniczna/gry/oszczedzanie-energii.md
+                      - Ponowne wykorzystanie: techniczna/gry/ponowne-wykorzystanie.md
+                      - Korzystanie z transportu publicznego: techniczna/gry/korzystanie-z-transportu-publicznego.md
+                      - Prawidłowe pozbywanie się odpadów: techniczna/gry/prawidlowe-pozbywanie-sie-odpadow.md
+                      - Spożywanie produktów ekologicznych: techniczna/gry/spozywanie-produktow-ekologicznych.md
 
 plugins:
       - search:
@@ -33,6 +47,7 @@ plugins:
       - git-committers:
               repository: is-2021/io
               branch: master
+              enabled: !ENV [CI, false]
       - glightbox
 
 markdown_extensions:
@@ -45,6 +60,11 @@ markdown_extensions:
               emoji_index: !!python/name:material.extensions.emoji.twemoji
               emoji_generator: !!python/name:material.extensions.emoji.to_svg
       - footnotes
+      - pymdownx.superfences:
+              custom_fences:
+                    - name: mermaid
+                      class: mermaid
+                      format: !!python/name:pymdownx.superfences.fence_code_format
 
 theme:
       language: pl
