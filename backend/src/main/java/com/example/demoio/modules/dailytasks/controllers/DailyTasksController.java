@@ -1,8 +1,8 @@
 package com.example.demoio.modules.dailytasks.controllers;
 
+import com.example.demoio.core.auth.services.UserProvider;
 import com.example.demoio.modules.app.controllers.BaseController;
 import com.example.demoio.modules.dailytasks.dto.DailyTask;
-import com.example.demoio.modules.datastorage.repositories.UserRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,8 +17,8 @@ import java.util.List;
 @RequestMapping("/daily-tasks")
 public class DailyTasksController extends BaseController {
 
-    public DailyTasksController(UserRepository userRepository) {
-        super(userRepository);
+    public DailyTasksController(UserProvider userProvider) {
+        super(userProvider);
     }
 
     private List<DailyTask> getDailyTasks() {

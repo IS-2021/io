@@ -1,32 +1,16 @@
 package com.example.demoio.modules.app.controllers;
 
-import com.example.demoio.models.User;
-import com.example.demoio.modules.datastorage.repositories.UserRepository;
+import com.example.demoio.core.auth.services.UserProvider;
 import jakarta.servlet.http.HttpServletRequest;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 @Controller
 public class BaseController {
-    private final UserRepository userRepository;
+    private final UserProvider userProvider;
 
-    public BaseController(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
-
-    private String username;
-
-    private int userCoins;
-
-    private void setValues() {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        User user = this.userRepository.findByUsername(auth.getName());
-
-        username = user.getUsername();
-        userCoins = user.getUserCoins();
-
+    public BaseController(UserProvider userProvider) {
+        this.userProvider = userProvider;
     }
 
     @ModelAttribute("requestURI")
@@ -36,15 +20,11 @@ public class BaseController {
 
     @ModelAttribute("username")
     public String username() {
-        setValues();
-
-        return username;
+        return userProvider.getCurrentUser().getUsername();
     }
 
     @ModelAttribute("userCoins")
     public int userCoins() {
-        setValues();
-
-        return userCoins;
+        return userProvider.getCurrentUser().getUserCoins();
     }
 }

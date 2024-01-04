@@ -1,6 +1,6 @@
 package com.example.demoio.modules.app.controllers;
 
-import com.example.demoio.modules.datastorage.repositories.UserRepository;
+import com.example.demoio.core.auth.services.UserProvider;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/home")
 public class HomeController extends BaseController {
-    public HomeController(UserRepository userRepository) {
-        super(userRepository);
+    public HomeController(UserProvider userProvider) {
+        super(userProvider);
     }
 
     @GetMapping()
