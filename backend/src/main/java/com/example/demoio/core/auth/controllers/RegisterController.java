@@ -2,7 +2,6 @@ package com.example.demoio.core.auth.controllers;
 
 import com.example.demoio.models.User;
 import com.example.demoio.modules.datastorage.repositories.UserRepository;
-import org.springframework.context.ApplicationContext;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,11 +15,10 @@ import java.util.regex.Pattern;
 @Controller
 @RequestMapping("/register")
 public class RegisterController {
+    private final UserRepository userRepository;
 
-    private final ApplicationContext ctx;
-
-    public RegisterController(ApplicationContext ctx) {
-        this.ctx = ctx;
+    public RegisterController(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
     @GetMapping()
@@ -32,8 +30,8 @@ public class RegisterController {
     public String handleRegister(@RequestParam("username") String username,
                                  @RequestParam("password") String password) {
         User newUser = new User(username, password);
-        UserRepository userRepository = ctx.getBean(UserRepository.class);
-        if (userRepository.findByUsername(username) != null) {
+
+        if (this.userRepository.findByUsername(username) != null) {
             return "redirect:/register?error";
         }
 

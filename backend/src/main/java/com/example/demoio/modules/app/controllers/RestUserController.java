@@ -8,7 +8,6 @@ import com.example.demoio.modules.datastorage.repositories.UserRepository;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,15 +15,14 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/user")
 public class RestUserController {
-
     private final UserProvider userProvider;
-    private final ApplicationContext ctx;
+    private final UserRepository userRepository;
 
 
     @Autowired
-    public RestUserController(ApplicationContext ctx, UserProvider userProvider) {
-        this.ctx = ctx;
+    public RestUserController(UserProvider userProvider, UserRepository userRepository) {
         this.userProvider = userProvider;
+        this.userRepository = userRepository;
     }
 
     @Operation(summary = "Zwraca ilość monet użytkownika.")
@@ -43,9 +41,8 @@ public class RestUserController {
     @PostMapping("/coins")
     public void updateUserCoins(@RequestBody UpdateUserCoinsRequest userData) {
         User user = this.userProvider.getCurrentUser();
-        UserRepository userRepository = ctx.getBean(UserRepository.class);
 
         user.setUserCoins(userData.coins());
-        userRepository.save(user);
+        this.userRepository.save(user);
     }
 }

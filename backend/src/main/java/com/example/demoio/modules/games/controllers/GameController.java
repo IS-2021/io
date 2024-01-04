@@ -1,8 +1,8 @@
 package com.example.demoio.modules.games.controllers;
 
 import com.example.demoio.modules.app.controllers.BaseController;
-import com.example.demoio.modules.ranking.controllers.RankingController;
-import org.springframework.context.ApplicationContext;
+import com.example.demoio.modules.datastorage.repositories.UserRepository;
+import com.example.demoio.modules.ranking.services.RankingProvider;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,22 +13,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/game")
 public class GameController extends BaseController {
+    private final RankingProvider rankingProvider;
 
-    private final ApplicationContext ctx;
-
-    public GameController(ApplicationContext ctx) {
-        super(ctx);
-        this.ctx = ctx;
+    public GameController(UserRepository userRepository, RankingProvider rankingProvider) {
+        super(userRepository);
+        this.rankingProvider = rankingProvider;
     }
 
     @GetMapping("/{gameID}")
     public String gameDescriptionPage(@PathVariable int gameID, Model model) {
 
-        RankingController r = new RankingController(this.ctx);
         model.addAttribute("gameName", "Oszczędzanie wody");
         model.addAttribute("gameDescription", "Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
         model.addAttribute("imageSlugName", "oszczedzanie-wody");
-        model.addAttribute("rankingData", r.getRankingByGameID(gameID, ctx));
+        model.addAttribute("rankingData", this.rankingProvider.getRankingByGameID(gameID));
         // Optional attributes
         model.addAttribute("points", 420);
         model.addAttribute("coinReward", 3);

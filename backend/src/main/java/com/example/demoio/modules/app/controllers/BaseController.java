@@ -3,7 +3,6 @@ package com.example.demoio.modules.app.controllers;
 import com.example.demoio.models.User;
 import com.example.demoio.modules.datastorage.repositories.UserRepository;
 import jakarta.servlet.http.HttpServletRequest;
-import org.springframework.context.ApplicationContext;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -11,21 +10,19 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 
 @Controller
 public class BaseController {
+    private final UserRepository userRepository;
 
-    private final ApplicationContext ctx;
-
-    public BaseController(ApplicationContext ctx) {
-        this.ctx = ctx;
+    public BaseController(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
     private String username;
 
     private int userCoins;
 
-    public void setValues() {
+    private void setValues() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        UserRepository userRepository = ctx.getBean(UserRepository.class);
-        User user = userRepository.findByUsername(auth.getName());
+        User user = this.userRepository.findByUsername(auth.getName());
 
         username = user.getUsername();
         userCoins = user.getUserCoins();
@@ -34,8 +31,6 @@ public class BaseController {
 
     @ModelAttribute("requestURI")
     public String requestURI(final HttpServletRequest request) {
-
-
         return request.getRequestURI();
     }
 
