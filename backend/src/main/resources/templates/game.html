@@ -42,11 +42,11 @@
 						</header>
 
 						<p th:if="${#lists.isEmpty(rankingData)}">
-							Obecnie trochę tu pusto, ale możesz być pierwszy! Wystarczy, że ukończysz tą grę
+							Obecnie trochę tu pusto, ale możesz być pierwszy! Wystarczy, że ukończysz tę grę
 							chociaż jeden raz.
 						</p>
 						<table
-							th:unless="${#lists.isEmpty(rankingData)}"
+							th:if="${#lists.isEmpty(rankingData)}"
 							th:replace="~{fragments/ranking-table}"
 						></table>
 					</article>
