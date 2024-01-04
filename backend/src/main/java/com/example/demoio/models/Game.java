@@ -33,4 +33,7 @@ public class Game {
 
     @Column(name = "frameHeight")
     private Integer frameHeight;
+
+    @Column(name = "imageSlugName")
+    private String imageSlugName;
 }

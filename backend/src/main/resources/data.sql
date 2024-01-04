@@ -1,11 +1,11 @@
-INSERT INTO greengame.game (game_id, name, description) VALUES
-(1, 'Recykling', ''),
-(2, 'Oszczędzanie wody', ''),
-(3, 'Oszczędzanie energii', ''),
-(4, 'Ponowne wykorzystanie', ''),
-(5, 'Korzystanie z transportu publicznego', ''),
-(6, 'Prawidłowe pozbywanie się odpadów', ''),
-(7, 'Spożywanie produktów ekologicznych', '');
+INSERT INTO greengame.game (game_id, name, description, image_slug_name) VALUES
+(1, 'Recykling', '', 'recykling'),
+(2, 'Oszczędzanie wody', '', 'oszczedzanie-wody'),
+(3, 'Oszczędzanie energii', '', 'oszczedzanie-energii'),
+(4, 'Ponowne wykorzystanie', '', 'ponowne-wykorzystanie'),
+(5, 'Korzystanie z transportu publicznego', '', 'korzystanie-z-transportu-publicznego'),
+(6, 'Prawidłowe pozbywanie się odpadów', '', 'prawidlowe-pozbywanie-sie-odpadow'),
+(7, 'Spożywanie produktów ekologicznych', '', 'spozywanie-produktow-ekologicznych');
 
 
 INSERT INTO greengame.daily_task (`daily_task_id`, `name`, `description`, `game_id`, `coins_reward`) VALUES (1, 'Zielony Strzelec', 'Zapewnij ochronę planecie, strzelając do nadlatujących odpadów kolorowym laserem. Każdy kolor oznacza inny rodzaj śmieci. Sprawdź swoją precyzję i zrównoważ swoje siły w walce z zanieczyszczeniem.', 1, 3);
