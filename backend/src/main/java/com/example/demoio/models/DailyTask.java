@@ -7,17 +7,17 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "Game")
+@Table(name = "DailyTask")
 @Getter
 @Setter
 @NoArgsConstructor
-public class Game {
+public class DailyTask {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "gameId")
+    @Column(name = "dailyTaskId")
     @Setter(AccessLevel.NONE)
-    private Long gameId;
+    private Long dailyTaskId;
 
     @Column(name = "name", nullable = false)
     private String name;
@@ -25,12 +25,10 @@ public class Game {
     @Column(name = "description", nullable = false)
     private String description;
 
-    @Column(name = "iframeURL")
-    private String iframeURL;
+    @ManyToOne
+    @JoinColumn(name = "gameId")
+    private Game game;
 
-    @Column(name = "frameWidth")
-    private Integer frameWidth;
-
-    @Column(name = "frameHeight")
-    private Integer frameHeight;
+    @Column(name = "coinsReward")
+    private Integer coinsReward;
 }

@@ -1,12 +1,10 @@
 package com.example.demoio.modules.ranking.services;
 
-import com.example.demoio.models.GameProgress;
+import com.example.demoio.models.Ranking;
 import com.example.demoio.models.User;
 import com.example.demoio.modules.dailytasks.dto.DisplayRankingData;
 import com.example.demoio.modules.datastorage.repositories.UserRepository;
-import com.example.demoio.modules.ranking.repositories.GameProgressRepository;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
+import com.example.demoio.modules.ranking.repositories.RankingRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -14,23 +12,22 @@ import java.util.List;
 
 @Service
 public class RankingProvider {
-    private final GameProgressRepository gameProgressRepository;
+    private final RankingRepository rankingRepository;
     private final UserRepository userRepository;
 
-    public RankingProvider(GameProgressRepository gameProgressRepository, UserRepository userRepository) {
-        this.gameProgressRepository = gameProgressRepository;
+    public RankingProvider(RankingRepository gameProgressRepository, UserRepository userRepository) {
+        this.rankingRepository = gameProgressRepository;
         this.userRepository = userRepository;
     }
 
-    public List<DisplayRankingData> getRankingByGameID(int gameID) {
-        Pageable pageable = PageRequest.of(0, 1);
-        List<GameProgress> gameProgressesList = this.gameProgressRepository.getProgressByGameId(gameID, pageable);
+    public List<DisplayRankingData> getRankingByGameID(Long gameID) {
+        List<Ranking> rankings = this.rankingRepository.findAllByGameGameId(gameID);
         List<DisplayRankingData> recordList = new ArrayList<>();
 
-        for (GameProgress gameProgress : gameProgressesList) {
+        for (Ranking ranking : rankings) {
             DisplayRankingData drd = new DisplayRankingData(
-                    gameProgress.getUser().getUsername(),
-                    gameProgress.getBestScore());
+                    ranking.getUser().getUsername(),
+                    ranking.getBestScore());
             recordList.add(drd);
         }
 
@@ -38,13 +35,13 @@ public class RankingProvider {
     }
 
     public List<DisplayRankingData> getOverallRankingData() {
-        List<User> userRank = this.userRepository.findTop10ByScore();
+        List<User> userRank = this.userRepository.findTop10OrderByTotalUserScoreDesc();
         List<DisplayRankingData> recordList = new ArrayList<>();
 
         for (User user : userRank) {
             DisplayRankingData drd = new DisplayRankingData(
                     user.getUsername(),
-                    user.getTotalUserScore());
+                    this.rankingRepository.sumAllScoresByUserId(user.getUserId()));
             recordList.add(drd);
         }
 

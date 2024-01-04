@@ -21,7 +21,7 @@ public class GameController extends BaseController {
     }
 
     @GetMapping("/{gameID}")
-    public String gameDescriptionPage(@PathVariable int gameID, Model model) {
+    public String gameDescriptionPage(@PathVariable Long gameID, Model model) {
 
         model.addAttribute("gameName", "Oszczędzanie wody");
         model.addAttribute("gameDescription", "Lorem ipsum dolor sit amet, consectetur adipiscing elit.");

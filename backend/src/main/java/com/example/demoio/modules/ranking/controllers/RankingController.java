@@ -28,7 +28,7 @@ public class RankingController extends BaseController {
     }
 
     @GetMapping("/{gameID}")
-    public String showTotalRankingPage(@PathVariable int gameID, Model model) {
+    public String showTotalRankingPage(@PathVariable Long gameID, Model model) {
         model.addAttribute("rankingData", this.rankingProvider.getRankingByGameID(gameID));
 
         return "ranking";
