@@ -47,4 +47,12 @@ public class RankingProvider {
 
         return recordList;
     }
+
+    public Integer getUserBestScore(Long gameID, Long userID) {
+        return this.rankingRepository.findByGame_GameIdAndUserUserId(gameID, userID).orElseGet(() -> {
+            Ranking ranking = new Ranking();
+            ranking.setBestScore(0);
+            return ranking;
+        }).getBestScore();
+    }
 }

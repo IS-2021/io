@@ -6,11 +6,12 @@ import com.example.demoio.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface RankingRepository extends JpaRepository<Ranking, Long> {
     List<Ranking> findAllByGameGameId(Long gameId);
 
-    Ranking findByGame_GameIdAndUserUserId(Long gameId, Long userId);
+    Optional<Ranking> findByGame_GameIdAndUserUserId(Long gameId, Long userId);
 
     Ranking findByGameAndUser(Game game, User user);
 

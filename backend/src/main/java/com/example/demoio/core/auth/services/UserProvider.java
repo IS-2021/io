@@ -14,6 +14,12 @@ public class UserProvider {
         this.userRepository = userRepository;
     }
 
+    public Long getCurrentUserId() {
+        String username = getCurrentUserName();
+
+        return this.userRepository.findByUsername(username).getUserId();
+    }
+
     public User getCurrentUser() {
         String username = getCurrentUserName();
 

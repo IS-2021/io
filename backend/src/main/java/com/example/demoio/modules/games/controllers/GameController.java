@@ -1,7 +1,9 @@
 package com.example.demoio.modules.games.controllers;
 
 import com.example.demoio.core.auth.services.UserProvider;
+import com.example.demoio.models.Game;
 import com.example.demoio.modules.app.controllers.BaseController;
+import com.example.demoio.modules.games.repositories.GameRepository;
 import com.example.demoio.modules.ranking.services.RankingProvider;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,21 +16,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/game")
 public class GameController extends BaseController {
     private final RankingProvider rankingProvider;
+    private final GameRepository gameRepository;
+    private final UserProvider userProvider;
 
-    public GameController(UserProvider userProvider, RankingProvider rankingProvider) {
+    public GameController(UserProvider userProvider, RankingProvider rankingProvider, GameRepository gameRepository) {
         super(userProvider);
+        this.userProvider = userProvider;
         this.rankingProvider = rankingProvider;
+        this.gameRepository = gameRepository;
     }
 
     @GetMapping("/{gameID}")
     public String gameDescriptionPage(@PathVariable Long gameID, Model model) {
+        Game game = this.gameRepository.findByGameId(gameID);
 
-        model.addAttribute("gameName", "Oszczędzanie wody");
-        model.addAttribute("gameDescription", "Lorem ipsum dolor sit amet, consectetur adipiscing elit.");
-        model.addAttribute("imageSlugName", "oszczedzanie-wody");
+        model.addAttribute("gameName", game.getName());
+        model.addAttribute("gameDescription", game.getDescription());
+        model.addAttribute("imageSlugName", game.getImageSlugName());
         model.addAttribute("rankingData", this.rankingProvider.getRankingByGameID(gameID));
         // Optional attributes
-        model.addAttribute("points", 420);
+        model.addAttribute("points", this.rankingProvider.getUserBestScore(gameID, this.userProvider.getCurrentUserId()));
         model.addAttribute("coinReward", 3);
 
         return "game";
