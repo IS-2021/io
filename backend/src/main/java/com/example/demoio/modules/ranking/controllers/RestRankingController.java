@@ -5,7 +5,7 @@ import com.example.demoio.core.auth.services.UserProvider;
 import com.example.demoio.models.Game;
 import com.example.demoio.models.Ranking;
 import com.example.demoio.models.User;
-import com.example.demoio.modules.datastorage.repositories.UserRepository;
+import com.example.demoio.core.auth.repositories.UserRepository;
 import com.example.demoio.modules.games.repositories.GameRepository;
 import com.example.demoio.modules.ranking.dto.UpdateRanking;
 import com.example.demoio.modules.ranking.repositories.RankingRepository;

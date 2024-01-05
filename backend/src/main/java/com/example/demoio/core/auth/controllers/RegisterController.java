@@ -1,7 +1,7 @@
 package com.example.demoio.core.auth.controllers;
 
 import com.example.demoio.models.User;
-import com.example.demoio.modules.datastorage.repositories.UserRepository;
+import com.example.demoio.core.auth.repositories.UserRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

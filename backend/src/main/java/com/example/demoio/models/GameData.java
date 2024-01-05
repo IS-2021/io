@@ -29,4 +29,10 @@ public class GameData {
 
     @Column(name = "gameData")
     private String gameData;
+
+    public GameData(Game game, User user, String gameData) {
+        this.game = game;
+        this.user = user;
+        this.gameData = gameData;
+    }
 }

@@ -1,4 +1,4 @@
-package com.example.demoio.modules.datastorage.repositories;
+package com.example.demoio.core.auth.repositories;
 
 import com.example.demoio.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;

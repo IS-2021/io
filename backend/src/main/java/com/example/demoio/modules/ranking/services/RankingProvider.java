@@ -3,7 +3,7 @@ package com.example.demoio.modules.ranking.services;
 import com.example.demoio.models.Ranking;
 import com.example.demoio.models.User;
 import com.example.demoio.modules.dailytasks.dto.DisplayRankingData;
-import com.example.demoio.modules.datastorage.repositories.UserRepository;
+import com.example.demoio.core.auth.repositories.UserRepository;
 import com.example.demoio.modules.ranking.repositories.RankingRepository;
 import org.springframework.stereotype.Service;
 
