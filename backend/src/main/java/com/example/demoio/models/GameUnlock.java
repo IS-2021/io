@@ -7,28 +7,23 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "DailyTask")
+@Table(name = "GameUnlock")
 @Getter
 @Setter
 @NoArgsConstructor
-public class DailyTask {
+public class GameUnlock {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "dailyTaskId")
+    @Column(name = "unlockId")
     @Setter(AccessLevel.NONE)
-    private Long dailyTaskId;
+    private Long unlockId;
 
-    @Column(name = "name", nullable = false)
-    private String name;
-
-    @Column(name = "description", nullable = false)
-    private String description;
+    @ManyToOne
+    @JoinColumn(name = "userId")
+    private User user;
 
     @ManyToOne
     @JoinColumn(name = "gameId")
     private Game game;
-
-    @Column(name = "coinsReward")
-    private Integer coinsReward;
 }
