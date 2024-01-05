@@ -4,7 +4,7 @@ import com.example.demoio.core.auth.services.UserProvider;
 import com.example.demoio.models.User;
 import com.example.demoio.modules.app.dto.UpdateUserCoinsRequest;
 import com.example.demoio.modules.app.dto.UserDataResponse;
-import com.example.demoio.modules.datastorage.repositories.UserRepository;
+import com.example.demoio.core.auth.repositories.UserRepository;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
