@@ -36,7 +36,8 @@ public class GameController extends BaseController {
         model.addAttribute("rankingData", this.rankingProvider.getRankingByGameID(gameID));
         // Optional attributes
         model.addAttribute("points", this.rankingProvider.getUserBestScore(gameID, this.userProvider.getCurrentUserId()));
-        model.addAttribute("coinReward", 3);
+        // TODO: Implement coin reward based on active daily task
+//        model.addAttribute("coinReward", 3);
 
         return "game";
     }
