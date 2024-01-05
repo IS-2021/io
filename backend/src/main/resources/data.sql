@@ -1,11 +1,11 @@
-INSERT INTO greengame.game (game_id, name, description, image_slug_name) VALUES
-(1, 'Recykling', '', 'recykling'),
-(2, 'Oszczędzanie wody', '', 'oszczedzanie-wody'),
-(3, 'Oszczędzanie energii', '', 'oszczedzanie-energii'),
-(4, 'Ponowne wykorzystanie', '', 'ponowne-wykorzystanie'),
-(5, 'Korzystanie z transportu publicznego', '', 'korzystanie-z-transportu-publicznego'),
-(6, 'Prawidłowe pozbywanie się odpadów', '', 'prawidlowe-pozbywanie-sie-odpadow'),
-(7, 'Spożywanie produktów ekologicznych', '', 'spozywanie-produktow-ekologicznych');
+INSERT INTO greengame.game (game_id, name, image_slug_name, description) VALUES
+(1, 'Recykling', 'recykling',  'Wciel się w obrońcę planety w tej dynamicznej grze typu space invaders! Strzelaj z kolorowymi laserami do nadchodzących śmieci, wybierając odpowiednią broń, aby ocalić Ziemię przed katastrofą ekologiczną. Czuj dreszcz emocji, gdy twoje umiejętności są kluczowe dla utrzymania czystości naszego środowiska!'),
+(2, 'Oszczędzanie wody', 'oszczedzanie-wody',  'Zanurz się w fascynujący świat rurociągów, gdzie twoje decyzje mają ogromne znaczenie. Nawiguj przez zawiłe labirynty, zakręcaj zawory z precyzją i utrzymuj płynność wodną. W tej grze o strategii i refleksach, każda kropla się liczy - uratuj świat przed suszą i zdobądź tytuł mistrza oszczędzania wody!'),
+(3, 'Oszczędzanie energii', 'oszczedzanie-energii',  'Stań się mistrzem efektywności energetycznej w tej innowacyjnej grze logicznej. Klikaj, by połączyć elementy obwodu i dostarcz energię do minimalnej liczby urządzeń. Odkryj wyzwania zręcznościowe i rozwijaj umiejętności planowania, aby być eko-ekspertem, który oszczędza energię, krok po kroku.'),
+(4, 'Ponowne wykorzystanie', 'ponowne-wykorzystanie',  'Wyrusz w epicką batalię ochrony ekosystemu, zbierając odnawialny kompost i tworząc armię roślinnych obrońców! Rywalizuj z falami przeciwników, zrównując je z ziemią za pomocą roślin o różnych umiejętnościach. Poznaj siłę ponownego wykorzystania w tej wciągającej grze typu plants vs zombies! Niech moc Pudziana będzie z Tobą.'),
+(5, 'Korzystanie z transportu publicznego', 'korzystanie-z-transportu-publicznego',  'Przeżyj ekscytujące chwile w grze w stylu subway surfers, gdzie jako kierowca autobusu przemierzysz miasto, zbierając pasażerów i unikając przeszkód. Zbieraj punkty, pokonuj wyzwania i pokaż, że transport publiczny może być równie emocjonujący jak pełen przygód pościg!'),
+(6, 'Prawidłowe pozbywanie się odpadów', 'prawidlowe-pozbywanie-sie-odpadow',  'Wciel się w mistrza segregacji śmieci i staw czoła wyzwaniom związanym z prawidłowym pozbywaniem się odpadów. Sortuj śmieci, unikaj błędów i zdobywaj punkty, aby uczynić świat bardziej ekologicznym. Twoje decyzje mają wpływ na środowisko - każdy zły ruch może przynieść konsekwencje!'),
+(7, 'Spożywanie produktów ekologicznych', 'spozywanie-produktow-ekologicznych',  'Przejdź na wyższy poziom świadomego wyboru żywności w tej interaktywnej grze point-and-click. Oceniaj produkty, dokonuj odpowiednich wyborów i buduj zdrowy ekosystem w swoim wirtualnym koszyku. Stań się ekologicznym konsumentem, zdobywając punkty za zrównoważone decyzje żywieniowe!');
 
 
 INSERT INTO greengame.daily_task (`daily_task_id`, `name`, `description`, `game_id`, `coins_reward`) VALUES (1, 'Zielony Strzelec', 'Zapewnij ochronę planecie, strzelając do nadlatujących odpadów kolorowym laserem. Każdy kolor oznacza inny rodzaj śmieci. Sprawdź swoją precyzję i zrównoważ swoje siły w walce z zanieczyszczeniem.', 1, 3);
