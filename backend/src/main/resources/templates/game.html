@@ -45,10 +45,11 @@
 							Obecnie trochę tu pusto, ale możesz być pierwszy! Wystarczy, że ukończysz tę grę
 							chociaż jeden raz.
 						</p>
-						<table
-							th:if="${#lists.isEmpty(rankingData)}"
-							th:replace="~{fragments/ranking-table}"
-						></table>
+						<div th:unless="${#lists.isEmpty(rankingData)}">
+							<table
+									th:replace="~{fragments/ranking-table}"
+							></table>
+						</div>
 					</article>
 				</main>
 
