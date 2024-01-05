@@ -24,7 +24,7 @@ public class UserDailyTask {
     @JoinColumn(name = "userId")
     private User user;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "dailyTaskId")
     private DailyTask dailyTask;
 }
