@@ -62,7 +62,7 @@ public class GameController extends BaseController {
         model.addAttribute("gameId", gameID);
         model.addAttribute("points", this.rankingProvider.getUserBestScore(gameID, this.userProvider.getCurrentUserId()));
 
-        model.addAttribute("iframeLevelUrl", this.baseIframeURL + game.getIframeURL() + "/index.html");
+        model.addAttribute("iframeLevelUrl", this.baseIframeURL + game.getGameId() + "/index.html");
         model.addAttribute("iframeWidth", game.getFrameWidth());
         model.addAttribute("iframeHeight", game.getFrameHeight());
 
