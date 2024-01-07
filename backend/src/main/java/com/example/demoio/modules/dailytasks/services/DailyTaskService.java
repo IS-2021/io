@@ -7,6 +7,7 @@ import com.example.demoio.modules.dailytasks.DailyTaskState;
 import com.example.demoio.modules.dailytasks.dto.DailyTaskDTO;
 import com.example.demoio.modules.dailytasks.repositories.DailyTaskRepository;
 import com.example.demoio.modules.dailytasks.repositories.UserDailyTaskRepository;
+import com.example.demoio.modules.games.services.GameUnlockService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,11 +19,13 @@ public class DailyTaskService {
     private final DailyTaskRepository dailyTaskRepository;
     private final UserDailyTaskRepository userDailyTaskRepository;
     private final UserProvider userProvider;
+    private final GameUnlockService gameUnlockService;
 
-    public DailyTaskService(DailyTaskRepository dailyTaskRepository, UserDailyTaskRepository userDailyTaskRepository, UserProvider userProvider) {
+    public DailyTaskService(DailyTaskRepository dailyTaskRepository, UserDailyTaskRepository userDailyTaskRepository, UserProvider userProvider, GameUnlockService gameUnlockService) {
         this.dailyTaskRepository = dailyTaskRepository;
         this.userDailyTaskRepository = userDailyTaskRepository;
         this.userProvider = userProvider;
+        this.gameUnlockService = gameUnlockService;
     }
 
     public Optional<UserDailyTask> getUserCurrentDailyTask() {
@@ -77,5 +80,7 @@ public class DailyTaskService {
 
         UserDailyTask userDailyTask = new UserDailyTask(this.userProvider.getCurrentUser(), dailyTask);
         userDailyTaskRepository.save(userDailyTask);
+
+        this.gameUnlockService.unlockGame(dailyTask.getGame());
     }
 }

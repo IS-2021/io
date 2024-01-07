@@ -30,9 +30,8 @@ public class GameUnlock {
     @JoinColumn(name = "gameId")
     private Game game;
 
-    @Column(name = "completionTimestamp")
-    private LocalDateTime completionTimestamp;
-
-    @Column(name = "dailyTasksDate")
-    private LocalDate dailyTasksDate;
+    public GameUnlock(User user, Game game) {
+        this.user = user;
+        this.game = game;
+    }
 }
