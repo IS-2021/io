@@ -65,8 +65,7 @@ public class DailyTaskService {
         return this.isLastDailyTaskCompleted() && this.isDateAfterLastDailyTask();
     }
 
-    // TODO: Rename to last daily task
-    public boolean isCurrentDailyTaskRelatedToGame(Long gameId) {
+    public boolean isLastDailyTaskRelatedToGame(Long gameId) {
         Optional<UserDailyTask> currentDailyTask = this.getLastUserDailyTask();
         return currentDailyTask.isPresent() && currentDailyTask.get().getDailyTask().getGame().getGameId().equals(gameId);
     }
@@ -119,7 +118,7 @@ public class DailyTaskService {
     }
 
     private DailyTaskState getTaskState(DailyTask dailyTask) {
-        boolean isRelatedToGame = this.isCurrentDailyTaskRelatedToGame(dailyTask.getGame().getGameId());
+        boolean isRelatedToGame = this.isLastDailyTaskRelatedToGame(dailyTask.getGame().getGameId());
         boolean userHasAnyDailyTask = this.getLastUserDailyTask().isPresent();
 
         if (userHasAnyDailyTask && this.canTakeAnotherDailyTask()) {

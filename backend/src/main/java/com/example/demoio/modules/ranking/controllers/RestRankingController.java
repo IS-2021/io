@@ -59,7 +59,7 @@ public class RestRankingController {
             }
         }
 
-        boolean isCurrentDailyTaskRelatedToGame = this.dailyTaskService.isCurrentDailyTaskRelatedToGame(updateData.gameID());
+        boolean isCurrentDailyTaskRelatedToGame = this.dailyTaskService.isLastDailyTaskRelatedToGame(updateData.gameID());
         if (isCurrentDailyTaskRelatedToGame && updateData.score() >= dailyTaskService.getMinimumScoreToCompleteDailyTask()) {
             this.dailyTaskService.markCurrentDailyTaskAsCompleted();
         }

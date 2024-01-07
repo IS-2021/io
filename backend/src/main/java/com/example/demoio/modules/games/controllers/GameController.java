@@ -1,7 +1,6 @@
 package com.example.demoio.modules.games.controllers;
 
 import com.example.demoio.core.auth.services.UserProvider;
-import com.example.demoio.models.DailyTask;
 import com.example.demoio.models.Game;
 import com.example.demoio.models.UserDailyTask;
 import com.example.demoio.modules.app.controllers.BaseController;
@@ -45,7 +44,7 @@ public class GameController extends BaseController {
         model.addAttribute("points", this.rankingProvider.getUserBestScore(gameID, this.userProvider.getCurrentUserId()));
 
         Optional<UserDailyTask> currentDailyTask = this.dailyTaskService.getUserCurrentDailyTask();
-        if (currentDailyTask.isPresent() && this.dailyTaskService.isCurrentDailyTaskRelatedToGame(gameID)) {
+        if (currentDailyTask.isPresent() && this.dailyTaskService.isLastDailyTaskRelatedToGame(gameID)) {
             model.addAttribute("coinReward", currentDailyTask.get().getDailyTask().getCoinsReward());
         }
 
