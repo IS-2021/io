@@ -30,4 +30,19 @@ public class UserProvider {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         return auth.getName();
     }
+
+    /**
+     * Modify user's coins. Pass a negative value to remove coins.
+     * @param coins The amount of coins to add/remove.
+     */
+    public void setUserCoins(int coins) {
+        User user = this.getCurrentUser();
+        user.setUserCoins(user.getUserCoins() + coins);
+
+        if (user.getUserCoins() < 0) {
+            user.setUserCoins(0);
+        }
+
+        this.userRepository.save(user);
+    }
 }

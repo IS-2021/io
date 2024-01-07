@@ -75,6 +75,7 @@ public class DailyTaskService {
         userDailyTask.ifPresent(task -> {
             task.setIsCompleted(true);
             this.userDailyTaskRepository.save(task);
+            this.userProvider.setUserCoins(task.getDailyTask().getCoinsReward());
         });
     }
 
