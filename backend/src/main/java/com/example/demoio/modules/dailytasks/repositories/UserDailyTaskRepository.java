@@ -19,4 +19,6 @@ public interface UserDailyTaskRepository extends JpaRepository<UserDailyTask, Lo
     Optional<UserDailyTask> findByUserAndIsCompleted(User user, boolean isCompleted);
 
     List<UserDailyTask> findByUser(User user);
+
+    Optional<UserDailyTask> findFirstByUserOrderByTakenDateDesc(User user);
 }

@@ -11,6 +11,7 @@ import com.example.demoio.modules.games.services.GameUnlockService;
 import lombok.Getter;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -37,8 +38,36 @@ public class DailyTaskService {
         return this.userDailyTaskRepository.findByUserAndIsCompleted(userProvider.getCurrentUser(), false);
     }
 
+    public Optional<UserDailyTask> getLastUserDailyTask() {
+        return this.userDailyTaskRepository.findFirstByUserOrderByTakenDateDesc(userProvider.getCurrentUser());
+    }
+
+    private boolean isLastDailyTaskCompleted() {
+        if (this.getLastUserDailyTask().isPresent()) {
+            return this.getLastUserDailyTask().get().getIsCompleted();
+        }
+
+        return true;
+    }
+
+    private boolean isDateAfterLastDailyTask() {
+        if (this.getLastUserDailyTask().isPresent()) {
+            LocalDate lastDailyTaskDate = this.getLastUserDailyTask().get().getTakenDate();
+            LocalDate nextExpectedDate = lastDailyTaskDate.plusDays(1);
+
+            return LocalDate.now().isAfter(nextExpectedDate) || LocalDate.now().isEqual(nextExpectedDate);
+        }
+
+        return true;
+    }
+
+    private boolean canTakeAnotherDailyTask() {
+        return this.isLastDailyTaskCompleted() && this.isDateAfterLastDailyTask();
+    }
+
+    // TODO: Rename to last daily task
     public boolean isCurrentDailyTaskRelatedToGame(Long gameId) {
-        Optional<UserDailyTask> currentDailyTask = this.getUserCurrentDailyTask();
+        Optional<UserDailyTask> currentDailyTask = this.getLastUserDailyTask();
         return currentDailyTask.isPresent() && currentDailyTask.get().getDailyTask().getGame().getGameId().equals(gameId);
     }
 
@@ -50,8 +79,8 @@ public class DailyTaskService {
         });
     }
 
-    /*
-    Gets all tasks, that are either not completed or not taken by user.
+    /**
+     * Gets all tasks, that are either not completed or not taken by user.
      */
     public List<DailyTask> getPossibleDailyTasks() {
         List<DailyTask> allDailyTasks = this.dailyTaskRepository.findAll();
@@ -65,28 +94,40 @@ public class DailyTaskService {
     }
 
     public List<DailyTask> getUserDailyTasks() {
-        Optional<UserDailyTask> currentDailyTask = getUserCurrentDailyTask();
+        Optional<UserDailyTask> lastDailyTask = getLastUserDailyTask();
         List<DailyTask> possibleDailyTasks = getPossibleDailyTasks();
 
-        if (currentDailyTask.isPresent()) {
-            return List.of(
-                    currentDailyTask.get().getDailyTask(),
-                    possibleDailyTasks.get(0)
-            );
-        } else {
+        // First time user
+        if (lastDailyTask.isEmpty()) {
             return List.of(
                     possibleDailyTasks.get(0),
                     possibleDailyTasks.get(1)
             );
         }
+
+        if (canTakeAnotherDailyTask()) {
+            return List.of(
+                    possibleDailyTasks.get(0),
+                    possibleDailyTasks.get(1)
+            );
+        }
+
+        return List.of(
+                lastDailyTask.get().getDailyTask(),
+                possibleDailyTasks.get(0)
+        );
     }
 
     private DailyTaskState getTaskState(DailyTask dailyTask) {
         boolean isRelatedToGame = this.isCurrentDailyTaskRelatedToGame(dailyTask.getGame().getGameId());
-        boolean userHasActiveDailyTask = this.getUserCurrentDailyTask().isPresent();
+        boolean userHasAnyDailyTask = this.getLastUserDailyTask().isPresent();
 
-        if (userHasActiveDailyTask) {
-            UserDailyTask userDailyTask = this.getUserCurrentDailyTask().get();
+        if (userHasAnyDailyTask && this.canTakeAnotherDailyTask()) {
+            return DailyTaskState.AVAILABLE;
+        }
+
+        if (userHasAnyDailyTask) {
+            UserDailyTask userDailyTask = this.getLastUserDailyTask().get();
 
             if (isRelatedToGame && userDailyTask.getIsCompleted()) {
                 return DailyTaskState.COMPLETED;
