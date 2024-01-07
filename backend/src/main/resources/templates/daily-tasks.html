@@ -27,7 +27,7 @@
 					>
 						<header class="mb-4 flex items-center justify-between">
 							<h2 th:text="${task.gameName}" class="text-2xl font-semibold">Nazwa zadania</h2>
-							<form th:action="@{/daily-tasks}" method="POST">
+							<form th:action="@{/daily-tasks}" method="POST" th:if="${task.taskState() == T(com.example.demoio.modules.dailytasks.DailyTaskState).AVAILABLE}" >
 								<input
 									type="text"
 									name="callbackValue"
@@ -41,6 +41,32 @@
 									Wybierz
 								</button>
 							</form>
+
+							<div th:if="${task.taskState() == T(com.example.demoio.modules.dailytasks.DailyTaskState).TAKEN}">
+								<button
+										class="rounded-md bg-neutral-950 px-4 py-2 text-sm font-medium text-neutral-50"
+								>
+									Wybrane
+								</button>
+							</div>
+
+							<div th:if="${task.taskState() == T(com.example.demoio.modules.dailytasks.DailyTaskState).DISABLED}">
+								<button
+										class="rounded-md bg-neutral-950 px-4 py-2 text-sm font-medium text-neutral-50"
+										disabled
+								>
+									Wybrane
+								</button>
+							</div>
+
+							<div th:if="${task.taskState() == T(com.example.demoio.modules.dailytasks.DailyTaskState).COMPLETED}">
+								<button
+										class="rounded-md bg-neutral-950 px-4 py-2 text-sm font-medium text-neutral-50"
+										disabled
+								>
+									Ukończone
+								</button>
+							</div>
 						</header>
 						<div class="flex gap-4">
 							<img

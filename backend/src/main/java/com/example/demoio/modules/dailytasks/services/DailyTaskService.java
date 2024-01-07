@@ -3,6 +3,7 @@ package com.example.demoio.modules.dailytasks.services;
 import com.example.demoio.core.auth.services.UserProvider;
 import com.example.demoio.models.DailyTask;
 import com.example.demoio.models.UserDailyTask;
+import com.example.demoio.modules.dailytasks.DailyTaskState;
 import com.example.demoio.modules.dailytasks.dto.DailyTaskDTO;
 import com.example.demoio.modules.dailytasks.repositories.DailyTaskRepository;
 import com.example.demoio.modules.dailytasks.repositories.UserDailyTaskRepository;
@@ -65,7 +66,8 @@ public class DailyTaskService {
                         dailyTask.getName(),
                         dailyTask.getGame().getImageSlugName(),
                         dailyTask.getDescription(),
-                        dailyTask.getCoinsReward()
+                        dailyTask.getCoinsReward(),
+                        DailyTaskState.AVAILABLE
                 ))
                 .toList();
     }
