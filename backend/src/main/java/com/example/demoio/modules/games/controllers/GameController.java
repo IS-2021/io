@@ -45,8 +45,7 @@ public class GameController extends BaseController {
         model.addAttribute("points", this.rankingProvider.getUserBestScore(gameID, this.userProvider.getCurrentUserId()));
 
         Optional<UserDailyTask> currentDailyTask = this.dailyTaskService.getUserCurrentDailyTask();
-        boolean isDailyTaskRelatedToGame = currentDailyTask.isPresent() && currentDailyTask.get().getDailyTask().getGame().getGameId().equals(gameID);
-        if (currentDailyTask.isPresent() && isDailyTaskRelatedToGame) {
+        if (currentDailyTask.isPresent() && this.dailyTaskService.isCurrentDailyTaskRelatedToGame(gameID)) {
             model.addAttribute("coinReward", currentDailyTask.get().getDailyTask().getCoinsReward());
         }
 

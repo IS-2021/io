@@ -8,6 +8,7 @@ import com.example.demoio.modules.dailytasks.dto.DailyTaskDTO;
 import com.example.demoio.modules.dailytasks.repositories.DailyTaskRepository;
 import com.example.demoio.modules.dailytasks.repositories.UserDailyTaskRepository;
 import com.example.demoio.modules.games.services.GameUnlockService;
+import lombok.Getter;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,6 +22,10 @@ public class DailyTaskService {
     private final UserProvider userProvider;
     private final GameUnlockService gameUnlockService;
 
+    @Getter
+    private final int MinimumScoreToCompleteDailyTask = 500;
+
+
     public DailyTaskService(DailyTaskRepository dailyTaskRepository, UserDailyTaskRepository userDailyTaskRepository, UserProvider userProvider, GameUnlockService gameUnlockService) {
         this.dailyTaskRepository = dailyTaskRepository;
         this.userDailyTaskRepository = userDailyTaskRepository;
@@ -30,6 +35,19 @@ public class DailyTaskService {
 
     public Optional<UserDailyTask> getUserCurrentDailyTask() {
         return this.userDailyTaskRepository.findByUserAndIsCompleted(userProvider.getCurrentUser(), false);
+    }
+
+    public boolean isCurrentDailyTaskRelatedToGame(Long gameId) {
+        Optional<UserDailyTask> currentDailyTask = this.getUserCurrentDailyTask();
+        return currentDailyTask.isPresent() && currentDailyTask.get().getDailyTask().getGame().getGameId().equals(gameId);
+    }
+
+    public void markCurrentDailyTaskAsCompleted() {
+        Optional<UserDailyTask> userDailyTask = this.getUserCurrentDailyTask();
+        userDailyTask.ifPresent(task -> {
+            task.setIsCompleted(true);
+            this.userDailyTaskRepository.save(task);
+        });
     }
 
     /*
