@@ -57,11 +57,11 @@ public class RestRankingController {
                 userRanking.get().setBestScore(updateData.score());
                 this.rankingRepository.save(userRanking.get());
             }
+        }
 
-            boolean isCurrentDailyTaskRelatedToGame = this.dailyTaskService.isCurrentDailyTaskRelatedToGame(updateData.gameID());
-            if (isCurrentDailyTaskRelatedToGame && updateData.score() >= dailyTaskService.getMinimumScoreToCompleteDailyTask()) {
-                this.dailyTaskService.markCurrentDailyTaskAsCompleted();
-            }
+        boolean isCurrentDailyTaskRelatedToGame = this.dailyTaskService.isCurrentDailyTaskRelatedToGame(updateData.gameID());
+        if (isCurrentDailyTaskRelatedToGame && updateData.score() >= dailyTaskService.getMinimumScoreToCompleteDailyTask()) {
+            this.dailyTaskService.markCurrentDailyTaskAsCompleted();
         }
     }
 }
