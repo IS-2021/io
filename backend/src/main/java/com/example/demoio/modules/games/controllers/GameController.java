@@ -2,7 +2,9 @@ package com.example.demoio.modules.games.controllers;
 
 import com.example.demoio.core.auth.services.UserProvider;
 import com.example.demoio.models.Game;
+import com.example.demoio.models.UserDailyTask;
 import com.example.demoio.modules.app.controllers.BaseController;
+import com.example.demoio.modules.dailytasks.services.DailyTaskService;
 import com.example.demoio.modules.games.repositories.GameRepository;
 import com.example.demoio.modules.ranking.services.RankingProvider;
 import org.springframework.stereotype.Controller;
@@ -11,6 +13,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.Optional;
+
 
 @Controller
 @RequestMapping("/game")
@@ -18,12 +22,14 @@ public class GameController extends BaseController {
     private final RankingProvider rankingProvider;
     private final GameRepository gameRepository;
     private final UserProvider userProvider;
+    private final DailyTaskService dailyTaskService;
 
-    public GameController(UserProvider userProvider, RankingProvider rankingProvider, GameRepository gameRepository) {
+    public GameController(UserProvider userProvider, RankingProvider rankingProvider, GameRepository gameRepository, DailyTaskService dailyTaskService) {
         super(userProvider);
         this.userProvider = userProvider;
         this.rankingProvider = rankingProvider;
         this.gameRepository = gameRepository;
+        this.dailyTaskService = dailyTaskService;
     }
 
     @GetMapping("/{gameID}")
@@ -36,8 +42,12 @@ public class GameController extends BaseController {
         model.addAttribute("rankingData", this.rankingProvider.getRankingByGameID(gameID));
         // Optional attributes
         model.addAttribute("points", this.rankingProvider.getUserBestScore(gameID, this.userProvider.getCurrentUserId()));
-        // TODO: Implement coin reward based on active daily task
-//        model.addAttribute("coinReward", 3);
+
+        Optional<UserDailyTask> currentDailyTask = this.dailyTaskService.getUserCurrentDailyTask();
+        boolean isDailyTaskRelatedToGame = currentDailyTask.isPresent() && currentDailyTask.get().getDailyTask().getGame().getGameId().equals(gameID);
+        if (currentDailyTask.isPresent() && isDailyTaskRelatedToGame) {
+            model.addAttribute("coinReward", currentDailyTask.get().getDailyTask().getCoinsReward());
+        }
 
         return "game";
     }

@@ -6,6 +6,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 @Entity
 @Table(name = "GameUnlock")
 @Getter
@@ -26,4 +29,9 @@ public class GameUnlock {
     @ManyToOne
     @JoinColumn(name = "gameId")
     private Game game;
+
+    public GameUnlock(User user, Game game) {
+        this.user = user;
+        this.game = game;
+    }
 }

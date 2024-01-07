@@ -10,28 +10,20 @@
 			<div class="flex grow items-center justify-center">
 				<div>
 					<h1 class="mb-4 text-center text-4xl font-bold">Zadania na dzisiaj</h1>
-					<p class="mb-1.5 text-center">Wybranie zadania spowoduje odblokowanie danej gry.</p>
-					<p class="mb-5 text-center">
-						Za wykonanie wybranego zadania dostaniesz
-						<span th:text="${coinReward} + ' monet'" class="text-green-500">
-							<span class="inline-block h-4 w-4 text-green-500">
-								<svg th:replace="~{fragments/icons/coins}"></svg>
-							</span> </span
-						>.
-					</p>
+					<p class="mb-6 text-center">Wybranie zadania spowoduje odblokowanie danej gry.</p>
 
-					<!--/*@thymesVar id="task" type="com.example.demoio.dailytasks.dto.DailyTask"*/-->
+					<!--/*@thymesVar id="task" type="com.example.demoio.modules.dailytasks.dto.DailyTaskDTO"*/-->
 					<div
 						th:each="task : ${availableTasks}"
 						class="mx-auto mb-6 w-[600px] rounded-xl bg-neutral-100 p-5"
 					>
 						<header class="mb-4 flex items-center justify-between">
 							<h2 th:text="${task.gameName}" class="text-2xl font-semibold">Nazwa zadania</h2>
-							<form th:action="@{/daily-tasks}" method="POST">
+							<form th:action="@{/daily-tasks}" method="POST" th:if="${task.taskState() == T(com.example.demoio.modules.dailytasks.DailyTaskState).AVAILABLE}" >
 								<input
 									type="text"
 									name="callbackValue"
-									th:value="${task.callbackValue()}"
+									th:value="${task.taskId()}"
 									readonly
 									hidden
 								/>
@@ -41,6 +33,32 @@
 									Wybierz
 								</button>
 							</form>
+
+							<div th:if="${task.taskState() == T(com.example.demoio.modules.dailytasks.DailyTaskState).TAKEN}">
+								<button
+										class="rounded-md bg-green-600 px-4 py-2 text-sm font-medium text-neutral-50"
+								>
+									Aktywne
+								</button>
+							</div>
+
+							<div th:if="${task.taskState() == T(com.example.demoio.modules.dailytasks.DailyTaskState).DISABLED}">
+								<button
+										class="rounded-md bg-neutral-400 px-4 py-2 text-sm font-medium text-neutral-50"
+										disabled
+								>
+									Niedostępne
+								</button>
+							</div>
+
+							<div th:if="${task.taskState() == T(com.example.demoio.modules.dailytasks.DailyTaskState).COMPLETED}">
+								<button
+										class="rounded-md bg-neutral-950 px-4 py-2 text-sm font-medium text-neutral-50"
+										disabled
+								>
+									Ukończone
+								</button>
+							</div>
 						</header>
 						<div class="flex gap-4">
 							<img
@@ -49,6 +67,13 @@
 							/>
 							<div class="flex flex-col justify-between">
 								<p th:text="${task.taskDescription}" class="mb-5"></p>
+								<p class="mb-3 text-sm font-medium">
+									Za ukończenie tego zadania otrzymasz
+									<span th:text="${task.coinsReward()} + ' monet'" class="text-green-500"></span>
+									<span class="inline-block h-4 w-4 text-green-500"
+									><svg th:replace="~{fragments/icons/coins}"></svg
+									></span>
+								</p>
 							</div>
 						</div>
 					</div>
