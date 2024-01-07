@@ -20,7 +20,7 @@
 						>.
 					</p>
 
-					<!--/*@thymesVar id="task" type="com.example.demoio.dailytasks.dto.DailyTask"*/-->
+					<!--/*@thymesVar id="task" type="com.example.demoio.modules.dailytasks.dto.DailyTaskDTO"*/-->
 					<div
 						th:each="task : ${availableTasks}"
 						class="mx-auto mb-6 w-[600px] rounded-xl bg-neutral-100 p-5"
@@ -31,7 +31,7 @@
 								<input
 									type="text"
 									name="callbackValue"
-									th:value="${task.callbackValue()}"
+									th:value="${task.taskId()}"
 									readonly
 									hidden
 								/>

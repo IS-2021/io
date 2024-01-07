@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
+
 @Entity
 @Table(name = "UserDailyTask")
 @Getter
@@ -20,6 +22,12 @@ public class UserDailyTask {
     @Setter(AccessLevel.NONE)
     private Long userDailyTaskId;
 
+    @Column(name = "isCompleted", columnDefinition = "boolean default false")
+    private Boolean isCompleted;
+
+    @Column(name = "takenDate")
+    private LocalDate takenDate;
+
     @ManyToOne
     @JoinColumn(name = "userId")
     private User user;
@@ -27,4 +35,11 @@ public class UserDailyTask {
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "dailyTaskId")
     private DailyTask dailyTask;
+
+    public UserDailyTask(User user, DailyTask dailyTask) {
+        this.user = user;
+        this.dailyTask = dailyTask;
+        this.isCompleted = false;
+        this.takenDate = LocalDate.now();
+    }
 }

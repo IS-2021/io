@@ -33,7 +33,4 @@ public class DailyTask {
 
     @Column(name = "coinsReward")
     private Integer coinsReward;
-
-    @Column(name = "date")
-    private LocalDate date;
 }
