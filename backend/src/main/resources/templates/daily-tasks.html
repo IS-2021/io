@@ -36,18 +36,18 @@
 
 							<div th:if="${task.taskState() == T(com.example.demoio.modules.dailytasks.DailyTaskState).TAKEN}">
 								<button
-										class="rounded-md bg-neutral-950 px-4 py-2 text-sm font-medium text-neutral-50"
+										class="rounded-md bg-green-600 px-4 py-2 text-sm font-medium text-neutral-50"
 								>
-									Wybrane
+									Aktywne
 								</button>
 							</div>
 
 							<div th:if="${task.taskState() == T(com.example.demoio.modules.dailytasks.DailyTaskState).DISABLED}">
 								<button
-										class="rounded-md bg-neutral-950 px-4 py-2 text-sm font-medium text-neutral-50"
+										class="rounded-md bg-neutral-400 px-4 py-2 text-sm font-medium text-neutral-50"
 										disabled
 								>
-									Wybrane
+									Niedostępne
 								</button>
 							</div>
 

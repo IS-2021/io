@@ -66,18 +66,42 @@ public class DailyTaskService {
 
     public List<DailyTask> getUserDailyTasks() {
         Optional<UserDailyTask> currentDailyTask = getUserCurrentDailyTask();
+        List<DailyTask> possibleDailyTasks = getPossibleDailyTasks();
 
         if (currentDailyTask.isPresent()) {
             return List.of(
                     currentDailyTask.get().getDailyTask(),
-                    getPossibleDailyTasks().get(0)
+                    possibleDailyTasks.get(0)
             );
         } else {
             return List.of(
-                    getPossibleDailyTasks().get(0),
-                    getPossibleDailyTasks().get(1)
+                    possibleDailyTasks.get(0),
+                    possibleDailyTasks.get(1)
             );
         }
+    }
+
+    private DailyTaskState getTaskState(DailyTask dailyTask) {
+        boolean isRelatedToGame = this.isCurrentDailyTaskRelatedToGame(dailyTask.getGame().getGameId());
+        boolean userHasActiveDailyTask = this.getUserCurrentDailyTask().isPresent();
+
+        if (userHasActiveDailyTask) {
+            UserDailyTask userDailyTask = this.getUserCurrentDailyTask().get();
+
+            if (isRelatedToGame && userDailyTask.getIsCompleted()) {
+                return DailyTaskState.COMPLETED;
+            }
+
+            if (isRelatedToGame && !userDailyTask.getIsCompleted()) {
+                return DailyTaskState.TAKEN;
+            }
+
+            if (!isRelatedToGame) {
+                return DailyTaskState.DISABLED;
+            };
+        }
+
+        return DailyTaskState.AVAILABLE;
     }
 
     public List<DailyTaskDTO> getUserDailyTasksDTO() {
@@ -88,12 +112,14 @@ public class DailyTaskService {
                         dailyTask.getGame().getImageSlugName(),
                         dailyTask.getDescription(),
                         dailyTask.getCoinsReward(),
-                        DailyTaskState.AVAILABLE
+                        getTaskState(dailyTask)
                 ))
                 .toList();
     }
 
     public void saveDailyTasksForUser(Long dailyTaskId) {
+        if (this.getUserCurrentDailyTask().isPresent()) return;
+
         DailyTask dailyTask = dailyTaskRepository.findById(dailyTaskId).orElseThrow();
 
         UserDailyTask userDailyTask = new UserDailyTask(this.userProvider.getCurrentUser(), dailyTask);
