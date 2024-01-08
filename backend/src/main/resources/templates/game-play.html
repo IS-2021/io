@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+	<head th:insert="~{fragments/head :: htmlHead(~{::title},~{})}">
+		<title th:text="${gameName}"></title>
+	</head>
+	<body class="flex min-h-screen flex-col text-neutral-950">
+		<div class="flex h-full grow flex-col">
+			<div th:replace="~{fragments/header}"></div>
+
+			<div class="mx-auto mt-12 w-full max-w-screen-xl grow">
+				<div class="mb-6 w-full">
+					<h1 th:text="${gameName}" class="text-xl text-center font-bold">Oszczędzanie wody</h1>
+				</div>
+				<main class="w-1/2">
+					<iframe th:src="${iframeLevelUrl}" th:width="${iframeWidth}" th:height="${iframeHeight}"></iframe>
+				</main>
+			</div>
+		</div>
+	</body>
+</html>
