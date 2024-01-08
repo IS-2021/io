@@ -8,7 +8,7 @@ INSERT INTO greengame.game (game_id, name, image_slug_name, description) VALUES
 (7, 'Spożywanie produktów ekologicznych', 'spozywanie-produktow-ekologicznych',  'Przejdź na wyższy poziom świadomego wyboru żywności w tej interaktywnej grze point-and-click. Oceniaj produkty, dokonuj odpowiednich wyborów i buduj zdrowy ekosystem w swoim wirtualnym koszyku. Stań się ekologicznym konsumentem, zdobywając punkty za zrównoważone decyzje żywieniowe!');
 
 UPDATE greengame.game
-SET (frame_width, frame_height) = (1280, 736)
+SET frame_width=1280, frame_height=736
 WHERE game_id = 6;
 
 INSERT INTO greengame.daily_task (`daily_task_id`, `name`, `description`, `game_id`, `coins_reward`) VALUES (1, 'Zielony Strzelec', 'Zapewnij ochronę planecie, strzelając do nadlatujących odpadów kolorowym laserem. Każdy kolor oznacza inny rodzaj śmieci. Sprawdź swoją precyzję i zrównoważ swoje siły w walce z zanieczyszczeniem.', 1, 3);
