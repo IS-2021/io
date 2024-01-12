@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head th:insert="~{fragments/head :: htmlHead(~{::title},~{})}">
+    <title th:text="${gameName}"></title>
+</head>
+<body class="flex min-h-screen flex-col text-neutral-950">
+<div class="flex h-full grow flex-col">
+    <div th:replace="~{fragments/header}"></div>
+
+    <div class="flex grow items-center justify-center">
+        <div>
+            <h1 class="mb-4 text-center text-4xl font-bold">Codzienne bonusy</h1>
+            <p class="mb-2 text-center">Zgrarniaj codziennie punkty lub monety!</p>
+            <p class="mb-6 text-center">Kolejny do odebrania za: 13:24:33 </p>
+
+            <div class="mx-auto grid grid-cols-7 grid-rows-2 gap-y-8 gap-x-2">
+                <!--/*@thymesVar id="bonus" type="com.example.demoio.modules.dailybonus.dto.DailyBonusDTO"*/-->
+                <div
+                        th:each="bonus : ${dailyBonuses}"
+                        class="rounded bg-neutral-50"
+                >
+                    <p th:text="${bonus.day().toString().concat(' dzień')}"
+                       class="text-center uppercase bg-neutral-950 text-neutral-50"></p>
+
+                    <div class="px-6 pt-12 pb-4">
+
+                        <div class="mb-4 flex flex-col gap-8 items-center">
+                            <div th:if="${bonus.type() == T(com.example.demoio.modules.dailybonus.DailyBonusType).POINTS}">
+                                <svg th:replace="~{fragments/icons/codesandbox-48}"></svg>
+                            </div>
+                            <div th:if="${bonus.type() == T(com.example.demoio.modules.dailybonus.DailyBonusType).COINS}">
+                                <svg th:replace="~{fragments/icons/coins-48}"></svg>
+                            </div>
+
+                            <p class="text-center">
+                                <span th:text="${bonus.count()} "></span>
+                                <span th:text="${bonus.type() == T(com.example.demoio.modules.dailybonus.DailyBonusType).POINTS ? 'punktów' : 'monet'}"></span>
+                            </p>
+                        </div>
+
+                        <form th:action="@{/daily-bonus}" method="POST">
+                            <input type="number" name="day" th:value="${bonus.day()}" hidden readonly>
+
+                            <button
+                                    th:if="${bonus.state() == T(com.example.demoio.modules.dailybonus.DailyBonusState).CLAIMED}"
+                                    th:text="${bonus.state().getDisplayLabel()}"
+                                    class="w-32 rounded-md bg-neutral-300 py-2 text-neutral-50"
+                            >
+                                <!-- Odebrano -->
+                            </button>
+                            <button
+                                    th:if="${bonus.state() == T(com.example.demoio.modules.dailybonus.DailyBonusState).AVAILABLE}"
+                                    th:text="${bonus.state().getDisplayLabel()}"
+                                    class="w-32 rounded-md bg-green-500 py-2 text-neutral-50"
+                            >
+                                <!-- Odbierz -->
+                            </button>
+                            <button
+                                    th:if="${bonus.state() == T(com.example.demoio.modules.dailybonus.DailyBonusState).NEXT_BUT_LOCKED}"
+                                    th:text="${bonus.state().getDisplayLabel()}"
+                                    class="w-32 rounded-md bg-neutral-950 py-2 text-neutral-50"
+                                    disabled
+                            >
+                                <!-- Następny -->
+                            </button>
+                            <button
+                                    th:if="${bonus.state() == T(com.example.demoio.modules.dailybonus.DailyBonusState).LOCKED}"
+                                    th:text="${bonus.state().getDisplayLabel()}"
+                                    class="w-32 rounded-md bg-neutral-300 py-2 text-neutral-50"
+                            >
+                                <!-- Następny -->
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
