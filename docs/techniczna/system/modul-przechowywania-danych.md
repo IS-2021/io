@@ -5,7 +5,8 @@
 
 
 ## Diagram klas
-![class](https://gist.github.com/assets/126806633/207a64a3-118f-43d9-865f-eb25bab76b2d)
+![class](https://gist.github.com/assets/126806633/43bea5aa-6faa-4730-ab04-42895eed3d3b)
+
 
 Warto zwrócić uwagę na klasę SaveGameData, która jest rekordem.
 
