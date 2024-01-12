@@ -1,14 +1,14 @@
 # Moduł przechowywania danych
 
 
-Zadaniem tego modułu jest pobieranie oraz zapisywanie danych z/do bazy danych dotyczących gier. Projektanci gier nie są zobowiązani do wykorzystywania go. Jest to moduł opcjonalny.
+Zadaniem tego modułu jest pobieranie oraz zapisywanie danych z/do bazy danych dotyczących gier. Jest to moduł opcjonalny, zatem zespoły projektantów gier nie są zobowiązani do wykorzystywania go w swoich grach.
 
 
 ## Diagram klas
 ![class](https://gist.github.com/assets/126806633/43bea5aa-6faa-4730-ab04-42895eed3d3b)
 
 
-Warto zwrócić uwagę na klasę SaveGameData, która jest rekordem.
+Warto zwrócić uwagę na klasę SaveGameData, która jest rekordem DTO (Data Transfer Object).
 
 ## Diagram przypadków użycia
 
@@ -33,7 +33,7 @@ Diagram przedstawia odczyt danych gry z bazy. Aktorem jest Klient API
 Prosty diagram czynności przedstawiający proces pobierania danych gry z bazy danych.
 
 
-## Scenariusz dotyczący przypadku użycia Pobierz dane gry
+## Scenariusz dotyczący przypadku użycia - Pobierz dane gry
 
 | Nazwa                          | Pobierz dane gry                                                                                                                                                                                                                                                            |
 |--------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -48,7 +48,7 @@ Prosty diagram czynności przedstawiający proces pobierania danych gry z bazy d
 | Zakończenie                    | Zwrócone metadane dotyczące gry                                                                                                                                                                                                                                             |
 | Warunek końcowy                | -----------------                                                                                                                                                                                                                                                           |
 
-## Scenariusz dotyczący przypadku użycia Zapisz dane gry
+## Scenariusz dotyczący przypadku użycia - Zapisz dane gry
 
 | Nazwa                          | Zapisz dane gry                                                                                                                                                                                                                                                                                                                                              |
 |--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
