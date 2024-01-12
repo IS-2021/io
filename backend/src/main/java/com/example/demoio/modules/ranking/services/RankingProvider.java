@@ -1,5 +1,6 @@
 package com.example.demoio.modules.ranking.services;
 
+import com.example.demoio.core.auth.services.UserProvider;
 import com.example.demoio.models.Ranking;
 import com.example.demoio.models.User;
 import com.example.demoio.modules.ranking.dto.DisplayRankingData;
@@ -14,10 +15,12 @@ import java.util.List;
 public class RankingProvider {
     private final RankingRepository rankingRepository;
     private final UserRepository userRepository;
+    private final UserProvider userProvider;
 
-    public RankingProvider(RankingRepository gameProgressRepository, UserRepository userRepository) {
+    public RankingProvider(RankingRepository gameProgressRepository, UserRepository userRepository, UserProvider userProvider) {
         this.rankingRepository = gameProgressRepository;
         this.userRepository = userRepository;
+        this.userProvider = userProvider;
     }
 
     public List<DisplayRankingData> getRankingByGameID(Long gameID) {
@@ -41,7 +44,7 @@ public class RankingProvider {
         for (User user : userRank) {
             DisplayRankingData drd = new DisplayRankingData(
                     user.getUsername(),
-                    this.rankingRepository.sumAllScoresByUserId(user.getUserId()));
+                    this.rankingRepository.sumAllScoresByUserId(user.getUserId()) + user.getTotalBonusPoints());
             recordList.add(drd);
         }
 

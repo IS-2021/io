@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head th:insert="~{fragments/head :: htmlHead(~{::title},~{})}">
+    <title th:text="${gameName}"></title>
+</head>
+<body class="flex min-h-screen flex-col text-neutral-950">
+<div class="flex h-full grow flex-col">
+    <div th:replace="~{fragments/header}"></div>
+
+    <div class="flex grow items-center justify-center">
+        <div>
+            <h1 class="mb-4 text-center text-4xl font-bold">Codzienne bonusy</h1>
+            <p class="mb-2 text-center">Zgrarniaj codziennie punkty lub monety!</p>
+
+            <div th:if="${nextBonusAvailableAt}">
+                <p id="var-time-left" th:text="${nextBonusAvailableAt}" class="hidden"></p>
+                <p class="mb-6 text-center" id="time-left-p">Kolejny do odebrania za: <span id="time-left" class="tabular-nums"></span></p>
+            </div>
+
+            <div class="mx-auto grid grid-cols-7 grid-rows-2 gap-y-8 gap-x-2">
+                <!--/*@thymesVar id="bonus" type="com.example.demoio.modules.dailybonus.dto.DailyBonusDTO"*/-->
+                <div
+                        th:each="bonus : ${dailyBonuses}"
+                        class="rounded bg-neutral-50"
+                >
+                    <p th:text="${bonus.day().toString().concat(' dzień')}"
+                       class="text-center uppercase bg-neutral-950 text-neutral-50"></p>
+
+                    <div class="px-6 pt-12 pb-4">
+
+                        <div class="mb-4 flex flex-col gap-8 items-center">
+                            <div th:if="${bonus.type() == T(com.example.demoio.modules.dailybonus.DailyBonusType).POINTS}">
+                                <svg th:replace="~{fragments/icons/codesandbox-48}"></svg>
+                            </div>
+                            <div th:if="${bonus.type() == T(com.example.demoio.modules.dailybonus.DailyBonusType).COINS}">
+                                <svg th:replace="~{fragments/icons/coins-48}"></svg>
+                            </div>
+
+                            <p class="text-center">
+                                <span th:text="${bonus.count()} "></span>
+                                <span th:text="${bonus.type() == T(com.example.demoio.modules.dailybonus.DailyBonusType).POINTS ? 'punktów' : 'monet'}"></span>
+                            </p>
+                        </div>
+
+                        <form th:action="@{/daily-bonus}" method="POST">
+                            <input type="number" name="day" th:value="${bonus.day()}" hidden readonly>
+
+                            <button
+                                    th:if="${bonus.state() == T(com.example.demoio.modules.dailybonus.DailyBonusState).CLAIMED}"
+                                    th:text="${bonus.state().getDisplayLabel()}"
+                                    class="w-32 rounded-md bg-neutral-300 py-2 text-neutral-50"
+                            >
+                                <!-- Odebrano -->
+                            </button>
+                            <button
+                                    th:if="${bonus.state() == T(com.example.demoio.modules.dailybonus.DailyBonusState).AVAILABLE}"
+                                    th:text="${bonus.state().getDisplayLabel()}"
+                                    class="w-32 rounded-md bg-green-500 py-2 text-neutral-50"
+                            >
+                                <!-- Odbierz -->
+                            </button>
+                            <button
+                                    th:if="${bonus.state() == T(com.example.demoio.modules.dailybonus.DailyBonusState).LOCKED}"
+                                    th:text="${bonus.state().getDisplayLabel()}"
+                                    class="w-32 rounded-md bg-neutral-300 py-2 text-neutral-50"
+                            >
+                                <!-- Następny -->
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const injectedTimeLeft = document.querySelector("#var-time-left");
+    const timeLeftSpan = document.querySelector("#time-left");
+    const timeLeftParagraph = document.querySelector("#time-left-p");
+
+    const date = new Date(parseInt(injectedTimeLeft.innerText));
+
+    function pad(n) {
+        return String(n).padStart(2, "0");
+    }
+
+    function millisToTime(millis) {
+        const hours = Math.floor((millis / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((millis / (1000 * 60)) % 60);
+        const seconds = Math.floor((millis / 1000) % 60);
+
+        return `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
+    }
+
+    const timeLeft = date.getTime() - Date.now();
+    timeLeftSpan.textContent = millisToTime(timeLeft);
+    if (timeLeft <= 0) {
+        timeLeftParagraph.classList.add("invisible");
+    }
+
+    setInterval(() => {
+        const timeLeft = date.getTime() - Date.now();
+
+        timeLeftSpan.innerText = millisToTime(timeLeft);
+    }, 1000);
+</script>
+</body>
+</html>
