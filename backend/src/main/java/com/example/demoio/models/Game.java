@@ -28,10 +28,10 @@ public class Game {
     @Column(name = "iframeURL")
     private String iframeURL;
 
-    @Column(name = "frameWidth")
+    @Column(name = "frameWidth", columnDefinition = "int default 1280")
     private Integer frameWidth;
 
-    @Column(name = "frameHeight")
+    @Column(name = "frameHeight", columnDefinition = "int default 720")
     private Integer frameHeight;
 
     @Column(name = "imageSlugName")
