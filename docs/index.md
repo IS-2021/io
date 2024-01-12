@@ -7,3 +7,4 @@ Strona ta zawiera dokumentację całego projektu, na którą składają się:
 - [dokumentacja użytkownika](podreczniki/index.md),
 - [dokumentacja techniczna](techniczna/index.md).
 
+

@@ -13,7 +13,7 @@ public interface RankingRepository extends JpaRepository<Ranking, Long> {
 
     Optional<Ranking> findByGame_GameIdAndUserUserId(Long gameId, Long userId);
 
-    Optional<Ranking> findByGameAndUser(Game game, User user);
+    Ranking findByGameAndUser(Game game, User user);
 
     List<Ranking> findAllByUserUserId(Long userId);
 

@@ -5,7 +5,7 @@ import com.example.demoio.core.auth.services.UserProvider;
 import com.example.demoio.models.Game;
 import com.example.demoio.models.Ranking;
 import com.example.demoio.models.User;
-import com.example.demoio.modules.dailytasks.services.DailyTaskService;
+import com.example.demoio.core.auth.repositories.UserRepository;
 import com.example.demoio.modules.games.repositories.GameRepository;
 import com.example.demoio.modules.ranking.dto.UpdateRanking;
 import com.example.demoio.modules.ranking.repositories.RankingRepository;
@@ -17,24 +17,23 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Optional;
-
 @Tag(name = "Ranking")
 @RestController
 @RequestMapping("/api/ranking")
 public class RestRankingController {
 
     private final UserProvider userProvider;
+    private final UserRepository userRepository;
     private final RankingRepository rankingRepository;
     private final GameRepository gameRepository;
-    private final DailyTaskService dailyTaskService;
+
 
     @Autowired
-    public RestRankingController(UserProvider userProvider, RankingRepository rankingRepository, GameRepository gameRepository, DailyTaskService dailyTaskService) {
+    public RestRankingController(UserProvider userProvider, UserRepository userRepository, RankingRepository rankingRepository, GameRepository gameRepository) {
         this.userProvider = userProvider;
+        this.userRepository = userRepository;
         this.rankingRepository = rankingRepository;
         this.gameRepository = gameRepository;
-        this.dailyTaskService = dailyTaskService;
     }
 
     @Operation(summary = "Zmienia ilość punktów zdobytych przez gracza w danej grze.")
@@ -43,25 +42,25 @@ public class RestRankingController {
         User user = this.userProvider.getCurrentUser();
         Game game = this.gameRepository.findByGameId(updateData.gameID());
 
-        Optional<Ranking> userRanking = this.rankingRepository.findByGameAndUser(game, user);
-        if (userRanking.isEmpty()) {
-            Ranking newUserRanking = new Ranking(user, game, updateData.score());
-            newUserRanking.setUser(user);
-            this.rankingRepository.save(newUserRanking);
+//        Ranking userProgress = this.rankingRepository.findByGameAndUser(updateData.gameID(), user.getId());
+        Ranking userRanking = this.rankingRepository.findByGameAndUser(game, user);
+        if (userRanking != null && updateData.score() < userRanking.getBestScore()) {
+            return;
+        } else if (userRanking != null && updateData.score() > userRanking.getBestScore()) {
+//            user.setTotalUserScore(user.getTotalUserScore() - userProgress.getBestScore() + updateData.score());
+            userRanking.setBestScore(updateData.score());
+
+//            this.userRepository.save(user);
+            this.rankingRepository.save(userRanking);
+            return;
         }
+        if (userRanking == null) {
+            Ranking newGameProgress = new Ranking(user, game, updateData.score());
+            newGameProgress.setUser(user);
+            this.rankingRepository.save(newGameProgress);
 
-        if (userRanking.isPresent()) {
-            boolean hasBetterScore = updateData.score() > userRanking.get().getBestScore();
-
-            if (hasBetterScore) {
-                userRanking.get().setBestScore(updateData.score());
-                this.rankingRepository.save(userRanking.get());
-            }
-        }
-
-        boolean isCurrentDailyTaskRelatedToGame = this.dailyTaskService.isLastDailyTaskRelatedToGame(updateData.gameID());
-        if (isCurrentDailyTaskRelatedToGame && updateData.score() >= dailyTaskService.getMinimumScoreToCompleteDailyTask()) {
-            this.dailyTaskService.markCurrentDailyTaskAsCompleted();
+//            user.setTotalUserScore(user.getTotalUserScore() + updateData.score());
+//            this.userRepository.save(user);
         }
     }
 }
