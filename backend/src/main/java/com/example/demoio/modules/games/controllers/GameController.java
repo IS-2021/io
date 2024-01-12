@@ -1,7 +1,6 @@
 package com.example.demoio.modules.games.controllers;
 
 import com.example.demoio.core.auth.services.UserProvider;
-import com.example.demoio.models.DailyTask;
 import com.example.demoio.models.Game;
 import com.example.demoio.models.UserDailyTask;
 import com.example.demoio.modules.app.controllers.BaseController;
@@ -24,6 +23,8 @@ public class GameController extends BaseController {
     private final GameRepository gameRepository;
     private final UserProvider userProvider;
     private final DailyTaskService dailyTaskService;
+
+    private final String baseIframeURL = "http://localhost/levels/";
 
     public GameController(UserProvider userProvider, RankingProvider rankingProvider, GameRepository gameRepository, DailyTaskService dailyTaskService) {
         super(userProvider);
@@ -54,17 +55,18 @@ public class GameController extends BaseController {
     }
 
     @GetMapping("/{gameID}/play")
-    public String handleGameLoadByID(@PathVariable int gameID) {
-        return switch (gameID) {
-            case 1 -> "firstGame";
-            case 2 -> "secondGame";
-            case 3 -> "thirdGame";
-            case 4 -> "fourthGame";
-            case 5 -> "fifthGame";
-            case 6 -> "sixthGame";
-            case 7 -> "seventhGame";
-            default -> "notFound";
-        };
+    public String handleGameLoadByID(@PathVariable Long gameID, Model model) {
+        Game game = this.gameRepository.findByGameId(gameID);
+
+        model.addAttribute("gameName", game.getName());
+        model.addAttribute("gameId", gameID);
+        model.addAttribute("points", this.rankingProvider.getUserBestScore(gameID, this.userProvider.getCurrentUserId()));
+
+        model.addAttribute("iframeLevelUrl", this.baseIframeURL + game.getGameId() + "/index.html");
+        model.addAttribute("iframeWidth", game.getFrameWidth());
+        model.addAttribute("iframeHeight", game.getFrameHeight());
+
+        return "game-play";
     }
 
 }
