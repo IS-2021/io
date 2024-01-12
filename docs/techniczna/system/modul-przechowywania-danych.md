@@ -28,7 +28,8 @@ Diagram przedstawia odczyt danych gry z bazy. Aktorem jest Klient API
 
 ## Diagram czynności
 
-![czynn](https://gist.github.com/assets/126806633/d0d2c4cd-b42f-47e1-9222-7420e9907421)
+![czynn](https://gist.github.com/assets/126806633/62547278-7d47-48a6-b48f-6a04ce2eba9e)
+
 
 Prosty diagram czynności przedstawiający proces pobierania danych gry z bazy danych.
 
@@ -62,3 +63,8 @@ Prosty diagram czynności przedstawiający proces pobierania danych gry z bazy d
 | Alternatywne przepływy zdarzeń | -----------------                                                                                                                                                                                                                                                                                                                                            |
 | Zakończenie                    | Dane gry zostają zapisane do bazy                                                                                                                                                                                                                                                                                                                            |
 | Warunek końcowy                | -----------------                                                                                                                                                                                                                                                                                                                                            |
+
+
+## Diagram pakietów
+
+![pakiety](https://gist.github.com/assets/126806633/e88adfaf-12d8-4537-a092-13ee89047209)
