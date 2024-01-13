@@ -25,7 +25,8 @@ Diagram prezentujący możliwe ruchy dla użytkownika niezalogowanego
 Diagram prezentujący możliwe ruchy dla użytkownika zalogowanego
 
 
-![useCase](https://gist.github.com/assets/126806633/97d6d388-bc86-4f0f-befc-2c55c75237f1)
+![usecase](https://gist.github.com/assets/126806633/adc2c59f-1237-434b-89c3-107ec7348d67)
+
 
 
 
@@ -89,7 +90,8 @@ Diagram czynności pokazujący kolejne kroki w procesie uwierzytelniania użytko
 
 Diagram pokazuje możliwe stany systemu.
 
-![stany](https://gist.github.com/assets/126806633/7eb824c8-bda8-458b-ae48-1c405a328771)
+![stany](https://gist.github.com/assets/126806633/bef03241-4b16-444c-92cb-2518d3836754)
+
 
 
 ## Diagram komponentów
