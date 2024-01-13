@@ -15,6 +15,8 @@ Warto zwrócić uwagę na klasę SaveGameData, która jest rekordem DTO (Data Tr
 
 ## Diagram przypadków użycia
 
+Prosty diagram pokazujący przypadki użycia Klienta API korzystającego z tego modułu.
+
 ![useCase](https://gist.github.com/assets/126806633/7b8237d5-7a6d-4aca-810e-6419fc0f9225)
 
 

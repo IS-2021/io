@@ -12,6 +12,8 @@ Klasa UpdateRanking jest rekordem dlatego też nie widać jej powiązania międz
 
 ## Diagram przypadków użycia
 
+Prosty diagram obrazujący możliwe przypadki użycia Klienta API i użytkownika.
+
 ![usecase](https://gist.github.com/assets/126806633/666c7f20-8b98-466e-bb75-e588653302ba)
 
 
@@ -31,6 +33,9 @@ Klasa UpdateRanking jest rekordem dlatego też nie widać jej powiązania międz
 | Warunek końcowy                | -----------------                                                                                                        |
 
 ## Diagram sekwencji dla przypadku Wyświetlenie rankingu ogólnego
+
+Diagram pokazuje sekwencję wywoływania metod niezbędnych do wyświetlenia ogólnego rankingu
+
 
 ![seq1](https://gist.github.com/assets/126806633/b9c77e18-8a7d-41da-bdf1-3601c8d5ffa4)
 
@@ -53,6 +58,8 @@ Klasa UpdateRanking jest rekordem dlatego też nie widać jej powiązania międz
 
 
 ## Diagram sekwencji dla przypadku Wyświetlenie rankingu poszczególnej gry
+
+Diagram pokazuje sekwencję wywoływania metod niezbędnych do wyświetlenia rankingu danej gry
 
 ![seq2](https://gist.github.com/assets/126806633/be136827-3d1f-4c56-9aa5-ee3db4cb3d25)
 

@@ -15,10 +15,15 @@ Diagram pokazuje klasy niezbędne do działania modułu aplikacji.
 
 ## Diagram przypadków użycia dla użytkownika niezalogowanego
 
+Diagram prezentujący możliwe ruchy dla użytkownika niezalogowanego
+
 ![przyp1](https://gist.github.com/assets/126806633/28d5939e-db05-48fe-a774-434e0583419d)
 
 
 ## Diagram przypadków użycia dla użytkownika zalogowanego
+
+Diagram prezentujący możliwe ruchy dla użytkownika zalogowanego
+
 
 ![useCase](https://gist.github.com/assets/126806633/97d6d388-bc86-4f0f-befc-2c55c75237f1)
 

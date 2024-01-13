@@ -10,6 +10,8 @@ Warto zwrócić uwagę na klasę DailyTaskState, która informuje w jakim stanie
 
 
 ## Diagram przypadków użycia
+Diagram obrazuje możliwe przypadki użycia dla modułu codziennych zadań.
+
 ![useCase](https://gist.github.com/assets/126806633/a76b2acb-4b14-45a6-92e7-cce66fbff3da)
 
 ## Scenariusz dla przypadku Wyświetl obecne zadania
@@ -29,7 +31,7 @@ Warto zwrócić uwagę na klasę DailyTaskState, która informuje w jakim stanie
 
 ## Diagram sekwencji dla przypadku Wyświetl obecne zadania
 
-Aktorem jest Klient API.
+Diagram obrazujący wywołania metod, które wyświetlą użytkownikowi codzienne zadania. Aktorem jest Klient API.
 
 ![seq1](https://gist.github.com/assets/126806633/bf49f28c-dc5b-44fa-ad07-1781f2b24c56)
 
@@ -53,7 +55,7 @@ Aktorem jest Klient API.
 
 ## Diagram sekwencji dla przypadku Zatwierdź wybrane zadanie
 
-Aktorem jest Klient API.
+Diagram obrazujący kolejne wywołania metod, które zatwierdzą w systemie wybrane zadanie. Aktorem jest Klient API. 
 
 ![seq2](https://gist.github.com/assets/126806633/93f1fc0d-8d91-42f0-b042-e913fff3259d)
 
