@@ -1,6 +1,6 @@
 # Punkty i ranking
 
-![Strona rankingu](https://dummyimage.com/1920x1080/)
+![Strona rankingu](https://i.imgur.com/IHoTRwZ.png)
 
 Użytkownik po ukończeniu gry jest wynagradzany w postaci punktów. Ilość zdobytych punktów plasuje użytkownika odpowiednio w ogólnym rankingu oraz w rankingu danej gry.
 

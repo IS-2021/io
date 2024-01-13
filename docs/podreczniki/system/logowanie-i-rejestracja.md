@@ -8,6 +8,6 @@ Aby korzystać z platformy użytkownik musi utworzyć konto. W celu utworzenia k
 oraz przesłać formularz klikając na przycisk "Zarejestruj". Po pomyślnej rejestracji aplikacja przekieruje użytkownika do strony logowania, gdzie można się zalogować przy użyciu danych użytych podczas rejestracji.
 
 <figure markdown>
-  ![Formularz logowania logowania po zarejestrowaniu się](https://dummyimage.com/1920x1080/){ width="640" }
+  ![Formularz logowania logowania po zarejestrowaniu się](https://i.imgur.com/KAMNyUv.png){ width="640" }
   <figcaption>Formularz logowania logowania po zarejestrowaniu się</figcaption>
 </figure>

@@ -5,7 +5,7 @@ Monety to wirtualna waluta dostępna w ramach systemu, którą użytkownik może
 Ilość posiadanych monet jest widoczna na górnym pasku nawigacji.
 
 <figure markdown>
-  ![Monety](https://dummyimage.com/200x60/){ width="200" }
+  ![Monety](https://i.imgur.com/fPjKurN.png){ width="400" }
 </figure>
 
 ## Zdobywanie monet
