@@ -5,6 +5,6 @@ Użytkownik w ramach swojej przygody jest odpowiedzialny za realizację zadań, 
 Przez pierwszy tydzień zaakceptowanie zadania jest równoważne z odblokowaniem związanej z nim gry.
 
 <figure markdown>
-  ![Przykładowe zadanie](https://dummyimage.com/1920x1080/){ width="640" }
+  ![Przykładowe zadanie](https://i.imgur.com/bseiORE.png){ width="640" }
   <figcaption>Przykładowe dostępne zadanie</figcaption>
 </figure>
