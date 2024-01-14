@@ -1,5 +1,6 @@
 package com.example.demoio.modules.dailybonus.services;
 
+import com.example.demoio.core.auth.repositories.UserRepository;
 import com.example.demoio.core.auth.services.UserProvider;
 import com.example.demoio.models.User;
 import com.example.demoio.modules.dailybonus.DailyBonusState;
@@ -8,6 +9,7 @@ import com.example.demoio.modules.dailybonus.dto.DailyBonusDTO;
 import com.example.demoio.modules.dailybonus.models.DailyBonus;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
@@ -15,6 +17,7 @@ import java.util.stream.Stream;
 @Service
 public class DailyBonusService {
     private final UserProvider userProvider;
+    private final UserRepository userRepository;
 
     private final List<DailyBonus> dailyBonusFirstWeek = List.of(
             new DailyBonus(100, DailyBonusType.POINTS),
@@ -35,9 +38,11 @@ public class DailyBonusService {
             new DailyBonus(550, DailyBonusType.POINTS),
             new DailyBonus(5, DailyBonusType.COINS)
     );
+    private final List<DailyBonus> allDailyBonuses = Stream.concat(dailyBonusFirstWeek.stream(), dailyBonusSecondWeek.stream()).toList();
 
-    public DailyBonusService(UserProvider userProvider) {
+    public DailyBonusService(UserProvider userProvider, UserRepository userRepository) {
         this.userProvider = userProvider;
+        this.userRepository = userRepository;
     }
 
     public String getButtonTextFromBonusState(DailyBonusState state) {
@@ -46,37 +51,66 @@ public class DailyBonusService {
                 return "Odebrano";
             case AVAILABLE:
                 return "Odbierz";
-            case NEXT_BUT_LOCKED:
-                return "Następny";
             case LOCKED:
             default:
                 return "Zablokowany";
         }
     }
 
+    private static DailyBonusState getDailyBonusState(User user, int day) {
+        int claimedBonuses = user.getClaimedBonusCount();
+        DailyBonusState state;
+        // GOOD
+//        if (claimedBonuses == 0 && day == 1) {
+//          state = user.isEligibleForBonus() ? DailyBonusState.AVAILABLE : DailyBonusState.CLAIMED;
+//        } else if (day > claimedBonuses + 1) {
+//            state = DailyBonusState.LOCKED;
+//        } else if (day == claimedBonuses) {
+//            state = DailyBonusState.AVAILABLE;
+//        } else {
+//            state = DailyBonusState.LOCKED;
+//        }
+
+        if (day < claimedBonuses) {
+            state = DailyBonusState.CLAIMED;
+        } else if (day == claimedBonuses) {
+            state = user.isEligibleForBonus() ? DailyBonusState.AVAILABLE : DailyBonusState.CLAIMED;
+        } else {
+            state = DailyBonusState.LOCKED;
+        }
+
+//        if (day > claimedBonuses + 1) {
+//            state = DailyBonusState.LOCKED;
+//        } else if (day == claimedBonuses || (claimedBonuses == 0 && day == 1)) {
+//            state = user.isEligibleForBonus() ? DailyBonusState.AVAILABLE : DailyBonusState.CLAIMED;
+//        } else {
+//            state = DailyBonusState.LOCKED;
+//        }
+
+//            if (claimedBonuses == 0 && day == 1) {
+//                state = DailyBonusState.AVAILABLE;
+//            } else if (claimedBonuses < day) {
+//                state = DailyBonusState.CLAIMED;
+//            }
+//            else if (claimedBonuses == day) {
+//                state = user.isEligibleForBonus() ? DailyBonusState.AVAILABLE : DailyBonusState.CLAIMED;
+//            } else {
+//                state = DailyBonusState.LOCKED;
+//            }
+
+        return state;
+    }
+
     public List<DailyBonusDTO> getDailyBonuses() {
-        List<DailyBonus> dailyBonuses = Stream.concat(dailyBonusFirstWeek.stream(), dailyBonusSecondWeek.stream()).toList();;
         User user = userProvider.getCurrentUser();
 
         List<DailyBonusDTO> toReturn = new ArrayList<>();
-        for (int i = 0; i < dailyBonuses.size(); i++) {
-            DailyBonus dailyBonus = dailyBonuses.get(i);
-            int day = i + 1;
-
-            DailyBonusState state;
-            int daysLoggedIn = user.getDaysLoggedIn();
-            if (day == daysLoggedIn + 1) {
-                state = DailyBonusState.NEXT_BUT_LOCKED;
-            } else if (day > daysLoggedIn + 1) {
-                state = DailyBonusState.LOCKED;
-            } else if (day == daysLoggedIn) {
-                state = DailyBonusState.AVAILABLE;
-            } else {
-                state = DailyBonusState.CLAIMED;
-            }
+        for (int i = 0; i < allDailyBonuses.size(); i++) {
+            DailyBonus dailyBonus = allDailyBonuses.get(i);
+            DailyBonusState state = getDailyBonusState(user, i);
 
             DailyBonusDTO dailyBonusDTO = new DailyBonusDTO(
-                    day,
+                    i + 1,
                     dailyBonus.count(),
                     dailyBonus.type(),
                     state,
@@ -86,5 +120,21 @@ public class DailyBonusService {
         }
 
         return toReturn;
+    }
+
+    public void claimUserBonus(int day) {
+        User user = this.userProvider.getCurrentUser();
+
+        DailyBonus dailyBonus = allDailyBonuses.get(day - 1);
+        if (dailyBonus.type() == DailyBonusType.POINTS) {
+            user.setExtraPoints(user.getExtraPoints() + dailyBonus.count());
+        } else {
+            user.setUserCoins(user.getUserCoins() + dailyBonus.count());
+        }
+
+        user.setClaimedBonusCount(user.getClaimedBonusCount() + 1);
+        user.setLastBonusClaimedOn(LocalDateTime.now());
+
+        userRepository.save(user);
     }
 }

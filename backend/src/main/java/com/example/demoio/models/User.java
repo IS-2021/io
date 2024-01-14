@@ -1,10 +1,13 @@
 package com.example.demoio.models;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 
@@ -31,12 +34,15 @@ public class User {
     @Column(name = "password", nullable = false)
     private String password;
 
-    @Column(name = "lastLoggedIn")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date lastLoggedIn;
+    @Column(name = "lastBonusClaimedOn")
+//    @Temporal(TemporalType.TIMESTAMP)
+    private LocalDateTime lastBonusClaimedOn;
 
-    @Column(name = "daysLoggedIn", nullable = false, columnDefinition = "int default 1")
-    private int daysLoggedIn;
+    @Column(name = "claimedBonusCount", nullable = false, columnDefinition = "int default 1")
+    private int claimedBonusCount;
+
+    @Column(name = "extraPoints", nullable = false, columnDefinition = "int default 0")
+    private int extraPoints;
 
     @OneToMany(mappedBy = "user")
     private List<Ranking> rankings;
@@ -44,5 +50,15 @@ public class User {
     public User(String username, String password) {
         this.username = username;
         this.password = password;
+    }
+
+    public boolean isEligibleForBonus() {
+        if (this.lastBonusClaimedOn == null) {
+            return true;
+        }
+
+        LocalDateTime nextDay = this.lastBonusClaimedOn.plusDays(1).truncatedTo(java.time.temporal.ChronoUnit.DAYS);
+        LocalDateTime now = LocalDateTime.now();
+        return now.isAfter(nextDay) || now.isEqual(nextDay);
     }
 }

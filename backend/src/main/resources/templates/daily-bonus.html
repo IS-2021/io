@@ -56,14 +56,6 @@
                                 <!-- Odbierz -->
                             </button>
                             <button
-                                    th:if="${bonus.state() == T(com.example.demoio.modules.dailybonus.DailyBonusState).NEXT_BUT_LOCKED}"
-                                    th:text="${bonus.state().getDisplayLabel()}"
-                                    class="w-32 rounded-md bg-neutral-950 py-2 text-neutral-50"
-                                    disabled
-                            >
-                                <!-- Następny -->
-                            </button>
-                            <button
                                     th:if="${bonus.state() == T(com.example.demoio.modules.dailybonus.DailyBonusState).LOCKED}"
                                     th:text="${bonus.state().getDisplayLabel()}"
                                     class="w-32 rounded-md bg-neutral-300 py-2 text-neutral-50"

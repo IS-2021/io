@@ -30,6 +30,8 @@ public class DailyBonusController extends BaseController {
 
     @PostMapping()
     public String postClaim(@RequestParam("day") String day) {
+        dailyBonusService.claimUserBonus(Integer.parseInt(day));
+
         return "redirect:/daily-bonus";
     }
 }
