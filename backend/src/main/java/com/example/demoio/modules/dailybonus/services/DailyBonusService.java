@@ -60,43 +60,14 @@ public class DailyBonusService {
     private static DailyBonusState getDailyBonusState(User user, int day) {
         int claimedBonuses = user.getClaimedBonusCount();
         DailyBonusState state;
-        // GOOD
-//        if (claimedBonuses == 0 && day == 1) {
-//          state = user.isEligibleForBonus() ? DailyBonusState.AVAILABLE : DailyBonusState.CLAIMED;
-//        } else if (day > claimedBonuses + 1) {
-//            state = DailyBonusState.LOCKED;
-//        } else if (day == claimedBonuses) {
-//            state = DailyBonusState.AVAILABLE;
-//        } else {
-//            state = DailyBonusState.LOCKED;
-//        }
 
         if (day < claimedBonuses) {
             state = DailyBonusState.CLAIMED;
-        } else if (day == claimedBonuses) {
-            state = user.isEligibleForBonus() ? DailyBonusState.AVAILABLE : DailyBonusState.CLAIMED;
+        } else if (user.isEligibleForBonus() && day == claimedBonuses) {
+            state = DailyBonusState.AVAILABLE;
         } else {
             state = DailyBonusState.LOCKED;
         }
-
-//        if (day > claimedBonuses + 1) {
-//            state = DailyBonusState.LOCKED;
-//        } else if (day == claimedBonuses || (claimedBonuses == 0 && day == 1)) {
-//            state = user.isEligibleForBonus() ? DailyBonusState.AVAILABLE : DailyBonusState.CLAIMED;
-//        } else {
-//            state = DailyBonusState.LOCKED;
-//        }
-
-//            if (claimedBonuses == 0 && day == 1) {
-//                state = DailyBonusState.AVAILABLE;
-//            } else if (claimedBonuses < day) {
-//                state = DailyBonusState.CLAIMED;
-//            }
-//            else if (claimedBonuses == day) {
-//                state = user.isEligibleForBonus() ? DailyBonusState.AVAILABLE : DailyBonusState.CLAIMED;
-//            } else {
-//                state = DailyBonusState.LOCKED;
-//            }
 
         return state;
     }
