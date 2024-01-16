@@ -11,8 +11,11 @@
         <div>
             <h1 class="mb-4 text-center text-4xl font-bold">Codzienne bonusy</h1>
             <p class="mb-2 text-center">Zgrarniaj codziennie punkty lub monety!</p>
-            <p id="var-time-left" th:text="${nextBonusAvailableAt}" class="hidden"></p>
-            <p class="mb-6 text-center" id="time-left-p">Kolejny do odebrania za: <span id="time-left" class="tabular-nums"></span></p>
+
+            <div th:if="${nextBonusAvailableAt}">
+                <p id="var-time-left" th:text="${nextBonusAvailableAt}" class="hidden"></p>
+                <p class="mb-6 text-center" id="time-left-p">Kolejny do odebrania za: <span id="time-left" class="tabular-nums"></span></p>
+            </div>
 
             <div class="mx-auto grid grid-cols-7 grid-rows-2 gap-y-8 gap-x-2">
                 <!--/*@thymesVar id="bonus" type="com.example.demoio.modules.dailybonus.dto.DailyBonusDTO"*/-->

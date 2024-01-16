@@ -29,7 +29,9 @@ public class DailyBonusController extends BaseController {
         User user = userProvider.getCurrentUser();
 
         model.addAttribute("dailyBonuses", dailyBonusService.getDailyBonuses());
-        model.addAttribute("nextBonusAvailableAt", user.getLastBonusClaimedOn().plusDays(1).truncatedTo(java.time.temporal.ChronoUnit.DAYS).toInstant(java.time.ZoneOffset.UTC).toEpochMilli());
+        if (user.getLastBonusClaimedOn() != null) {
+            model.addAttribute("nextBonusAvailableAt", user.getLastBonusClaimedOn().plusDays(1).truncatedTo(java.time.temporal.ChronoUnit.DAYS).toInstant(java.time.ZoneOffset.UTC).toEpochMilli());
+        }
 
         return "daily-bonus";
     }
