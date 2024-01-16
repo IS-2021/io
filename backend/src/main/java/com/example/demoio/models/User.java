@@ -61,4 +61,17 @@ public class User {
         LocalDateTime now = LocalDateTime.now();
         return now.isAfter(nextDay) || now.isEqual(nextDay);
     }
+
+    /**
+     * Get the total bonus points for the user, based on coins and extra points.
+     * @return The total bonus points.
+     */
+    public Integer getTotalBonusPoints() {
+        int pointsPerCoin = 500;
+
+        int points = this.getExtraPoints();
+        points += this.getUserCoins() * pointsPerCoin;
+
+        return points;
+    }
 }
