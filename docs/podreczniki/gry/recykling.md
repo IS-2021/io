@@ -142,3 +142,5 @@ Gra kończy się:
  Następnie gracz ma możliwość ponownego rozpoczęcia rozgrywyki naciskając przycisk restart
 
  ![reset](https://i.imgur.com/aFvz9RM.png)
+
+`Gra posiada oryginalną oprawę muzyczną autorstaw Pawła Stusa`
