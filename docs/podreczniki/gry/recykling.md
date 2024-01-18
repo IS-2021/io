@@ -24,23 +24,24 @@ W grze gracz ma do wyboru 3 poziomy trudności
 
     ![Poziom Hard](https://i.imgur.com/s6cwUV6.png)
 
-Początkowo odblokowany jest tylko Łatwy poziom trudności i gracz wraz z ukończeniem danego poziomu trudności odblokowywuje kolejne
+Początkowo odblokowany jest tylko Łatwy poziom trudności, który wybierany jest domyślnie i gracz wraz z ukończeniem danego poziomu trudności odblokowywuje kolejne
 - Zablokowane poziomy trudności oznaczone są **czerwoną ramką** wokół przycisku umożliwiającego wybór poziomu trudności
+- Wybrany poziom trudności oznaczny jest **białą ramką** wokół przycisku umożliwiającego wybór poziomu trudności
 
 ## Instrukcja gry
 
 Z menu gry możemy przejść do instrukcji klikjąc odpowiedni przycisk
 
-![Otwarcie instrukcji](https://i.imgur.com/NB6q7R8.png)
+![Otwarcie instrukcji](https://i.imgur.com/ZFCjbLz.png)
 
 Po naciśnięciu przycisku oczom gracza ukazuje się instrukcja
 
 ![Instrukcja](https://i.imgur.com/bujCAxN.png)
 
 Zawiera ona:
-- wprowadzenie fabularne
+- Wprowadzenie fabularne
   > Sterujesz statkiem a twoim zadaniem jest pozbycie się śmieci rozłożonych na planszy. Bądż jednak czujny, ponieważ z powodu nielegalnego wywozu śmieci, odpady się zbuntowały i teraz po ciebie idą. W momencie gdy hordy odpadów dojdą do twojej wysokości gra się zakończy a wyspa będzie zgubiona.
-- opis zasad
+- Opis zasad
   > Różne typy przeciwników mogą być zniszczone jedynie za pomocą odpowiedniego typu lasera
   > - plastik za pomocą zółtego lasera
   >   
@@ -55,9 +56,51 @@ Zawiera ona:
   > Im ciemniejszy odcień danego odpadu tym więcej trafień jest potrzebne aby go w pełni zniszczyć (maksymalnie 3 trafienia)
   >
   > Jeżeli śmieci dojdą do poziomu statku gra kończy się porażką
-- opis sterowania
+- Opis sterowania
   > - Nacisnij strzałki aby poruszać się w prawo lub w lewo
   > - Naciśnij spacje aby strzelać
   > - Naciśnij 1, 2 lub 3 aby zmienić kolor lasera
   > - Naciśnij R aby schłodzić działo
-- opis przeciwników
+- Opis przeciwników
+  > Pojawią się również dodatkowe zagrożenia, co 5 sekund losowy z odpadów spowoduje pojawienie się przeciwnika, który będzie poruszał się w twoim kierunku. Jeżeli przeciwnik wejdzie w kontakt ze statkiem gra również zakończy się niepowodzeniem
+  >
+  > Modele przeciwników:
+  > 
+  > ![przeciwnik1](https://i.imgur.com/HR3UKw1.png) ![przeciwnik2](https://i.imgur.com/qvknBr7.png)
+
+Gracz może powrócić do menu naciskając przycisk Understood
+
+![Zamknięcie instrukcji](https://i.imgur.com/GHsrIf0.png)
+
+## Rozpoczęcie rozgrywki
+
+Po wyborze poziomu trudności możemy i zapoznaniu się z instrukcją gracz może rozpocząć grę
+
+![Start gry](https://i.imgur.com/w4zMxx3.png)
+
+## Ekran rozgrywki
+
+Po tym jak gracz zdecyduje się na rozpoczęcie rozgrywki jego oczom ukaże się następujący widok:
+
+![Steup gry](https://i.imgur.com/D6IBu28.png)
+
+Na tym ekranie możemy zauważyć takie elementy jak:
+- Odliczanie do rozpoczęcia gry
+  > Odliczanie ustawione jest na 3 sekundy. W momencie gdy ten czas dobiegnie końca na ekranie ukaże się statek reprezentujący model gracza oraz odpady. Po sekundzie odblokowane zostanie sterowanie a przecwinicy zaczną się poruszać w kierunku gracza
+  > 
+  > ![odliczanie](https://i.imgur.com/fRrBNRe.png) 
+- Panel informacji na temat stanu gry:
+    - Licznik puntków
+    > Pokazuje aktualny stan punktów gracza, w momencie trafienia w jeden ze śmieci do wyniku gracza doliczona zostanie adekwatna ilość punktów stosowna do poziomu truności
+    > 
+    > ![punkty](https://i.imgur.com/IrRmEvD.png) 
+    - Wskaźnik pokazujący wybrany rodzaj lasera
+    > Na tym wskaźniku zaznaczony poprzez jaśniejsze tło jest kolor lasera który aktulanie jest wybrany. Domyśnie wybranym kolorem lasera w momencie rozpoczęcia gry jest żółty.
+    > 
+    > ![lasery](https://i.imgur.com/Q1FIrCk.png) 
+    - Wskaźnik pokazujący obecny poziom nagrzania broni
+    > Ten wskaźnik pokazuje jak bardzo nagrzana jest broń i zapełniany on jest wraz ze strzelaniem, w momencie gdy ten wskaźnik zostanie zapełniony możliwość strzelania zostanie zablokowana i gracz będzie musiał nacisnąć R, a następnie odczekwać aż wskaźnik się opróżni zanim znów będzie mógł strzelać
+    > 
+    > ![ciepło](https://i.imgur.com/eotRIih.png) 
+
+
