@@ -1,27 +1,33 @@
 # Moduł aplikacji
 
 
-## Krótki opis
 W naszym rozwiązaniu na cały system możemy patrzeć przez pryzmat modułu aplikacji. 
 Jest on naszym "centrum dowodzenia", które spaja wszystkie utworzone komponenty w jedną logiczną całość.
 Odpowiada on min. za utrzymanie sesji zalogowanego użytkownika oraz dostarczenie informacji właśnie o zalogowanym użytkowniku do innych komponentów, które tego wymagają.
 
 
 
+## Diagram klas
+
+Diagram pokazuje klasy niezbędne do działania modułu aplikacji.
+
+![class](https://gist.github.com/assets/126806633/bc653d52-309c-4c4e-8854-db869b30e902)
+
 ## Diagram przypadków użycia dla użytkownika niezalogowanego
+
+Diagram prezentujący możliwe ruchy dla użytkownika niezalogowanego
 
 ![przyp1](https://gist.github.com/assets/126806633/28d5939e-db05-48fe-a774-434e0583419d)
 
 
 ## Diagram przypadków użycia dla użytkownika zalogowanego
 
-![useCase](https://gist.github.com/assets/126806633/97d6d388-bc86-4f0f-befc-2c55c75237f1)
+Diagram prezentujący możliwe ruchy dla użytkownika zalogowanego
 
-## Diagram sekwencji dla przypadku użycia Logowanie
 
-Widzimy tutaj wywołania odpowiednich metod służących do uwierzytelnienia użytkownika w systemie.
+![usecase](https://gist.github.com/assets/126806633/adc2c59f-1237-434b-89c3-107ec7348d67)
 
-![seqLog](https://gist.github.com/assets/126806633/44927182-5500-46d9-9039-5206caf24b92)
+
 
 
 ## Scenariusz dla przypadku użycia Logowanie
@@ -39,12 +45,13 @@ Widzimy tutaj wywołania odpowiednich metod służących do uwierzytelnienia uż
 | Zakończenie                    | Użytkownik zostaje zalogowany do systemu bądź otrzymuje komunikat o błędnych danych                                                                                                                                                                                   |
 | Warunek końcowy                | -----------------                                                                                                                                                                                                                                                     |
 
-## Diagram sekwencji dla przypadku użycia Rejestracja
 
-Widzimy tutaj wywołania odpowiednich metod służących do rejestracji użytkownika w systemie.
+## Diagram sekwencji dla przypadku użycia Logowanie
 
+Widzimy tutaj wywołania odpowiednich metod służących do uwierzytelnienia użytkownika w systemie.
 
-![seq1](https://gist.github.com/assets/126806633/827cde23-6d09-46b4-ae5e-95b9e397691a)
+![seqLog](https://gist.github.com/assets/126806633/44927182-5500-46d9-9039-5206caf24b92)
+
 
 
 ## Scenariusz dla przypadku użycia Rejestracja
@@ -62,14 +69,14 @@ Widzimy tutaj wywołania odpowiednich metod służących do rejestracji użytkow
 | Warunek końcowy                | -----------------                                                                                                                                                                                                                                                                                                                                                            |
 
 
+## Diagram sekwencji dla przypadku użycia Rejestracja
+
+Widzimy tutaj wywołania odpowiednich metod służących do rejestracji użytkownika w systemie.
 
 
+![seq1](https://gist.github.com/assets/126806633/827cde23-6d09-46b4-ae5e-95b9e397691a)
 
-## Diagram klas
 
-Diagram pokazuje klasy niezbędne do działania modułu aplikacji.
-
-![class](https://gist.github.com/assets/126806633/bc653d52-309c-4c4e-8854-db869b30e902)
 
 
 ## Diagram czynności 
@@ -83,7 +90,8 @@ Diagram czynności pokazujący kolejne kroki w procesie uwierzytelniania użytko
 
 Diagram pokazuje możliwe stany systemu.
 
-![stany](https://gist.github.com/assets/126806633/7eb824c8-bda8-458b-ae48-1c405a328771)
+![stany](https://gist.github.com/assets/126806633/bef03241-4b16-444c-92cb-2518d3836754)
+
 
 
 ## Diagram komponentów
@@ -104,7 +112,9 @@ Diagram pokazuje zaprojektowaną infrastrukturę systemu
 
 Diagram pakietów obrazujący zależności między pakietami
 
-![pakiety](https://gist.github.com/assets/126806633/6badca80-a0b5-495b-a07a-519f891b1b58)
+
+![pakiet](https://gist.github.com/assets/126806633/0aeafc37-c71b-44db-b242-ea6e0960f60b)
+
 
 ## Diagram strukturalny
 

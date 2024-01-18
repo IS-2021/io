@@ -5,33 +5,40 @@ Zadaniem tego modułu jest pobieranie oraz zapisywanie danych z/do bazy danych d
 
 
 ## Diagram klas
-![class](https://gist.github.com/assets/126806633/43bea5aa-6faa-4730-ab04-42895eed3d3b)
-
 
 Warto zwrócić uwagę na klasę SaveGameData, która jest rekordem DTO (Data Transfer Object).
 
+
+![class](https://gist.github.com/assets/126806633/43bea5aa-6faa-4730-ab04-42895eed3d3b)
+
+
+
 ## Diagram przypadków użycia
+
+Prosty diagram pokazujący przypadki użycia Klienta API korzystającego z tego modułu.
 
 ![useCase](https://gist.github.com/assets/126806633/7b8237d5-7a6d-4aca-810e-6419fc0f9225)
 
 
 
-## Diagramy interakcji 
+## Diagram sekwencji dla zapisu danych do bazy
+Diagram przedstawia zapis danych gry do bazy. Aktorem jest Klient API
+
 ![interak](https://gist.github.com/assets/126806633/80714ed3-3bf0-4d47-bae6-1854fee507f5)
 
-Diagram przedstawia zapis danych gry do bazy. Aktorem jest Klient API
+## Diagram sekwencji dla odczytu danych z bazy
+Diagram przedstawia odczyt danych gry z bazy. Aktorem jest Klient API
 
 ![seq2](https://gist.github.com/assets/126806633/dd8f519d-8009-459e-8449-6d74fbd4c06e)
 
-Diagram przedstawia odczyt danych gry z bazy. Aktorem jest Klient API
 
 
 ## Diagram czynności
 
+Diagram obrazuje kolejne czynności wykonywane w ramach pobierania danych z bazy
+
 ![czynn](https://gist.github.com/assets/126806633/62547278-7d47-48a6-b48f-6a04ce2eba9e)
 
-
-Prosty diagram czynności przedstawiający proces pobierania danych gry z bazy danych.
 
 
 ## Scenariusz dotyczący przypadku użycia - Pobierz dane gry
@@ -67,4 +74,7 @@ Prosty diagram czynności przedstawiający proces pobierania danych gry z bazy d
 
 ## Diagram pakietów
 
-![pakiety](https://gist.github.com/assets/126806633/e88adfaf-12d8-4537-a092-13ee89047209)
+Diagram pakietów obrazujący zależności między pakietami
+
+
+![pakiet](https://gist.github.com/assets/126806633/0877b6ae-3cdf-447e-bd89-2b42a3d780e2)
