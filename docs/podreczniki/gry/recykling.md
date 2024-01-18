@@ -88,7 +88,11 @@ Na tym ekranie możemy zauważyć takie elementy jak:
 - Odliczanie do rozpoczęcia gry
   > Odliczanie ustawione jest na 3 sekundy. W momencie gdy ten czas dobiegnie końca na ekranie ukaże się statek reprezentujący model gracza oraz odpady. Po sekundzie odblokowane zostanie sterowanie a przecwinicy zaczną się poruszać w kierunku gracza
   > 
-  > ![odliczanie](https://i.imgur.com/fRrBNRe.png) 
+  > ![odliczanie](https://i.imgur.com/fRrBNRe.png)
+  >
+  > Po zakoćzeniu odliczania:
+  >
+  > ![rozgrywka](https://i.imgur.com/6hfXMI2.png)
 - Panel informacji na temat stanu gry:
     - Licznik puntków
     > Pokazuje aktualny stan punktów gracza, w momencie trafienia w jeden ze śmieci do wyniku gracza doliczona zostanie adekwatna ilość punktów stosowna do poziomu truności
@@ -103,4 +107,38 @@ Na tym ekranie możemy zauważyć takie elementy jak:
     > 
     > ![ciepło](https://i.imgur.com/eotRIih.png) 
 
+## Przebieg rozgrywki
 
+Podczas trwania rozgrywki gracz może wykonywać następujące akcje:
+- Sterować statkiem w prawo i w lewo
+- Strzelać do odpadów
+- Zmieniać kolor lasera
+- Schładzać broń
+- Unikać przeciwników
+
+## Zakończenie rozgrywki
+
+Gra kończy się:
+- Wygraną, na skutek
+  - Zniszczenia wszystkich przeciwników
+  > Wyświetlany jest wtedy następujący komunikat
+  >
+  > ![win](https://i.imgur.com/yU055xs.png)
+  >
+  > Następnie do bazy danych przekazywany jest wynik oraz postęp gracza
+- Przegraną, na skutke
+  - Kolizji statku z przecwinikime
+  - Dotarcia odpadów do poziomu statku
+  > Wyświetlany jest wtedy następujący komunikat
+  >
+  > ![loss](https://i.imgur.com/UGGSQMa.png) 
+
+ ## Podsumowanie rozgrywki
+
+ Gdy gra dobiegnie końca niezależnie od rezultatu rozgrywki graczowi wyśiwtlany jest następujący ekran, gdzie pokazany jest wynik osiągnięty w danej rozgrywce
+
+ ![rezultat](https://i.imgur.com/eBRAVQ9.png) 
+
+ Następnie gracz ma możliwość ponownego rozpoczęcia rozgrywyki naciskając przycisk restart
+
+ ![reset](https://i.imgur.com/aFvz9RM.png)
