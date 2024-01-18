@@ -13,7 +13,10 @@
 # Moduł aplikacji
 
 ## Diagramy przypadków użycia
-
+![image](https://gist.github.com/assets/126475707/dfa78445-4e51-4930-a1c9-dc010fcfee7e)
+![image](https://gist.github.com/assets/126475707/a7913f69-248a-452b-a1c5-36af5bc569d5)
+![image](https://gist.github.com/assets/126475707/70ac3dd4-b577-4f79-b4b7-97c5dc5d7cbf)
+![image](https://gist.github.com/assets/126475707/27c0e1db-cd08-41a1-93a1-efdac456f6df)
 
 ## Diagramy klas
 ![image](https://gist.github.com/assets/126475707/6fd393da-9c6b-40ba-8054-14b9d43cb427)
@@ -36,6 +39,8 @@
 | Specjalne wymagania           | brak                                                                                                                                                                                                                                                                                                                                         |
 | Notatki i kwestie             | Na przykład rośliny                                                                                                                                                                                                                                                                                                                          |
 
+![image](https://gist.github.com/assets/126475707/2815601e-c2ea-4252-a8a1-fa233295d6f2)
+
 ### Przypadek użycia - Zbierz śmieć
 
 | Nazwa                         | Zbierz śmieć                                                                                                        |
@@ -53,11 +58,12 @@
 | Specjalne wymagania           | brak                                                                                                                |
 | Notatki i kwestie             | Na przykład rośliny                                                                                                 |
 
+![image](https://gist.github.com/assets/126475707/022d3559-dabf-451a-b951-9e78b2be9ef9)
 ## Diagram czynności
-
+![image](https://gist.github.com/assets/126475707/009a051f-9f4d-4e09-aa40-c4e5aca8441f)
 
 ## Diagram maszyny stanowej
-
+![image](https://gist.github.com/assets/126475707/05a4db66-bcfc-4897-a1fc-3a28982c08ff)
 
 ## Diagram komponentów
 
