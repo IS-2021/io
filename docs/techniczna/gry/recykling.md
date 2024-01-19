@@ -1,4 +1,4 @@
-# Recykling - dokumentcja techniczna
+
 
 ## Cel i założenia
 
@@ -200,6 +200,8 @@ Można tutaj zauważyć wywołania odpowiednich metod, które służą do wyboru
 
 ## Diagram czynności
 
+![png](https://i.imgur.com/K9nB1i4.png)
+
 ## Diagram maszyny stanowej
 
 ## Diagram komponentów
@@ -210,6 +212,8 @@ Diagram opisuje relacje między komponentami systemu
 
 ## Diagram pakietów
 
+![png](https://i.imgur.com/eHxXzW7.png)
+
 ## Diagram przeglądu interakcji
 
 ## Diagram strukturalny
@@ -217,11 +221,13 @@ Diagram opisuje relacje między komponentami systemu
 Diagram opisuje relacje klas. Klasą centralną jest klasa "Game". Jest ona bezpośrednio powiązana z klasami: 'Enemy', 'Player', 'Rubbish', 'Laser'. 
 - Relacja z 'Enemy' wskazuje, że jedna gra może mieć wiele wrogów (1 do 0...*).
 - Relacja z 'Player' oznacza, że gra zawiera jednego gracza (1 do 1).
-- Relacja z 'Rubbish' i 'Laser' sugeruje, że gra może generować różne rodzaje śmieci i laserów.
+- Relacja z 'Rubbish' i 'Laser' oznacza, że gra może generować różne rodzaje śmieci i laserów.
 
 ![png](https://i.imgur.com/ETVTRVm.png)
 
 ## Diagram harmonogramowania
 
+Diagram harmonogramowania
 
+![png](https://i.imgur.com/n1khsnf.png)
 
