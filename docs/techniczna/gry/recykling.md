@@ -218,6 +218,8 @@ Diagram opisuje relacje między komponentami systemu
 
 ## Diagram przeglądu interakcji
 
+![png](https://i.imgur.com/JeHk3Ga.png)
+
 ## Diagram strukturalny
 
 Diagram opisuje relacje klas. Klasą centralną jest klasa "Game". Jest ona bezpośrednio powiązana z klasami: 'Enemy', 'Player', 'Rubbish', 'Laser'. 
