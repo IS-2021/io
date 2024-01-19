@@ -16,19 +16,29 @@
 
 ## Diagram przypadków użycia - 2, doprecyzowanie przypadku użycia `przebieg rozgrywki`
 
-## Powiązania z innymi modułami
-
 ## Diagram klas
 
-## Scenariusz - Wybór poziomu trudności
+## Scenariusz - `Wybór poziomu trudności`
 
-## Diagram sekwencji - Wybór poziomu trudności
+## Diagram sekwencji - `Wybór poziomu trudności`
 
-## Scenariusz - Wysyłanie danych z rozgrywki do modułów
+## Scenariusz - `Wysyłanie danych z rozgrywki do modułów`
 
-## Diagram sekwencji - Wysyłanie danych z rozgrywki do modułów
+## Diagram sekwencji - `Wysyłanie danych z rozgrywki do modułów`
 
-## Realizacja założeń i wymagań
+## Diagram czynności
 
-## Realizacja powiązań z innymi modułami
+## Diagram maszyny stanowej
+
+## Diagram komponentów
+
+## Diagram pakietów
+
+## Diagram przeglądu interakcji
+
+## Diagram strukturalny
+
+## Diagram harmonogramowia
+
+
 
