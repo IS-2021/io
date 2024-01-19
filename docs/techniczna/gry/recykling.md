@@ -16,6 +16,13 @@
 
 ## Diagram przypadków użycia - 1
 
+![png](https://i.imgur.com/UeA55Ae.png)
+
+opis diagramu
+> opis
+>
+> .
+
 ## Diagram przypadków użycia - 2, doprecyzowanie przypadku użycia `przebieg rozgrywki`
 
 ## Diagram klas
