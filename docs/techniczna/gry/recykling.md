@@ -30,7 +30,7 @@
 - Gra wyświetla komunikat o wyniku rozgrywki po jej zakończeniu
 - Możliwość ponownego rozpoczęcia rozgrywki po jej zakończeniu
 
-## Wynagania niefunkcjonalne
+## Wymagania niefunkcjonalne
 
 - Gra pobiera postęp gracza z modułu przechowywania danych 
 - Gra po zakończonej powodzeniem rozgrywce wysyła do modułów rankingu i przechowywania 
@@ -66,7 +66,56 @@ Diagram przedstawiający klasy użyte do stworzenia gry.
 
 ## Scenariusz - `Wybór poziomu trudności`
 
-
+<table>
+        <tr>
+            <th>Poziom ważności</th>
+            <td>Wysoki</td>
+        </tr>
+        <tr>
+            <th>Typ przypadku użycia</th>
+            <td>Szczegółowy</td>
+        </tr>
+        <tr>
+            <th>Aktorzy</th>
+            <td>Użytkownik</td>
+        </tr>
+        <tr>
+            <th>Krótki opis</th>
+            <td>Użytkownik wybiera wybór trudności za pomocą przycisku myszki.</td>
+        </tr>
+        <tr>
+            <th>Warunki wstępne</th>
+            <td>Znajomość zasad i przebiegu rozgrywki przez użytkownika</td>
+        </tr>
+        <tr>
+            <th>Warunki końcowe</th>
+            <td>Użytkownik rozpoczął rozgrywkę na wybranym poziomie.</td>
+        </tr>
+        <tr>
+            <th>Główny przepływ zdarzeń</th>
+            <td>
+                <ol>
+                    <li>Gracz może wybrać jeden z trzech poziomów trudności klikając na niego myszką.</li>
+                </ol>
+            </td>
+        </tr>
+        <tr>
+            <th>Alternatywne przepływy zdarzeń</th>
+            <td>
+                <ol>
+                    <p>1a. Poziom trudności nie zmieni się jeśli gracz nie ma do niego dostępu.
+                </ol>
+            </td>
+        </tr>
+        <tr>
+            <th>Specjalne wymagania</th>
+            <td>Posiadanie odpowiednich danych z serwera żeby sprawdzić czy gracz ma odblokowane wszystkie poziomy.</td>
+        </tr>
+        <tr>
+            <th>Notatki i kwestie</th>
+            <td>Brak</td>
+        </tr>
+    </table>
 
 ## Diagram sekwencji - `Wybór poziomu trudności`
 
