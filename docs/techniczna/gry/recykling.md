@@ -47,18 +47,20 @@ rankingu
 
 ## Diagram przypadków użycia - 1
 
+Diagram przedstawiający akcje, które są możliwe do wykonania przed rozpoczęciem rozgrywki i po jej zakończeniu.
+
 ![png](https://i.imgur.com/UeA55Ae.png)
 
-opis diagramu
-> opis
->
-> .
 
 ## Diagram przypadków użycia - 2, doprecyzowanie przypadku użycia `przebieg rozgrywki`
+
+Diagram przedstawiający akcje, które są możliwe do wykonania w trakcie rozgrywki.
 
 ![png](https://i.imgur.com/iez0DGS.png)
 
 ## Diagram klas
+
+Diagram przedstawiający klasy użyte do stworzenia gry.
 
 ![png](https://i.imgur.com/9268AN4.png)
 
@@ -67,6 +69,10 @@ opis diagramu
 
 
 ## Diagram sekwencji - `Wybór poziomu trudności`
+
+Można tutaj zauważyć wywołania odpowiednich metod, które służą do wyboru poziomu trudności.
+
+![png](https://i.imgur.com/mzazY8e.png)
 
 ## Scenariusz - `Wysyłanie danych z rozgrywki do modułów`
 
@@ -111,8 +117,8 @@ opis diagramu
             <th>Główny przepływ zdarzeń</th>
             <td>
                 <ol>
-                    <li>W oparciu o uzyskany wynik do modułu rankingu przesyłane są odpowiednie wartości</li>
-                    <li>Do modułu przechowywania danych wysyłane są informacje o postępach gracza</li>
+                    <p>1. W oparciu o uzyskany wynik do modułu rankingu przesyłane są odpowiednie wartości</p>
+                    <p>2. Do modułu przechowywania danych wysyłane są informacje o postępach gracza</p>
                 </ol>
             </td>
         </tr>
@@ -120,10 +126,10 @@ opis diagramu
             <th>Alternatywne przepływy zdarzeń</th>
             <td>
                 <ol>
-                    <li>Jeśli gra nie została zakończona to dane nie są wysyłane do modułu rankingu.</li>
-                    <li>Jeśli gra została przegrana to dane nie są wysyłane do modułu rankingu.</li>
-                    <li>Jeśli gra nie została zakończona to dane nie są wysyłane do modułu przechowywania danych.</li>
-                    <li>Jeśli gra została przegrana to dane nie są wysyłane do modułu przechowywania danych.</li>
+                    <p>1a. Jeśli gra nie została zakończona to dane nie są wysyłane do modułu rankingu.</p>
+                    <p>1b. Jeśli gra została przegrana to dane nie są wysyłane do modułu rankingu.</p>
+                    <p>2a. Jeśli gra nie została zakończona to dane nie są wysyłane do modułu przechowywania danych.</p>
+                    <p>2b. Jeśli gra została przegrana to dane nie są wysyłane do modułu przechowywania danych.</p>
                 </ol>
             </td>
         </tr>
@@ -139,6 +145,10 @@ opis diagramu
 
 ## Diagram sekwencji - `Wysyłanie danych z rozgrywki do modułów`
 
+Można tutaj zauważyć wywołania odpowiednich metod, które służą do wyboru poziomu trudności.
+
+![png](https://i.imgur.com/enHSYoq.png)
+
 ## Diagram czynności
 
 ## Diagram maszyny stanowej
@@ -151,7 +161,7 @@ opis diagramu
 
 ## Diagram strukturalny
 
-## Diagram harmonogramowia
+## Diagram harmonogramowania
 
 
 
