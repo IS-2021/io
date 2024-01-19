@@ -66,7 +66,7 @@ Diagram przedstawiający klasy użyte do stworzenia gry.
 
 ## Scenariusz - `Wybór poziomu trudności`
 
-<table>
+ <table>
         <tr>
             <th>Poziom ważności</th>
             <td>Wysoki</td>
@@ -115,7 +115,7 @@ Diagram przedstawiający klasy użyte do stworzenia gry.
             <th>Notatki i kwestie</th>
             <td>Brak</td>
         </tr>
-    </table>
+</table>
 
 ## Diagram sekwencji - `Wybór poziomu trudności`
 
@@ -204,11 +204,22 @@ Można tutaj zauważyć wywołania odpowiednich metod, które służą do wyboru
 
 ## Diagram komponentów
 
+Diagram opisuje relacje między komponentami systemu
+
+![png](https://i.imgur.com/IxNoikL.png)
+
 ## Diagram pakietów
 
 ## Diagram przeglądu interakcji
 
 ## Diagram strukturalny
+
+Diagram opisuje relacje klas. Klasą centralną jest klasa "Game". Jest ona bezpośrednio powiązana z klasami: 'Enemy', 'Player', 'Rubbish', 'Laser'. 
+- Relacja z 'Enemy' wskazuje, że jedna gra może mieć wiele wrogów (1 do 0...*).
+- Relacja z 'Player' oznacza, że gra zawiera jednego gracza (1 do 1).
+- Relacja z 'Rubbish' i 'Laser' sugeruje, że gra może generować różne rodzaje śmieci i laserów.
+
+![png](https://i.imgur.com/ETVTRVm.png)
 
 ## Diagram harmonogramowania
 
