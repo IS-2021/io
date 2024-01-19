@@ -12,6 +12,8 @@
 
 ## Wynagania niefunkcjonalne
 
+## Zmiany wymagań
+
 ## Diagram przypadków użycia - 1
 
 ## Diagram przypadków użycia - 2, doprecyzowanie przypadku użycia `przebieg rozgrywki`
