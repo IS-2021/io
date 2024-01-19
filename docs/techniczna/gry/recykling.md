@@ -204,6 +204,8 @@ Można tutaj zauważyć wywołania odpowiednich metod, które służą do wyboru
 
 ## Diagram maszyny stanowej
 
+![png](https://i.imgur.com/GgCRa9Q.png)
+
 ## Diagram komponentów
 
 Diagram opisuje relacje między komponentami systemu
