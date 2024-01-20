@@ -24,16 +24,21 @@
 						<p th:if="${coinReward}" class="mb-3 text-sm font-medium">
 							Za ukończenie tej gry otrzymasz
 							<span th:text="${coinReward} + ' monet'" class="text-green-500"></span>
-							<span class="inline-block h-4 w-4 text-green-500"
-								><svg th:replace="~{fragments/icons/coins}"></svg
-							></span>
+							<span class="inline-block h-4 w-4 text-green-500">
+								<svg th:replace="~{fragments/icons/coins}"></svg>
+							</span>
 						</p>
 						<a
+							th:if="${isGameUnlocked}"
 							th:href="${requestURI} + '/play'"
 							class="block w-full max-w-xs rounded-md bg-neutral-950 px-4 py-2 text-center text-neutral-50"
 						>
 							Rozpocznij rozgrywkę
 						</a>
+						<button th:unless="${isGameUnlocked}" disabled class="block flex gap-2 items-center justify-center w-full max-w-xs rounded-md bg-neutral-400 px-4 py-2 text-center text-neutral-50">
+							<svg th:replace="~{fragments/icons/lock}" class="w-4 h-4"></svg>
+							Gra zablokowana
+						</button>
 					</article>
 
 					<article>

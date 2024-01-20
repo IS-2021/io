@@ -6,6 +6,8 @@ import com.example.demoio.models.GameUnlock;
 import com.example.demoio.modules.games.repositories.GameUnlockRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class GameUnlockService {
     private final GameUnlockRepository gameUnlockRepository;
@@ -19,5 +21,10 @@ public class GameUnlockService {
     public void unlockGame(Game game) {
         GameUnlock gameUnlock = new GameUnlock(this.userProvider.getCurrentUser(), game);
         this.gameUnlockRepository.save(gameUnlock);
+    }
+
+    public boolean isGameUnlocked(Long gameId) {
+        Optional<GameUnlock> optGameUnlock = this.gameUnlockRepository.findByUserAndGame_GameId(this.userProvider.getCurrentUser(), gameId);
+        return optGameUnlock.isPresent();
     }
 }
