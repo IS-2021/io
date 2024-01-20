@@ -21,11 +21,11 @@
 - Możliwość rozpoczęcia rozgrywki
 
 - Przebieg rozgrywki:
- 1. Sterowanie statkiem
- 2. Unikanie przeciwników
- 3. Strzelanie
- 4. Schładzanie broni
- 5. Eliminacja odpadów
+  1. Sterowanie statkiem
+  2. Unikanie przeciwników
+  3. Strzelanie
+  4. Schładzanie broni
+  5. Eliminacja odpadów
 
 - Gra wyświetla komunikat o wyniku rozgrywki po jej zakończeniu
 - Możliwość ponownego rozpoczęcia rozgrywki po jej zakończeniu
@@ -37,8 +37,7 @@
 - Jeżeli użytkownik nie przejdzie pomyślnie poziomu, to jego wynik nie jest zapisywany w rankingu
 - Dany rodzaj odpadów jest możliwy do zestrzelenia tylko konkretnym kolorem lasera
 - Działo w miarę strzelania przegrzewa się
-- Ukończenie poziomu wymaga osiągnięcia minimalnego przedziału punktów
-- Poziom kończy się gdy przeciwnicy dojdą do wysokości gracza
+- Gra kończy się gdy przeciwnicy dojdą do wysokości gracza lub gry wejdzie on w kontakt z przeciwnikiem
 - Z odpadów co jakiś czas będą wychodzili przeciwnicy, którch gracz powinien unikać
 
 ## Zmiany wymagań i założeń względem prezentacji początkowej modułu
@@ -245,3 +244,20 @@ Diagram harmonogramowania przedstawia stany gry w czasie
 ![png](https://i.imgur.com/n1khsnf.png)
 
 W przypadku tego modułu niemożliwe jest dokładne rozłożenie konkretnych stanów w czasie. Jest to spowodowane brakiem możliwości pomiaru ze względu na krótki czas trwania danych interwałów czasowych. Nie możliwe jest również zmierzenie jak długo gracz będzie znajdował się w danej cześći programu ze względu na to, że może wykonać daną akcje po sekundzie, a możę zostawić on gre w danym stanie na kilka godzin.
+
+## Realizacja założeń i wymagań
+
+Zaprojektowany moduł gry spełnia założenia oraz wyamgania nałożone na niego przy prezentacji początkowej. 
+- Gracz otrzymuje punkty za postęp w grze a ilość punktów jest normowana przez poziom trudności.
+- Moduł jest połączony z innymi modułami projektu
+- Gra posiada 3 poziomy trudności
+- Stworzona została instrukcja możliwa do wyświetlenia w menu gry
+- Gra posiada prostą w obsłudze nawigacje
+- Kryteria wygranej i przegranej zostały zaimplentowane zgodnie z założeniamai
+- Odpady niszczone są jedynie odpowiednim rodzajem lasera
+- Na strzelanie nałożona jest restrykcja w postaci poziomu przegrzania
+
+## Realizacja powiązań z innymi modułami
+
+Moduł powiązany jest z innymi modułami projektu. W module przechowywania danych przechowywane są postępy gracza w grze stworzonej na rzecz tego modułu. W module rankingu przechowywane są wyniki graczy.
+W przypadku obu modułów dane są do nich przesyłane jedynie w przypadku zakończenia gry w sposób pomyślny. Połączenie z modułem aplikacji realizowane jest przez system stworzony przez architektów grupy i nawigowanie jest obługiwane przez główną aplikacje.
