@@ -18,7 +18,7 @@
 ![image](https://gist.github.com/assets/126475707/70ac3dd4-b577-4f79-b4b7-97c5dc5d7cbf)
 ![image](https://gist.github.com/assets/126475707/27c0e1db-cd08-41a1-93a1-efdac456f6df)
 
-Digramy przdstawiają przypadki użycia modułu
+Diagramy przdstawiają przypadki użycia modułu z podziałem na różnych aktorów
 ## Diagram klas
 ![image](https://gist.github.com/assets/126475707/6fd393da-9c6b-40ba-8054-14b9d43cb427)
 
