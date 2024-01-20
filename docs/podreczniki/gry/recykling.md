@@ -143,4 +143,4 @@ Gra kończy się:
 
  ![reset](https://i.imgur.com/aFvz9RM.png)
 
-`Gra posiada oryginalną oprawę muzyczną autorstaw Pawła Stusa`
+`Gra posiada oryginalną oprawę muzyczną skomponowaną przez Pawła Stusa`
