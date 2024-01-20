@@ -1,6 +1,4 @@
-<!-- Szablon instrukcji użytkownika jest czysto poglądowy -->
-<!-- Pamiętajcie by usunać komentarze -->
-# Recykling
+# Oszczędzanie energii
 
 ## Opis gry
 Gra przedstawia rzut boczny budynku, w którym znajdują się urządzenia elektryczne oraz biegnie okablowanie.
