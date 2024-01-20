@@ -21,11 +21,11 @@
 - Możliwość rozpoczęcia rozgrywki
 
 - Przebieg rozgrywki:
-  1. Sterowanie statkiem
-  2. Unikanie przeciwników
-  3. Strzelanie
-  4. Schładzanie broni
-  5. Eliminacja odpadów
+	1. Sterowanie statkiem
+	2. Unikanie przeciwników
+	3. Strzelanie
+	4. Schładzanie broni
+	5. Eliminacja odpadów
 
 - Gra wyświetla komunikat o wyniku rozgrywki po jej zakończeniu
 - Możliwość ponownego rozpoczęcia rozgrywki po jej zakończeniu
@@ -230,7 +230,8 @@ Diagram opisuje jak przegląd uproszczonych diagramów interakcji dotyczących s
 
 ## Diagram strukturalny
 
-Diagram opisuje relacje klas. Klasą centralną jest klasa "Game". Jest ona bezpośrednio powiązana z klasami: 'Enemy', 'Player', 'Rubbish', 'Laser'. 
+Diagram opisuje relacje klas. Klasą centralną jest klasa "Game". Jest ona bezpośrednio powiązana z klasami: 'Enemy', 'Player', 'Rubbish', 'Laser'.
+ 
 - Relacja z `Player` oraz `Difficulty` oznacza, że gra zawiera jedną instancje klasy gracza (1 do 1), oraz poziomu trudności
 - Relacja z `Enemy`, `Rubbish` i `Laser` oznacza, że w grze mogą być generowanie różne rodzaje śmieci i laserów (1 do 0...*)
 - Relacja z `LaserType`, `RubbishType` i `EnemyType` ozancza, że odpowiednie instancje klasy z nic korzystające używają jedynie jednego typu (enumeration) natomiast dany typ może być używany przez wiele instancji (1 do 0...*)
@@ -248,6 +249,7 @@ W przypadku tego modułu niemożliwe jest dokładne rozłożenie konkretnych sta
 ## Realizacja założeń i wymagań
 
 Zaprojektowany moduł gry spełnia założenia oraz wyamgania nałożone na niego przy prezentacji początkowej. 
+
 - Gracz otrzymuje punkty za postęp w grze a ilość punktów jest normowana przez poziom trudności.
 - Moduł jest połączony z innymi modułami projektu
 - Gra posiada 3 poziomy trudności
