@@ -18,9 +18,11 @@
 ![image](https://gist.github.com/assets/126475707/70ac3dd4-b577-4f79-b4b7-97c5dc5d7cbf)
 ![image](https://gist.github.com/assets/126475707/27c0e1db-cd08-41a1-93a1-efdac456f6df)
 
-## Diagramy klas
+Digramy przdstawiają przypadki użycia modułu
+## Diagram klas
 ![image](https://gist.github.com/assets/126475707/6fd393da-9c6b-40ba-8054-14b9d43cb427)
 
+Diagram przedstawia klasy wchodzące w skład modułu
 ## Diagramy interakcji i scenariusze
 ### Przypadek użycia - Zakup przedmiotu
 
@@ -62,18 +64,24 @@
 ## Diagram czynności
 ![image](https://gist.github.com/assets/126475707/009a051f-9f4d-4e09-aa40-c4e5aca8441f)
 
+Digram przedstawia cykl życia przeciwnika
 ## Diagram maszyny stanowej
 ![image](https://gist.github.com/assets/126475707/05a4db66-bcfc-4897-a1fc-3a28982c08ff)
 
+Diagram przedstawia stany które może przyjąć gra
 ## Diagram pakietów
 ![image](https://gist.github.com/assets/126475707/a244c2e8-bcfa-4177-a8b2-7ab4b07a07a3)
 
+Diagram przedstawia zależność głównego pakietu gry od pakietu umożliwiającego komunikację z resztą systemu
 ## Diagram przeglądu interakcji
 ![image](https://gist.github.com/assets/126475707/f61db615-9bdc-4fd7-9099-58921e9e952a)
 
+Diagram przedstawia przepływ sterowania podczas dodawania śmiecia do repozytorium
 ## Diagram strukturalny
 ![image](https://gist.github.com/assets/126475707/e7749ccb-4409-4f0b-9177-b54977f755ab)
 
-
+Diagram przedstawia klasy biorące udział w dodawaniu obiektu do planszy
 ## Diagram harmonogramowania
 ![image](https://gist.github.com/assets/126475707/4f894074-dc53-4067-a60c-7315404001a5)
+
+Diagram przedstawia pojawianie się śmieci z uwzględnieniem czasu
