@@ -28,9 +28,6 @@ Zakup rośliny odbywa się poprzez wybranie określonej rośliny ze sklepu i ust
 które nie jest zajęte przez inny obiekt służący do obrony przed przeciwnikami. Jeśli gracz posiada wystarczającą ilość kompostu 
 do zakupu wybranej rośliny, jest ona ustawiana na wybranym polu i automatycznie aktualizowana jest ilość kompostu jaką posiada gracz.
 
-### Wykorzystanie monet
-<!-- np. na co można wydawać w grach posiadane przez użytkownika monety -->
-
 ## Zakończenie gry
 Gra kończy się, gdy pierwszy przeciwnik dotrze do chronionej części planszy. Wynik gry zapisywany jest do bazy
 pod warunkiem, że użytkownik grający w grę osiągnął minimalną ilość punktów uznaną za wystarczającą do przejścia gry - 500.

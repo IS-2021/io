@@ -65,20 +65,15 @@
 ## Diagram maszyny stanowej
 ![image](https://gist.github.com/assets/126475707/05a4db66-bcfc-4897-a1fc-3a28982c08ff)
 
-## Diagram komponentów
-
-
-<!-- Tylko grupa architektów -->
-## Diagram wdrożeń
-
-
 ## Diagram pakietów
-
+![image](https://gist.github.com/assets/126475707/a244c2e8-bcfa-4177-a8b2-7ab4b07a07a3)
 
 ## Diagram przeglądu interakcji
-
+![image](https://gist.github.com/assets/126475707/79f2e153-4cd3-4bbc-9461-c9355f27b404)
 
 ## Diagram strukturalny
+![image](https://gist.github.com/assets/126475707/e7749ccb-4409-4f0b-9177-b54977f755ab)
 
 
 ## Diagram harmonogramowania
+![image](https://gist.github.com/assets/126475707/4f894074-dc53-4067-a60c-7315404001a5)
