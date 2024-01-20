@@ -1,4 +1,4 @@
-# Oszczędzanie Energii
+# Oszczędzanie energii
 
 ## Diagramy przypadków użycia
 <img src="https://i.imgur.com/9Bq2LPZ.png">
