@@ -12,6 +12,8 @@
 <!-- Pamiętajcie by usunać komentarze -->
 # Moduł aplikacji
 
+Autorzy: Dominik Kwiecień, Hubert Pietras
+
 ## Diagramy przypadków użycia
 ![image](https://gist.github.com/assets/126475707/dfa78445-4e51-4930-a1c9-dc010fcfee7e)
 ![image](https://gist.github.com/assets/126475707/a7913f69-248a-452b-a1c5-36af5bc569d5)
