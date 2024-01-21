@@ -53,6 +53,7 @@ Informacja o uruchomieniu gry:
 Informacja o grze:
 ![Przypadki użycia2](https://i.imgur.com/xlnEayC.png){ width="900" }
 ## Powiązania z innymi modułami
+
 ![Inne moduły1](https://i.imgur.com/NAeD1Ss.png){ width="900" }
 ## Diagram klas
 ![Klasy](https://i.imgur.com/MAwaVcY.png){ width="900" }
@@ -64,6 +65,7 @@ Informacja o grze:
 ![Scenariusz Wpadnięcie do dziury](https://i.imgur.com/GBuuBDg.png){ width="900" }
 ## Diagram sekwencji: Wpadnięcie do dziury
 ![Sekwencji Wpadnięcie do dziury](https://i.imgur.com/yqtcw6X.png){ width="900" }
+
 ## Diagram maszyny stanowej
 ![Maszyna stanowa](https://i.imgur.com/PQumPGj.png){ width="900" }
 ## Diagram czynności
