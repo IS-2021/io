@@ -15,7 +15,7 @@ Jeśli gracz przejdzie grę w mniej niż 60 sekund (co powinno być niewykonalne
 Jeśli gracz przejdzie grę w więcej niż 60 sekund ale mniej niż 500 sekund jego punkty naliczane są wzorem: punkty = max_punktów - czas_rozgrywki + 60, gdzie max_punktów = 2000, a czas_rozgrywki liczony jest w sekundach
 - Gra kończy się porażką w przypadku wpadnięcia do dziury na którymkolwiek z trzech możliwych poziomów.
 
-## Wymagania:
+## Wymagania
 ### Funkcjonalne:
 - Gra ma interfejs graficzny użytkownika, na którym możemy wybrać przycisk "Play" - rozpoczęcie gry lub "Controls" - wyświetlenie informacji o sterowaniu w grze.
 - Po rozpoczęciu gry najpierw wyświetlany jest pierwszy poziom pozwalający graczowi zapoznać się z mechaniką gry, poprzez ułatwienia w postaci strzałek wskazujących na to co ma zrobić. 
@@ -43,7 +43,7 @@ Jeśli gracz przejdzie grę w więcej niż 60 sekund ale mniej niż 500 sekund j
 - Należy zwracać uwagę na to, które zawory trzeba zakręcać, a które nie aby zaoszczędzić czas i wodę dzięki czemu gracz może otrzymać więcej punktów.
 - Przejście do następnego poziomu oznaczone jest ikoną schodów. 
 
-## Zmiany wymagań:
+## Zmiany wymagań
 - Po wygraniu lub przegraniu użytkownik może bez straty swoich monet zacząć grę od początku.
 
 ## Diagramy
@@ -58,7 +58,7 @@ Informacja o grze:
 ## Diagram klas
 ![Klasy](https://i.imgur.com/5I4nNNQ.png){ width="900" }
 ## Scenariusz przypadku użycia: Załadowanie kolejnego poziomu
-![Scenariusz następny poziom](https://i.imgur.com/oUqVi4F.png){ width="900" }
+![Scenariusz następny poziom](https://i.imgur.com/xp9MFqc.png){ width="900" }
 ## Diagram sekwencji: Załadowanie kolejnego poziomu
 ![Sekwencji następny poziom](https://i.imgur.com/pZ9yiYt.png){ width="900" }
 ## Scenariusz przypadku użycia: Wpadnięcie do dziury
@@ -72,7 +72,7 @@ Informacja o grze:
 ## Diagram pakietów
 ![Pakiety](https://i.imgur.com/sfobDYn.png){ width="900" }
 ## Diagram przeglądu interakcji
-![Przegląd interakcji](https://i.imgur.com/DNZwumC.png){ width="900" }
+![Przegląd interakcji](https://i.imgur.com/pdX5u9a.png){ width="900" }
 ## Diagram strukturalny
 ![Struktura](https://i.imgur.com/3XPNurN.png){ width="900" }
 ## Diagram harmonogramowania

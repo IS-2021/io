@@ -1,8 +1,5 @@
 # Oszczędzanie wody 
-Autorzy: Michał Korblit, Szymon Pietrzak
-## Cel
-Gra ma na celu uświadomienie młodych odbiorców na temat znaczenia oszczędzania wody i zachęcenie ich do praktykowania tego nawyku w codziennym życiu.
-### Instrukcja obsługi dla użytkownika:
+### Instrukcja obsługi dla użytkownika
 Po uruchomieniu gry, użytkownik zobaczy przed sobą ekran powitalny:
 ![Ekran powitalny](https://i.imgur.com/GxRqZqE.png){ width="900" }
 wraz z wyborem możliwości zagrania w grę lub wejściem w sterowanie.
