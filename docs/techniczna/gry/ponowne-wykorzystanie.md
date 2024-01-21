@@ -10,7 +10,6 @@
 <!-- Obrazki: https://squidfunk.github.io/mkdocs-material/reference/images/ -->
 
 <!-- Pamiętajcie by usunać komentarze -->
-# Moduł aplikacji
 
 Autorzy: Dominik Kwiecień, Hubert Pietras
 
