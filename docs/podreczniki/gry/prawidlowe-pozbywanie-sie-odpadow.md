@@ -1,7 +1,5 @@
 # Prawidłowe pozbywanie się odpadów
 
-Autorzy: Wojciech Tomicki, Paweł Saturczak
-
 ## Opis gry
 Celem gry jest zebranie jak największej liczby [odpadów](#odpad), rozmieszczonych na [mapie](#mapa) i zaniesienie ich do odpowiednich [kontenerów](#kontener), używając możliwie jak najmniejszej liczby [ruchów](#tury). Końcowy wynik rozgrywki, oceniany jest na podstawie uzyskanych [punktów](#punktacja).
 
