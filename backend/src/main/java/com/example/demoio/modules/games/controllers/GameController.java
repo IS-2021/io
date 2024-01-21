@@ -6,6 +6,7 @@ import com.example.demoio.models.UserDailyTask;
 import com.example.demoio.modules.app.controllers.BaseController;
 import com.example.demoio.modules.dailytasks.services.DailyTaskService;
 import com.example.demoio.modules.games.repositories.GameRepository;
+import com.example.demoio.modules.games.services.GameUnlockService;
 import com.example.demoio.modules.ranking.services.RankingProvider;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,15 +24,17 @@ public class GameController extends BaseController {
     private final GameRepository gameRepository;
     private final UserProvider userProvider;
     private final DailyTaskService dailyTaskService;
+    private final GameUnlockService gameUnlockService;
 
     private final String baseIframeURL = "http://localhost/levels/";
 
-    public GameController(UserProvider userProvider, RankingProvider rankingProvider, GameRepository gameRepository, DailyTaskService dailyTaskService) {
+    public GameController(UserProvider userProvider, RankingProvider rankingProvider, GameRepository gameRepository, DailyTaskService dailyTaskService, GameUnlockService gameUnlockService) {
         super(userProvider);
         this.userProvider = userProvider;
         this.rankingProvider = rankingProvider;
         this.gameRepository = gameRepository;
         this.dailyTaskService = dailyTaskService;
+        this.gameUnlockService = gameUnlockService;
     }
 
     @GetMapping("/{gameID}")
@@ -42,6 +45,7 @@ public class GameController extends BaseController {
         model.addAttribute("gameDescription", game.getDescription());
         model.addAttribute("imageSlugName", game.getImageSlugName());
         model.addAttribute("rankingData", this.rankingProvider.getRankingByGameID(gameID));
+        model.addAttribute("isGameUnlocked", this.gameUnlockService.isGameUnlocked(gameID));
         // Optional attributes
         model.addAttribute("points", this.rankingProvider.getUserBestScore(gameID, this.userProvider.getCurrentUserId()));
 
@@ -56,6 +60,10 @@ public class GameController extends BaseController {
 
     @GetMapping("/{gameID}/play")
     public String handleGameLoadByID(@PathVariable Long gameID, Model model) {
+        if (!this.gameUnlockService.isGameUnlocked(gameID)) {
+            return "redirect:/game/" + gameID;
+        }
+
         Game game = this.gameRepository.findByGameId(gameID);
 
         model.addAttribute("gameName", game.getName());
