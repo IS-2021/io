@@ -1,5 +1,7 @@
 # Moduł codziennych zadań
 
+Autorzy: Jakub Kazimierczak, Marcin Szymajda
+
 Moduł odpowiedzialny za generację oraz przypisywanie codziennych zadań do użytkowników.
 
 ## Diagram klas

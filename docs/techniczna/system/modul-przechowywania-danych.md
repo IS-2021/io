@@ -1,5 +1,6 @@
 # Moduł przechowywania danych
 
+Autorzy: Jakub Kazimierczak, Marcin Szymajda
 
 Zadaniem tego modułu jest pobieranie oraz zapisywanie danych z/do bazy danych dotyczących gier. Jest to moduł opcjonalny, zatem zespoły projektantów gier nie są zobowiązani do wykorzystywania go w swoich grach.
 

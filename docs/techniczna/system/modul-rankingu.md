@@ -1,5 +1,7 @@
 # Moduł rankingu
 
+Autorzy: Jakub Kazimierczak, Marcin Szymajda
+
 Moduł odpowiedzialny jest za wyświetlanie rankingu ogólnego, wyświetlanie rankingu dotyczącego wybranej gry oraz za aktualizację sumy punktów zebranej przez gracza.
 
 ## Diagram klas

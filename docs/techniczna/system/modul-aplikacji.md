@@ -1,5 +1,7 @@
 # Moduł aplikacji
 
+Autorzy: Jakub Kazimierczak, Marcin Szymajda
+
 W naszym rozwiązaniu na cały system możemy patrzeć przez pryzmat modułu aplikacji.
 Jest on naszym "centrum dowodzenia", które spaja wszystkie utworzone komponenty w jedną logiczną całość.
 Odpowiada on min. za utrzymanie sesji zalogowanego użytkownika oraz dostarczenie informacji właśnie o zalogowanym użytkowniku do innych komponentów, które tego wymagają.
