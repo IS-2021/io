@@ -15,7 +15,7 @@
 ## Diagramy przypadków użycia
 ![image](https://gist.github.com/assets/126475707/dfa78445-4e51-4930-a1c9-dc010fcfee7e)
 ![image](https://gist.github.com/assets/126475707/a7913f69-248a-452b-a1c5-36af5bc569d5)
-![image](https://gist.github.com/assets/126475707/70ac3dd4-b577-4f79-b4b7-97c5dc5d7cbf)
+![image](https://gist.github.com/assets/126475707/5d9fb9ac-e930-4280-bc37-ae956506e2de)
 ![image](https://gist.github.com/assets/126475707/27c0e1db-cd08-41a1-93a1-efdac456f6df)
 
 Diagramy przdstawiają przypadki użycia modułu z podziałem na różnych aktorów
