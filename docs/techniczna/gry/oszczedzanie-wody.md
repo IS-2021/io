@@ -3,7 +3,7 @@ Autorzy: Michał Korblit, Szymon Pietrzak
 ## Cel
  Gra ma na celu uświadomienie młodych odbiorców na temat znaczenia oszczędzania wody i zachęcenie ich do praktykowania tego nawyku w codziennym życiu.
 
-### Założenia:
+### Założenia
 - Dostęp do gry realizowany jest dzięki stronie internetowej (tylko dla zalogowanych użytkowników).
 - Dostęp do gry mają tylko użytkownicy zalogowani, dla których ta gra została odblokowana.
 - Postęp użytkownika jest wysyłany do modułu rankingu po pozytywnym zakończeniu gry.
@@ -16,7 +16,7 @@ Jeśli gracz przejdzie grę w więcej niż 60 sekund ale mniej niż 500 sekund j
 - Gra kończy się porażką w przypadku wpadnięcia do dziury na którymkolwiek z trzech możliwych poziomów.
 
 ## Wymagania
-### Funkcjonalne:
+### Funkcjonalne
 - Gra ma interfejs graficzny użytkownika, na którym możemy wybrać przycisk "Play" - rozpoczęcie gry lub "Controls" - wyświetlenie informacji o sterowaniu w grze.
 - Po rozpoczęciu gry najpierw wyświetlany jest pierwszy poziom pozwalający graczowi zapoznać się z mechaniką gry, poprzez ułatwienia w postaci strzałek wskazujących na to co ma zrobić. 
 - Podczas rozgrywki mierzony jest czas.
@@ -34,7 +34,7 @@ Jeśli gracz przejdzie grę w więcej niż 60 sekund ale mniej niż 500 sekund j
 - Po wygranej wyświetlany jest ekran informujący o wygranej oraz czas w jakim gracz przeszedł grę.
 - Gracz może bez strat rozpocząć grę od początku po wyświetleniu ekranu wygranej lub przegranej.
 - Po zakończeniu gry zwraca czas rozgrywki danego użytkownika oraz ilość zdobytych punktów
-### Niefunkcjonalne:
+### Niefunkcjonalne
 - Gra ma 3 poziomy
 - Drugi oraz trzeci poziom są bez podpowiedzi i są trudniejsze od pierwszego.
 - Każda z planszy przedstawia kolejny poziom pomieszczeń, w których znajdują się połączone ze sobą rury wodociągowe. 
@@ -78,9 +78,9 @@ Informacja o grze:
 ## Diagram harmonogramowania
 ![Harmonogramowanie](https://i.imgur.com/9Eb2QbT.png){ width="900" }
 
-## Realizacja założeń i wymagań:
+## Realizacja założeń i wymagań
 Zaprojektowana przez nasz zespół gra spełnia postawione przez architektów założenia i wymagania, co można zaobserwować na utworzonych wyżej diagramach. Dostęp do gry jest realizowany przez stronę internetową, dane użytkowników będą przechowywane w bazie danych, po zakończeniu gry wynik zostanie przesłany do bazy danych. Gracz jest nagradzany za skończenie gry ilością punktów adekwatną do czasu ukończenia wszystkich trzech plansz, których przelicznik został podany powyżej. W grę można ponownie zagrać w celu poprawy wyniku. Gra posiada 3 poziomy, z których każdy kolejny jest coraz trudniejszy oraz są ładowane jeden po drugim. Na końcu gry gracz jest informowany o swoim wyniku.
 
-## Realizacja powiązań z innymi modułami:
+## Realizacja powiązań z innymi modułami
 Projekt jest powiązany z innymi modułami. W module rankingu przechowywane są wyniki danego gracza, a jego najlepszy wynik wyświetlany jest w module rankingu. W przypadku poprawienia wyniku i przesłania go do bazy danych, poprawiony wynik jest wyświetlany w module rankingu. Dzięki modułowi aplikacji gracz ma dostęp do danej gry, a z jej poziomu może wyjść do interfejsu aplikacji. Postęp gracza jest zapisywany w module przechowywania danych.
 
