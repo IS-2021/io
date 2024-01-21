@@ -1,16 +1,15 @@
-# Moduł gry - Prawidłowe pozbywanie się odpadów
-# Instrukcja użytkownika
+# Prawidłowe pozbywanie się odpadów
 
 Autorzy: Wojciech Tomicki, Paweł Saturczak
 
-# Opis gry
+## Opis gry
 Celem gry jest zebranie jak największej liczby [odpadów](#odpad), rozmieszczonych na [mapie](#mapa) i zaniesienie ich do odpowiednich [kontenerów](#kontener), używając możliwie jak najmniejszej liczby [ruchów](#tury). Końcowy wynik rozgrywki, oceniany jest na podstawie uzyskanych [punktów](#punktacja).
 
 *Wygląd gry*
 
 ![cała_gra](https://gist.github.com/assets/78324970/b0d107e0-ea33-481d-8d2e-d85fee0d5b07)
 
-# Mapa
+## Mapa
 Mapa rozgrywki zbudowana jest z pól. Jest ona rozmiaru 51x51 pól. Na każdym polu mogą się znajdować poniższe elementy:
 
 *Mapa rozgrywki*
@@ -18,7 +17,7 @@ Mapa rozgrywki zbudowana jest z pól. Jest ona rozmiaru 51x51 pól. Na każdym p
 ![mapa](https://gist.github.com/assets/78324970/46356d40-6fdc-422b-a695-2e9df7a94f8c)
 
 
-## Gracz
+### Gracz
 - może wejść zarówno na pole z kontenerem, odpadem jak i na puste pole
 - oznaczony jest kolorem białym
 
@@ -30,13 +29,13 @@ Mapa rozgrywki zbudowana jest z pól. Jest ona rozmiaru 51x51 pól. Na każdym p
  
 ![puste](https://gist.github.com/assets/78324970/6f49bb8b-baf4-46fb-ba00-9db1c10ef1b5)
  
-## Odpad
+### Odpad
 - generowane są przy rozpoczęciu rozgrywki na różnych, losowych polach, na których nie ma kontenera ani gracza
 - ich pozycja może ulec zmianie, tylko pod wpływem akcji gracza
 - nie może być kilka odpadów na tym samym polu, zarówno po wygenerowaniu jak i przez akcję gracza
 - są różne [rodzaje odpadów](#rodzaje-odpadów)
 
-## Kontener
+### Kontener
 - generowane są przy rozpoczęciu rozgrywki na różnych, określonych polach - przy każdej rozgrywce ich pozycja się nie zmieni i znajdować się będą w obrębie 9 centralnych pól
 - ich pozycja jest stała, a więc nie może ulec zmianie po wygenerowaniu
 - nie wygeneruje się kilka kontenerów na jednym polu
@@ -70,14 +69,14 @@ Kolory kontenerów odpowiadają kolorom odpadów, ale mają one jaśniejszy odci
 
 ![kontenery](https://gist.github.com/assets/78324970/ac2ef550-92aa-481f-9451-c09ab2c877fe)
 
-# Sterowanie
+## Sterowanie
 Gracz posiada kilka możliwych akcji do podjęcia podczas rozgrywki:
 
 *Obszar sterowania - oznaczony niebieskim polem*
 
 ![oznaczenie_obszaru_sterowania](https://gist.github.com/assets/78324970/32805845-e7f8-45fc-8e33-5631943d0cfc)
 
-## Poruszanie się
+### Poruszanie się
 Możliwość poruszania się w 9 kierunkach na planszy. Na poruszanie pozwala 9 przycisków widocznych w interfejsie użytkownika, które odpowiadają za poszczególny kierunek.
 
 *Obszar przycisków poruszania się - oznaczone niebieskim polem*
@@ -92,7 +91,7 @@ Jeżeli gracz wejdzie na pole, na którym znajduje się odpad i ma wolne miejsce
 
 ![oznaczenie_ekwipunku](https://gist.github.com/assets/78324970/73e3c924-8784-4ce0-b037-67de1ec8b9f4)
 
-## Upuszczanie odpadu
+### Upuszczanie odpadu
 Gracz ma możliwość upuszczenia wybranego odpadu z ekwipunku, na akutalnie znajdujące się pole, za pomocą przycisku znajdującego się pod aktualnie przechowywanym odpadem.
 
 *Przyciski upuszczania odpadu - oznaczone niebieskim polem*
@@ -102,17 +101,17 @@ Gracz ma możliwość upuszczenia wybranego odpadu z ekwipunku, na akutalnie zna
 Gracz może upuścić odpad, pod warunkiem że na polu nie znajduje się już inny odpad.
 Po upuszczeniu odpadu następuje sprawdzanie [wyniku upuszczenia](#punktacja-upuszczenia-odpadu), na podstawie którego są przyznawane lub odbierane punkty.
 
-# Tury
+## Tury
 Na początku rozgrywki gracz ma do wykorzystania 40 tur, z czego na każdą turę przypada 300 punktów ruchu.
 
-## Zakończenie tury
+### Zakończenie tury
 Gracz może zakończyć turę, co zmniejszy mu liczbę pozostałych tur o 1 i przywróci mu liczbę punktów ruchu do 300.
 
 *Przycisk kończenia tury - oznaczony niebieskim polem*
 
 ![oznaczenie_następnejTury](https://gist.github.com/assets/78324970/308b5aa1-55c2-4bca-9db0-ce6700ce38d4)
 
-## Zakończenie rozgrywki
+### Zakończenie rozgrywki
 Po wykorzystaniu wszystkich tur gra nie zostanie całkowicie zakończona. Aby zakończyć całkowicie rozgrywkę, należy ręcznie użyć przycisku zakończenia rozgrywki. Gracz może jednak zdecydować się na wcześniejsze zakończenie rozgrywki, na skutek czego nastąpi [przyznanie mu punktów](#punktacja-zakończenia-gry-z-dodatnią-liczbą-pozostałych-tur), zgodnie z liczbą pozostałych tur i punktów ruchów w danej turze.
 
 *Przycisk kończenia rozgrywki- oznaczony niebieskim polem*
@@ -121,10 +120,10 @@ Po wykorzystaniu wszystkich tur gra nie zostanie całkowicie zakończona. Aby za
 
 Po użyciu przycisku zakończenia tury, niemożliwe jest przeprowadzanie jakichkolwiek akcji.
 
-# Punktacja
+## Punktacja
 Istnieją dwie możliwości zmiany liczby punktów przez gracza:
 
-## Punktacja upuszczenia odpadu
+### Punktacja upuszczenia odpadu
 W zależności od miejsca upuszczenia odpadu, gracz może uzyskać lub utracić punkty:
 
 - uzyskanie punktów 
@@ -133,7 +132,7 @@ W zależności od miejsca upuszczenia odpadu, gracz może uzyskać lub utracić 
 >- upuszczenie odpadu na puste pole = -2pkt
 >- upuszczenie odpadu na pole z nieodpowiednim kontenerem = -5pkt
 
-## Punktacja zakończenia gry z dodatnią liczbą pozostałych tur
+### Punktacja zakończenia gry z dodatnią liczbą pozostałych tur
 Po wciśnięciu przycisku **zakończenia gry**, zostaną dodane dodatkowe punkty graczowi, obliczone według wzoru:
 
 $((T * 300) + P)/100$
