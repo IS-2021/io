@@ -1,0 +1,11 @@
+{
+    "$schema": "https://json.schemastore.org/package.json",
+    "name": "io-api-client-example",
+    "version": "0.1.0",
+    "description": "A small demo of how to setup and use API client.",
+    "license": "ISC",
+    "devDependencies": {
+        "greengame-api-client": "^0.2.0",
+        "typescript": "^5.3.3"
+    }
+}

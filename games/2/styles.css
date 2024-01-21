@@ -1,0 +1,422 @@
+html {
+  box-sizing: border-box;
+}
+
+*,* ::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: fantasy;
+}
+
+h1 {
+  text-align: center;
+  font-weight: bold;
+  color: black;
+  height: 100px;
+  font-size: 30pt;
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: auto;
+  height: auto;
+  border-spacing: 0px;
+  border-collapse: initial;
+  position: absolute;
+}
+
+div#cover {
+  position: none;
+}
+
+#player {
+  position: absolute;
+  display: block;
+  background-image: url(assets/hero.png);
+  color: transparent;
+  width: 20px;
+  height: 20px;
+  z-index: 10000;
+}
+
+button {
+  background-image: url(assets/button_background.png);
+  color: black;
+  font-size: 25pt;
+  text-shadow: 2px 2px #0000ff;
+  border: 2px solid black;
+  width: 300px;
+  height: 150px;
+}
+
+textfield {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: #0000ee;
+  font-size: 18pt;
+  font-family: 'Montserrat', sans-serif;
+  text-shadow: 1px 1px #0000ff;
+  border: 3px solid black;
+  width: 500px;
+  height: 150px;
+}
+
+
+
+section {
+  width: 600px;
+  height: 600px;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: grey;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+p {
+  color: black;
+  font-size: 15pt;
+  height: 50px;
+}
+
+tr {
+  border: none;
+}
+
+td {
+  width: 25px;
+  height: 35px;
+  margin: 0px;
+  border: none;
+  padding: 0px;
+}
+
+.timer {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  position: fixed;
+  top: 10px;
+  right: 10px; /
+}
+
+.freespace {
+  background-image: url(assets/brick.png);
+  color: transparent;
+  width: 25px;
+  height: 35px;
+}
+
+
+.hole {
+  background-image: url(assets/hole.png);
+  color: transparent;
+  width: 25px;
+  height: 35px;
+}
+
+.start {
+  background-image: url(assets/entrance.png);
+  color: transparent;
+  width: 25px;
+  height: 35px;
+}
+
+.out_closed {
+  background-image: url(assets/stairs_water.png);
+  color: transparent;
+  width: 25px;
+  height: 35px;
+}
+
+.out_opened {
+  background-image: url(assets/stairs_enter.png);
+  color: transparent;
+  width: 25px;
+  height: 35px;
+}
+
+.pipe_vertical {
+  background-image: url(assets/pipe1.png);
+  color: transparent;
+  width: 25px;
+  height: 35px;
+}
+
+.pipe_across_l {
+  background-image: url(assets/pipe_l.png);
+  color: transparent;
+  width: 25px;
+  height: 35px;
+}
+
+.pipe_across_r {
+  background-image: url(assets/pipe_r.png);
+  color: transparent;
+  width: 25px;
+  height: 35px;
+}
+
+.pipe_u_r_d {
+  background-image: url(assets/pipe_rud.png);
+  color: transparent;
+  width: 25px;
+  height: 35px;
+}
+
+.pipe_l_u_d {
+  background-image: url(assets/pipe_lud.png);
+  color: transparent;
+  width: 25px;
+  height: 35px;
+}
+
+.pipe_l_d_r {
+  background-image: url(assets/pipe_ldr.png);
+  color: transparent;
+  width: 25px;
+  height: 35px;
+}
+
+.pipe_l_u_r {
+  background-image: url(assets/pipe_lur.png);
+  color: transparent;
+  width: 25px;
+  height: 35px;
+}
+
+.puddle_u {
+  background-image: url(assets/puddle_u.png);
+  color: transparent;
+  width: 25px;
+  height: 35px;
+}
+
+.puddle_d {
+  background-image: url(assets/puddle_d.png);
+  color: transparent;
+  width: 25px;
+  height: 35px;
+}
+
+.puddle_r {
+  background-image: url(assets/puddle_r.png);
+  color: transparent;
+  width: 25px;
+  height: 35px;
+}
+
+.puddle_l {
+  background-image: url(assets/puddle_l.png);
+  color: transparent;
+  width: 25px;
+  height: 35px;
+}
+
+.valve_l_opened1 {
+  background-image: url(assets/pipe_valve_l_o.png);
+  color: transparent;
+  width: 25px;
+  height: 35px;
+}
+
+.valve_l_opened2 {
+  background-image: url(assets/pipe_valve_l_o.png);
+  color: transparent;
+  width: 25px;
+  height: 35px;
+}
+
+.valve_l_opened3 {
+  background-image: url(assets/pipe_valve_l_o.png);
+  color: transparent;
+  width: 25px;
+  height: 35px;
+}
+
+.valve_l_opened4 {
+  background-image: url(assets/pipe_valve_l_o.png);
+  color: transparent;
+  width: 25px;
+  height: 35px;
+}
+
+.valve_l_closed {
+  background-image: url(assets/pipe_valve_l_c.png);
+  color: transparent;
+  width: 25px;
+  height: 35px;
+}
+
+.valve_r_opened1 {
+  background-image: url(assets/pipe_valve_r_o.png);
+  color: transparent;
+  width: 25px;
+  height: 35px;
+}
+
+.valve_r_opened2 {
+  background-image: url(assets/pipe_valve_r_o.png);
+  color: transparent;
+  width: 25px;
+  height: 35px;
+}
+
+.valve_r_opened3 {
+  background-image: url(assets/pipe_valve_r_o.png);
+  color: transparent;
+  width: 25px;
+  height: 35px;
+}
+
+.valve_r_opened4 {
+  background-image: url(assets/pipe_valve_r_o.png);
+  color: transparent;
+  width: 25px;
+  height: 35px;
+}
+
+.valve_r_closed {
+  background-image: url(assets/pipe_valve_r_c.png);
+  color: transparent;
+  width: 25px;
+  height: 35px;
+}
+
+.pipe_d_r {
+  background-image: url(assets/pipe_dr.png);
+  color: transparent;
+  width: 25px;
+  height: 35px;
+}
+
+.pipe_u_r {
+  background-image: url(assets/pipe_ur.png);
+  color: transparent;
+  width: 25px;
+  height: 35px;
+}
+
+.pipe_l_u {
+  background-image: url(assets/pipe_lu.png);
+  color: transparent;
+  width: 25px;
+  height: 35px;
+}
+
+.pipe_l_d {
+  background-image: url(assets/pipe_ld.png);
+  color: transparent;
+  width: 25px;
+  height: 35px;
+}
+
+.arrow_r {
+  background-image: url(assets/arrow_r.png);
+  color: transparent;
+  width: 25px;
+  height: 35px;
+}
+
+.arrow_l {
+  background-image: url(assets/arrow_l.png);
+  color: transparent;
+  width: 25px;
+  height: 35px;
+}
+
+.spill_up {
+  color: transparent;
+  width: 25px;
+  height: 35px;
+  animation-name: spill_up_animation;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+.spill_down {
+  color: transparent;
+  width: 25px;
+  height: 35px;
+  animation-name: spill_down_animation;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+.spill_right {
+  color: transparent;
+  width: 25px;
+  height: 35px;
+  animation-name: spill_right_animation;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+.spill_left {
+  color: transparent;
+  width: 25px;
+  height: 35px;
+  animation-name: spill_left_animation;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes spill_up_animation {
+	0%	{background-image: url(assets/spill_1_u.png);}
+	14%	{background-image: url(assets/spill_2_u.png);}
+	29% {background-image: url(assets/spill_3_u.png);}
+	43% {background-image: url(assets/spill_4_u.png);}
+	57% {background-image: url(assets/spill_5_u.png);}
+	71% {background-image: url(assets/spill_6_u.png);}
+	86% {background-image: url(assets/spill_7_u.png);}
+	100%{background-image: url(assets/spill_8_u.png);}
+}
+
+@keyframes spill_down_animation {
+	0%	{background-image: url(assets/spill_1_d.png);}
+	14%	{background-image: url(assets/spill_2_d.png);}
+	29% {background-image: url(assets/spill_3_d.png);}
+	43% {background-image: url(assets/spill_4_d.png);}
+	57% {background-image: url(assets/spill_5_d.png);}
+	71% {background-image: url(assets/spill_6_d.png);}
+	86% {background-image: url(assets/spill_7_d.png);}
+	100%{background-image: url(assets/spill_8_d.png);}
+}
+
+@keyframes spill_right_animation {
+	0%	{background-image: url(assets/spill_1_r.png);}
+	14%	{background-image: url(assets/spill_2_r.png);}
+	29% {background-image: url(assets/spill_3_r.png);}
+	43% {background-image: url(assets/spill_4_r.png);}
+	57% {background-image: url(assets/spill_5_r.png);}
+	71% {background-image: url(assets/spill_6_r.png);}
+	86% {background-image: url(assets/spill_7_r.png);}
+	100%{background-image: url(assets/spill_8_r.png);}
+}
+
+@keyframes spill_left_animation {
+	0%	{background-image: url(assets/spill_1_l.png);}
+	14%	{background-image: url(assets/spill_2_l.png);}
+	29% {background-image: url(assets/spill_3_l.png);}
+	43% {background-image: url(assets/spill_4_l.png);}
+	57% {background-image: url(assets/spill_5_l.png);}
+	71% {background-image: url(assets/spill_6_l.png);}
+	86% {background-image: url(assets/spill_7_l.png);}
+	100%{background-image: url(assets/spill_8_l.png);}
+}

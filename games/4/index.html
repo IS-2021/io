@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Green Game</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+
+    <!-- Bootstrap -->
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet">
+    <script crossorigin="anonymous"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link href="style.css" rel="stylesheet">
+    <script src="src/Main.mjs" type="module"></script>
+</head>
+
+<body>
+
+<table id="items-menu-table-el">
+    <tr>
+        <td>
+            <table>
+                <tr>
+                    <td>
+                        <img alt="" id="compost-icon-el" src="./resources/compost_icon.png">
+                    </td>
+                </tr>
+                <tr>
+                    <td id="compost-amount-el"></td>
+                </tr>
+            </table>
+        </td> <!-- compost -->
+        <td class="shop-el">
+            <table>
+                <tr>
+                    <td id="plant-0-shop-el">
+                        <img alt="" class="shop-plant-icon-el" id="shop-plant-0-icon-el" src="./resources/plant_0.png">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table>
+                            <tr>
+                                <td>
+                                    <img alt="" class="compost-price-icon-el" src="./resources/compost_icon.png">
+                                </td>
+                                <td class="compost-price-amount-el" id="plant-0-price-el"></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td> <!-- plant 0 -->
+        <td class="shop-el">
+            <table>
+                <tr>
+                    <td id="plant-1-shop-el">
+                        <img alt="" class="shop-plant-icon-el" id="shop-plant-1-icon-el" src="./resources/plant_1.png">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table>
+                            <tr>
+                                <td>
+                                    <img alt="" class="compost-price-icon-el" src="./resources/compost_icon.png">
+                                </td>
+                                <td class="compost-price-amount-el" id="plant-1-price-el"></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td> <!-- plant 1 -->
+        <td class="shop-el">
+            <table>
+                <tr>
+                    <td id="plant-2-shop-el">
+                        <img alt="" class="shop-plant-icon-el" id="shop-plant-2-icon-el" src="./resources/plant_2.png">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table>
+                            <tr>
+                                <td>
+                                    <img alt="" class="compost-price-icon-el" src="./resources/compost_icon.png">
+                                </td>
+                                <td class="compost-price-amount-el" id="plant-2-price-el"></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td> <!-- plant 2 -->
+        <td class="shop-el">
+            <table>
+                <tr>
+                    <td id="mousetrap-shop-el">
+                        <img alt="Box icon" id="shop-mousetrap-icon-el" src="./resources/mouse_trap.png">
+                    </td>
+                </tr>
+                <tr>
+                    <td id="mousetrap-amount-el"></td>
+                </tr>
+            </table>
+        </td> <!-- mousetrap -->
+        <td class="shop-el">
+            <table>
+                <tr>
+                    <td id="box-shop-el">
+                        <img alt="Box icon" id="shop-box-icon-el" src="./resources/box_1.png">
+                    </td>
+                </tr>
+                <tr>
+                    <td id="box-amount-el"></td>
+                </tr>
+            </table>
+        </td> <!-- box -->
+        <td class="shop-el">
+            <table>
+                <tr>
+                    <td id="fork-shop-el">
+                        <img alt="Fork icon" id="shop-fork-icon-el" src="./resources/frok.png">
+                    </td>
+                </tr>
+                <tr>
+                    <td id="fork-amount-el"></td>
+                </tr>
+            </table>
+        </td> <!-- fork -->
+        <td class="shop-el">
+            <table>
+                <tr>
+                    <td id="dynamite-shop-el">
+                        <img alt="Dynamite icon" id="shop-dynamite-icon-el" src="./resources/dynamite.png">
+                    </td>
+                </tr>
+                <tr>
+                    <td id="dynamite-amount-el"></td>
+                </tr>
+            </table>
+        </td> <!-- dynamite -->
+        <td id="wave-info-el">
+            <div id="progress-bar-div">
+                <div id="progress-bar-text">
+                    <p style="font-weight: bold; margin-top: 5%">NEXT WAVE IN</p>
+                </div>
+                <div id="progress-bar-border-el">
+                    <div id="progress-bar-el"></div>
+                </div>
+            </div>
+
+        </td>
+    </tr>
+</table>
+
+<div id="main-menu-el">MENU</div>
+
+<div id="composter-el"></div>
+
+<table id="composter-queue-el">
+    <tr>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+    </tr>
+</table>
+
+<div id="defend-image-el"></div>
+
+<div id="attack-image-el"></div>
+
+<table id="game-board-table-el">
+    <tr>
+        <td class="mouse-trap-fork-td-element"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="enemy-td-element" id="enemy-td-element-0"></td>
+    </tr>
+    <tr>
+        <td class="mouse-trap-fork-td-element"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="enemy-td-element" id="enemy-td-element-1"></td>
+    </tr>
+    <tr>
+        <td class="mouse-trap-fork-td-element"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="enemy-td-element" id="enemy-td-element-2"></td>
+    </tr>
+    <tr>
+        <td class="mouse-trap-fork-td-element"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="enemy-td-element" id="enemy-td-element-3"></td>
+    </tr>
+    <tr>
+        <td class="mouse-trap-fork-td-element"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="enemy-td-element" id="enemy-td-element-4"></td>
+    </tr>
+</table>
+
+<div id="road-el"></div>
+
+</body>
+
+</html>
