@@ -1,4 +1,6 @@
-# Recykling - dokumentacja techniczna
+# Recykling
+
+Autorzy: Patrycja Przybylska, Andrzej Szlaski
 
 ## Cel i założenia
 

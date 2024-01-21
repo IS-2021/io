@@ -1,4 +1,7 @@
 # Spożywanie produktów ekologicznych
+
+Autorzy: Joanna Sadowska, Maciej Obszański
+
 ## Cel i założenia:
 ### Cel
 Przekonanie dzieci i młodzieży do sięgania po ekologiczne produkty i dbania o swoje zdrowie dzięki ciekawej grze zręcznościowej.

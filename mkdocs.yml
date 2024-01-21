@@ -28,7 +28,6 @@ nav:
       - techniczna/index.md
       - Platforma:
           - Moduł aplikacji: techniczna/system/modul-aplikacji.md
-          - Moduł gier: techniczna/system/modul-gier.md
           - Moduł codziennych zadań: techniczna/system/modul-codziennych-zadan.md
           - Moduł przechowywania danych: techniczna/system/modul-przechowywania-danych.md
           - Moduł rankingu: techniczna/system/modul-rankingu.md
@@ -66,6 +65,8 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tasklist:
+      custom_checkbox: true
 
 theme:
   language: pl

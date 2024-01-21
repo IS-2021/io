@@ -1,6 +1,4 @@
-<!-- Szablon instrukcji użytkownika jest czysto poglądowy -->
-<!-- Pamiętajcie by usunać komentarze -->
-# Recykling
+# Ponowne wykorzystanie
 
 ## Opis gry
 Gra ma na celu kształtowanie zachowań proekologicznych związanych z ponownym wykorzystaniem materiałów wśród dzieci i młodzieży poprzez rozgrywkę.
@@ -14,7 +12,6 @@ Gra oferuje różnorodne poziomy trudności. Gra staje się coraz trudniejsza wr
 
 
 ## Przebieg rozgrywki
-<!-- Jeżeli dotyczy -->
 ### Poziomy trudności
 Gracz przy rozpoczęciu rozgrywki dokonuje wyboru jednego z trzech poziomów trudności: łatwy, średni, trudny.
 W zależności od dokonanego wyboru gra dostosowuje ilość dostępnych zasobów przy rozpoczęciu rozgrywki.

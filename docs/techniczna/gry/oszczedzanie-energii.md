@@ -1,5 +1,7 @@
 # Oszczędzanie energii
 
+Autorzy: Dawid Gąsior, Jakub Osypiuk
+
 ## Diagramy przypadków użycia
 <img src="https://i.imgur.com/9Bq2LPZ.png">
 <img src="https://i.imgur.com/9yvnd9K.jpg">

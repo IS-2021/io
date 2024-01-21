@@ -34,7 +34,6 @@ Inspirowanie ludzi do korzystania z transportu publicznego poprzez ciekawą rozg
 - Istnieją trzy poziomy gry, z każdym kolejnym wprowadzającym nowe wyzwania.
 #### Zmiany wymagań
 - Usunięto wymaganie posiadania odpowiedniej liczby monet, aby rozpocząć poziom od nowa.
-# Moduł aplikacji
 ## Diagramy przypadków użycia
 Diagram przedstawiający akcje, które są możliwe do wykonania.  
 

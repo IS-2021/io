@@ -1,15 +1,4 @@
 # Ponowne wykorzystanie
-<!-- Szablon dokumentacji technicznej jest obligatoryjny -->
-<!-- należy zostawić i uzupełnić wszystkie poniższe sekcje oraz zmienić tytuł -->
-<!-- Sporządzone wg. https://ftims.edu.p.lodz.pl/mod/page/view.php?id=121103 -->
-
-<!-- Parę pomocniczych linków, które mogą się przydać -->
-<!-- (dokumentacja narzędzia do dokumentacji) -->
-<!-- Tabelki: https://squidfunk.github.io/mkdocs-material/reference/data-tables/#data-tables -->
-<!-- Diagramy (jeśli ktoś bardzo by chciał): https://squidfunk.github.io/mkdocs-material/reference/diagrams/ -->
-<!-- Obrazki: https://squidfunk.github.io/mkdocs-material/reference/images/ -->
-
-<!-- Pamiętajcie by usunać komentarze -->
 
 Autorzy: Dominik Kwiecień, Hubert Pietras
 
