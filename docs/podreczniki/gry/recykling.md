@@ -1,4 +1,4 @@
-# Recykling - dokumentacja użytkownika
+# Recykling
 
 ## Menu gry
 

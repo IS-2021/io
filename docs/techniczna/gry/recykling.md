@@ -1,4 +1,4 @@
-# Recykling - dokumentacja techniczna
+# Recykling
 
 Autorzy: Patrycja Przybylska, Andrzej Szlaski
 
