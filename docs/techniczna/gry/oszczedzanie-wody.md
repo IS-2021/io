@@ -53,18 +53,19 @@ Informacja o uruchomieniu gry:
 Informacja o grze:
 ![Przypadki użycia2](https://i.imgur.com/xlnEayC.png){ width="900" }
 ## Powiązania z innymi modułami
-![Inne moduły1](https://i.imgur.com/Z0ycNJm.png){ width="900" }
-![Inne moduły2](https://i.imgur.com/ZOQ5fL2.png){ width="900" }
+
+![Inne moduły1](https://i.imgur.com/NAeD1Ss.png){ width="900" }
 ## Diagram klas
-![Klasy](https://i.imgur.com/5I4nNNQ.png){ width="900" }
+![Klasy](https://i.imgur.com/MAwaVcY.png){ width="900" }
 ## Scenariusz przypadku użycia: Załadowanie kolejnego poziomu
 ![Scenariusz następny poziom](https://i.imgur.com/xp9MFqc.png){ width="900" }
 ## Diagram sekwencji: Załadowanie kolejnego poziomu
-![Sekwencji następny poziom](https://i.imgur.com/pZ9yiYt.png){ width="900" }
+![Sekwencji następny poziom](https://i.imgur.com/J7PsgO2.png){ width="900" }
 ## Scenariusz przypadku użycia: Wpadnięcie do dziury
 ![Scenariusz Wpadnięcie do dziury](https://i.imgur.com/GBuuBDg.png){ width="900" }
 ## Diagram sekwencji: Wpadnięcie do dziury
-![Sekwencji Wpadnięcie do dziury](https://i.imgur.com/rdWX3VI.png){ width="900" }
+![Sekwencji Wpadnięcie do dziury](https://i.imgur.com/yqtcw6X.png){ width="900" }
+
 ## Diagram maszyny stanowej
 ![Maszyna stanowa](https://i.imgur.com/PQumPGj.png){ width="900" }
 ## Diagram czynności
