@@ -4,7 +4,6 @@
 <div class="grid cards" markdown>
 
 - :material-apps: __[Moduł aplikacji]__
-- :material-gamepad-variant: __[Moduł gier]__
 - :octicons-tasklist-24: __[Moduł codziennych zadań]__
 - :material-database: __[Moduł przechowywania danych]__
 - :fontawesome-solid-ranking-star: __[Moduł rankingu]__
@@ -12,7 +11,6 @@
 </div>
 
   [Moduł aplikacji]: system/modul-aplikacji.md
-  [Moduł gier]: system/modul-gier.md
   [Moduł codziennych zadań]: system/modul-codziennych-zadan.md
   [Moduł przechowywania danych]: system/modul-przechowywania-danych.md
   [Moduł rankingu]: system/modul-rankingu.md
