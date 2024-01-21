@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Space Invaders</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="body1">
+    <div class="menu-holder">
+      <div class="title">Choose Difficulty:</div>
+      <div class="buttons">
+        <button id="button_e" class="button" style="background-color: rgba(8,255,0,0.83); outline-color: white">Easy</button>
+        <button id="button_m" class="button" style="background-color: rgba(255,221,0,0.83)">Medium</button>
+        <button id="button_h" class="button" style="background-color: rgba(255,0,0,0.83)">Hard</button>
+      </div>
+    </div>
+    <div class="start-container">
+      <button id="button_start" class="button2" style="background-color: rgba(0,0,64,0.83)">Start</button>
+      <button id="button_instruction" class="button2" style="font-size: 40px; background-color: rgba(0,0,64,0.83)">Instruction</button>
+    </div>
+  </div>
+
+  <div id="instruction" style="display: none;">
+    <div class="menu-holder instruction-holder">
+      <div>Instruction</div>
+      <div class="text">
+        You are steering a ship and your job is to dispose of all the rubbish lying around the map.
+        Be weary though because due to all the illegal dumping people did, the rubbish got angry and are now coming for you.
+        Once the hordes of rubbish reach your height the game will be over and the island will be doomed.
+      </div>
+      <div class ="inner-instruction-holder">
+        <div>
+          <div>Rules</div>
+          <div class="text">
+            Different kind of rubbish can only be destroyed <br>
+            with their according kind of laser that is: <br>
+            plastic - yellow: <br>
+            <div>
+              <img src="assets/plastic1.png" alt="plastic1">
+              <img src="assets/plastic2.png" alt="plastic1">
+              <img src="assets/plastic3.png" alt="plastic1">
+            </div>
+            paper - blue <br>
+            <div>
+              <img src="assets/paper1.png" alt="paper1">
+              <img src="assets/paper2.png" alt="paper2">
+              <img src="assets/paper3.png" alt="paper3">
+            </div>
+            glass - green <br>
+            <div>
+              <img src="assets/glass1.png" alt="glass1">
+              <img src="assets/glass2.png" alt="glass2">
+              <img src="assets/glass3.png" alt="glass3">
+            </div>
+            <div>The darker the rubbish is the more hits <br>
+              it will take to destroy it (up to 3)</div>
+            <div>If the rubbish reach ship level game will be over.</div>
+          </div>
+        </div>
+        <div class="page">
+          <div>
+            <div>Steering</div>
+            <div class="text">
+              - Press ARROWS to move left and right <br>
+              - Press SPACE to shoot <br>
+              - Press 1, 2 or 3 to change laser type <br>
+              - Press R to cool down your weapon
+            </div>
+          </div>
+          <div>
+            <div>Enemies</div>
+            <div class="text">
+              The additional threats will also appear <br>
+              the harder the difficulty the more enemies <br>
+              that will try to destroy you will be spawned <br>
+              by the rubbish. Once they come in contact <br>
+              with the ship the game will be over. <br>
+              Models of enemies:
+            </div>
+            <div>
+              <img src="assets/cockroach.png" alt="cockroach">
+              <img src="assets/rat.png" alt="rat">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="start-container">
+      <button id="button_instruction_ret" class="button2" style="font-size: 36px; background-color: rgba(0,0,64,0.83)">Understood</button>
+    </div>
+  </div>
+
+  <div id="body2" style="display: none;">
+    <div id="game" class="game-container">
+      <div id="span"></div>
+      <div id="invaders" class="invaders"></div>
+      <div id="ship" class="player"></div>
+      <div id="enemies" class="enemies"></div>
+      <div id="lasers" class="lasers"></div>
+    </div>
+    <div class="score-container">
+      <div id="score" class="score"></div>
+      <div class="chosen-laser">
+        <div id="laser1" class="showcase">
+          <div class="laser-showcase" style="background-color: yellow;"></div>
+        </div>
+        <div id="laser2" class="showcase">
+          <div class="laser-showcase" style="background-color: blue;"></div>
+        </div>
+        <div id="laser3" class="showcase">
+          <div class="laser-showcase" style="background-color: green;"></div>
+        </div>
+      </div>
+      <div class="heat">
+        <div class="heat-info">HEAT</div>
+        <div class="heat-bar"></div>
+        <div id="heat-meter" class="heat-overlay"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="body3" style="display: none;">
+    <div class="menu-holder">
+      <div class="title">Your Score:</div>
+      <div id="score2" class="score2"></div>
+    </div>
+    <div class="start-container">
+      <button id="button_reset" class="button2" style="background-color: rgba(0,0,64,0.83)">Restart</button>
+    </div>
+  </div>
+
+  <script src="script.js" type="module"></script>
+</body>
+</html>

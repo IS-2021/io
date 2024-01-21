@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
+    <title>Game</title>
+ </head>
+ <body>
+  <div class="row" style="height: 720px; width:1260px; display: flex;gap: 4rem;">
+    <div class="column" style="height: 720px; width: 720px">
+      <canvas id="board" style="height: 720px; width: 720px"></canvas>
+    </div>  
+    <div class="column" style="height: 720px; width:300px">
+        <div class="row">
+            <button style="height:90px; width:90px" id="btn-up-left">Up-Left</button>
+            <button style="height:90px; width:90px" id="btn-up">Up</button>
+            <button style="height:90px; width:90px" id="btn-up-right">Up-Right</button>
+          </div>
+          <div class="row">
+            <button style="height:90px; width:90px" id="btn-left">Left</button>
+            <button style="height:90px; width:90px; margin-left: 94px;" id="btn-right">Right</button>
+          </div>
+          <div class="row">
+            <button style="height:90px; width:90px" id="btn-down-left">Down-Left</button>
+            <button style="height:90px; width:90px" id="btn-down">Down</button>
+            <button style="height:90px; width:90px" id="btn-down-right">Down-Right</button>
+          </div>
+        <div class="row" style="height: 200px; width:220px">
+          <canvas id="backpack"></canvas>
+          <button style="height:66px; width:66px" id="btn-drop1">1</button>
+          <button style="height:66px; width:66px" id="btn-drop2">2</button>
+          <button style="height:66px; width:66px" id="btn-drop3">3</button>
+        </div>
+        <div class="row">
+            <div>Turns Left:</div>
+            <div id="turnsLeft"></div>
+            <div>Move Points Left:</div>
+            <div id="movePointsLeft"></div>
+            <div>Score:</div>
+            <div id="score"></div>
+            <button style="height:66px; width:66px" id="btn-nt">Next Turn</button>
+            <button style="height:66px; width:66px" id="btn-end">End Game</button>
+        </div>
+      </div>
+    </div>
+    <script type="importmap">
+      {
+          "imports": {
+              "greengame-api-client": "https://unpkg.com/greengame-api-client@latest"
+          }
+      }
+    </script>
+    <script type="module" src="scripts.js"></script>
+  </body>
+</html>

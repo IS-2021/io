@@ -9,7 +9,19 @@ INSERT INTO greengame.game (game_id, name, image_slug_name, description) VALUES
 
 UPDATE greengame.game
 SET frame_width=1280, frame_height=736
-WHERE game_id = 6;
+WHERE game_id = 1;
+
+UPDATE greengame.game
+SET frame_width=1280, frame_height=750
+WHERE game_id = 3;
+
+UPDATE greengame.game
+SET frame_width=1280, frame_height=740
+WHERE game_id = 5;
+
+UPDATE greengame.game
+SET frame_width=1522, frame_height=840
+WHERE game_id = 7;
 
 INSERT INTO greengame.daily_task (`daily_task_id`, `name`, `description`, `game_id`, `coins_reward`) VALUES (1, 'Zielony Strzelec', 'Zapewnij ochronę planecie, strzelając do nadlatujących odpadów kolorowym laserem. Każdy kolor oznacza inny rodzaj śmieci. Sprawdź swoją precyzję i zrównoważ swoje siły w walce z zanieczyszczeniem.', 1, 3);
 INSERT INTO greengame.daily_task (`daily_task_id`, `name`, `description`, `game_id`, `coins_reward`) VALUES (2, 'Labirynt Wodny', 'Wydostań się z labiryntu rurociągów, zanim woda wyczerpie się! Zamykaj i otwieraj zawory, aby utrzymać płyn w ruchu. Twój cel to dotrzeć do końca, unikając utraty kropli wody. Oszczędność to klucz!', 2, 2);

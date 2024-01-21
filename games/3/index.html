@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+    <body>
+        <nav class="navbar bg-primary navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand text-white" href="#">Oszczędzanie energii</a>
+            <a class="text-white mx-3" href="#" style="text-decoration: none;" data-bs-toggle="modal" data-bs-target="#guideModal">Samouczek</a>
+            <div class="modal fade" id="guideModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="guideModalLabel">Samouczek</h5>
+                        </div>
+                        <div class="modal-body">
+                            Gra przedstawia rzut boczny budynku, w którym znajdują się urządzenia elektryczne oraz biegnie okablowanie.
+                            Nie wszystkie urządzenia powinny na danym poziomie być włączone, uruchomienie części z nich będzie traktowane 
+                            jako popełnienie błędu.<strong> Twoim zadaniem jest ustawienie przepływu prądu w budynku tak, aby tylko te urządzenia, 
+                            przy których stoi człowiek były podłączone do prądu.</strong> Zmiany ustawienia węzłów układu elektrycznego będzie można 
+                            dokonać klikając w nie, dzięki czemu będzie można zasilić odpowiednie urządzenia. Podczas rozgrywki co pewien czas
+                            będziesz musiał odpowiedzieć na pytanie dotyczące energii elektrycznej, aby móc kontynuować rozgrywkę. Błędna
+                            odpowiedź na pytanie spowoduję odjęcie 10 sekund z czasu przeznaczonego na przejście poziomu. Na 
+                            przejście każdego poziomu przewidziany jest określony czas, po którego upływie podejście zostanie niezaliczone. 
+                            W celu sprawdzenia, czy wszystkie węzły układu elektrycznego zostały ustawione poprawnie, należy włączyć prąd, 
+                            używając do tego głównego przełącznika prądu. Aby przejść poziom nie można popełnić żadnego błędu.
+                        </div>
+                        <div class="modal-footer d-flex justify-content-around">
+                            <img src="images/thirdGameImages/0.png" style="cursor: pointer; scale: 2;"/>
+                            <img src="images/thirdGameImages/switchOn.png" style="cursor: pointer; scale: 0.5;"/>
+                        </div>
+                        <div class="d-flex justify-content-around">
+                            <p>Węzeł układu elektrycznego</p>
+                            <p style="margin-right: 40px;">Główny przełącznik prądu</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Rozumiem</button>
+                          </div>
+                    </div>
+                </div>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown" id="level-dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Poziom
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><button class="dropdown-item level-cost-5 level-btn level-0-btn" type="button">
+                                Poziom 1
+                            </button></li>
+                            <li><button class="dropdown-item level-cost-10 level-btn level-1-btn" type="button">
+                                Poziom 2
+                            </button></li>
+                            <li><button class="dropdown-item level-cost-15 level-btn level-2-btn" type="button">
+                                Poziom 3
+                            </button></li>
+                            <li><button class="dropdown-item level-cost-20 level-btn level-3-btn" type="button">
+                                Poziom 4
+                            </button></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <button hidden type="button" id="pause-resume-btn" class="btn btn-primary text-white mx-3" style=" z-index: 9999;">
+                <svg id="pause-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-pause-fill" viewBox="0 0 16 16">
+                    <path d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5m5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5"/>
+                </svg>
+                <svg hidden id="resume-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
+                    <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+                </svg>
+            </button>
+
+            <div class="d-flex align-items-center mx-3">
+                <p class="m-0 text-white" id="time" style="font-size: 25px;"></p>
+            </div>
+        </div>
+    </nav>
+
+        <div id="welcome-div">
+            <h1 class="text-primary m-3" id="header-wecome" style="font-size: 60px;"></h1>
+            <hr />
+            <p class="text-secondary fs-5 m-3">Rozwiązuj zagadki logiczne związane z prawidłowym wykorzystaniem urządzeń elektrycznych, odpowiadaj poprawnie na pytania
+                w quizie i zdobywaj punkty!</p>
+            <p class="text-secondary fs-5 m-3">Twój aktualny wynik to 
+                <span class="text-primary fw-bold text-decoration-underline" id="score-text"></span>.
+            </p>
+            
+        </div>
+
+
+    <!-- id    = quiz-level_no-quiz_no
+        class = quiz-level_no, display-level_second-->
+        <div class="modal fade quiz-0 display-50" id="quiz-0-0" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel-0" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel-0">Pytanie 1</h1>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            Która z wymienionych poniżej żarówek jest najbardziej ekologiczna i zużywa najmniej prądu?
+                        </p>
+                        <div  class="list-group">
+                            <button type="button" class="list-group-item list-group-item-action quiz-0-0-answer">Fluorescencyjne kompaktowe</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-0-0-answer">Halogenowa</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-0-0-answer correct" data-bs-dismiss="modal">LED</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-0-0-answer">Żarowa</button>
+                        </div >
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade quiz-0  display-35" id="quiz-0-1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel-1">Pytanie 2</h1>
+                    </div>
+                    <div class="modal-body">
+                        <p> 
+                            Ile elektrowni atomowych znajduję się w Polsce?
+                        </p>
+                        <div  class="list-group">
+                            <button type="button" class="list-group-item list-group-item-action quiz-0-1-answer correct" data-bs-dismiss="modal">0</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-0-1-answer">5</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-0-1-answer">1</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-0-1-answer">10</button>
+                        </div >
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade quiz-0 display-20" id="quiz-0-2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel-1">Pytanie 3</h1>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            Ile średnio energii może produkować pojedyncza lądowa turbina wiatrowa?
+                        </p>
+                        <div  class="list-group">
+                            <button type="button" class="list-group-item list-group-item-action quiz-0-2-answer">Około 4 MW</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-0-2-answer correct" data-bs-dismiss="modal">Około 2-3 MW</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-0-2-answer">Około 8-10 MW</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-0-2-answer">Około 12 MW</button>
+                        </div >
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
+        <div class="modal fade quiz-1 display-100" id="quiz-1-0" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel-1">Pytanie 1</h1>
+                    </div>
+                    <div class="modal-body">
+                        <p> 
+                            Jakie urządzenie zużywa energię nawet w trybie czuwania?
+                        </p>
+                        <div  class="list-group">
+                            <button type="button" class="list-group-item list-group-item-action quiz-1-0-answer">Kuchenka mikrofalowa</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-1-0-answer correct" data-bs-dismiss="modal">Komputer</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-1-0-answer">Żelazko</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-1-0-answer">Odkurzacz</button>
+                        </div >
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade quiz-1 display-80" id="quiz-1-1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel-1">Pytanie 2</h1>
+                    </div>
+                    <div class="modal-body">
+                        <p> 
+                            Jak można zminimalizować zużycie energii elektrycznej w czasie korzystania z komputera?
+                        </p>
+                        <div  class="list-group">
+                            <button type="button" class="list-group-item list-group-item-action quiz-1-1-answer">Zawsze pozostawiać komputer włączony, nawet w nocy</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-1-1-answer">Używać kilku monitorów jednocześnie</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-1-1-answer">Nigdy wyłączać komputera, aby zaoszczędzić na czasie włączania</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-1-1-answer correct" data-bs-dismiss="modal">Korzystać z trybu oszczędzania energii</button>
+                        </div >
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade quiz-1 display-60" id="quiz-1-2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel-1">Pytanie 3</h1>
+                    </div>
+                    <div class="modal-body">
+                        <p> 
+                            Ile elektrowni wodnych obecnie znajduję się w Polsce?
+                        </p>
+                        <div  class="list-group">
+                            <button type="button" class="list-group-item list-group-item-action quiz-1-2-answer correct" data-bs-dismiss="modal">17</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-1-2-answer">4</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-1-2-answer">9</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-1-2-answer">0</button>
+                        </div >
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade quiz-1 display-40" id="quiz-1-3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel-1">Pytanie 4</h1>
+                    </div>
+                    <div class="modal-body">
+                        <p> 
+                            Jaka była średnia moc polskich elektrowni fotowoltaicznych w 2023 roku?
+                        </p>
+                        <div  class="list-group">
+                            <button type="button" class="list-group-item list-group-item-action quiz-1-3-answer">Około 3 GW</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-1-3-answer">Około 6,5 GW</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-1-3-answer">Około 25 GW</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-1-3-answer correct" data-bs-dismiss="modal">Około 14 GW</button>
+                        </div >
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
+        <div class="modal fade quiz-2 display-130" id="quiz-2-0" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel-1">Pytanie 1</h1>
+                    </div>
+                    <div class="modal-body">
+                        <p> 
+                            Czym jest fotowoltaika?
+                        </p>
+                        <div  class="list-group">
+                            <button type="button" class="list-group-item list-group-item-action quiz-2-0-answer correct" data-bs-dismiss="modal">Proces polegający na wykorzystywaniu promieniowania słonecznego do wytwarzania energii elektrycznej</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-2-0-answer">Proces wytwarzania energii przy użyciu fotosyntezy</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-2-0-answer">Proces pozyskiwania energii w elektrowniach wodnych </button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-2-0-answer">Proces pozyskiwania energii z wiatru</button>
+                        </div >
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade quiz-2 display-110" id="quiz-2-1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel-1">Pytanie 2</h1>
+                    </div>
+                    <div class="modal-body">
+                        <p> 
+                            Co pomaga w ograniczaniu zużycia energii elektrycznej przez urządzenia elektroniczne?
+                        </p>
+                        <div  class="list-group">
+                            <button type="button" class="list-group-item list-group-item-action quiz-2-1-answer">Zostawianie telewizora w trybie czuwania</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-2-1-answer correct" data-bs-dismiss="modal">Wyłączanie urządzeń z gniazdka po zakończeniu użytkowania</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-2-1-answer">Otwieranie okien zamiast korzystania z klimatyzacji</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-2-1-answer">Włączanie wszystkich urządzeń na maksymalną moc</button>
+                        </div >
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade quiz-2 display-90" id="quiz-2-2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel-1">Pytanie 3</h1>
+                    </div>
+                    <div class="modal-body">
+                        <p> 
+                            Które urządzenie elektryczne zużywa najwięcej energii w skali roku?
+                        </p>
+                        <div  class="list-group">
+                            <button type="button" class="list-group-item list-group-item-action quiz-2-2-answer">Czajnik elektryczny</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-2-2-answer">Żelazko</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-2-2-answer">Toster</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-2-2-answer correct" data-bs-dismiss="modal">Lodówka</button>
+                        </div >
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade quiz-2 display-70" id="quiz-2-3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel-1">Pytanie 4</h1>
+                    </div>
+                    <div class="modal-body">
+                        <p> 
+                            Co oznacza termin stacja hydroelektryczna?
+                        </p>
+                        <div  class="list-group">
+                            <button type="button" class="list-group-item list-group-item-action quiz-2-3-answer">Jest to punkt uzdatniania wody </button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-2-3-answer">Jest to elektryczna oczyszczalnia ścieków</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-2-3-answer correct" data-bs-dismiss="modal">Jest to elektrownia wodna</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-2-3-answer">Jest to samochód na paliwo w postaci wodoru</button>
+                        </div >
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade quiz-2 display-50" id="quiz-2-4" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel-1">Pytanie 5</h1>
+                    </div>
+                    <div class="modal-body">
+                        <p> 
+                            Ile wynosi średnia roczna produkcja energii elektrycznej przez elektrownie wodne w Polsce?
+                        </p>
+                        <div  class="list-group">
+                            <button type="button" class="list-group-item list-group-item-action quiz-2-4-answer">Około 10 GWh</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-2-4-answer correct" data-bs-dismiss="modal">Około 74 GWh</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-2-4-answer">Około 22 GWh</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-2-4-answer">Około 100 GWh</button>
+                        </div >
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
+        <div class="modal fade quiz-3 display-160" id="quiz-3-0" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel-1">Pytanie 1</h1>
+                    </div>
+                    <div class="modal-body">
+                        <p> 
+                            Które z wymienionych jest największym odnawialnym źródłem energii elektrycznej w Polsce?
+                        </p>
+                        <div  class="list-group">
+                            <button type="button" class="list-group-item list-group-item-action quiz-3-0-answer">Elektrownie geotermalne</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-3-0-answer">Elektrownie fotowoltaiczne</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-3-0-answer correct" data-bs-dismiss="modal">Elektrownie wiatrowe</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-3-0-answer">Elektrownie wodne</button>
+                        </div >
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade quiz-3 display-140" id="quiz-3-1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel-1">Pytanie 2</h1>
+                    </div>
+                    <div class="modal-body">
+                        <p> 
+                            Co można zrobić, aby ograniczyć zużycie energii w pralce?
+                        </p>
+                        <div  class="list-group">
+                            <button type="button" class="list-group-item list-group-item-action quiz-3-1-answer">Pranie zawsze na najwyższym biegu</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-3-1-answer">Częste korzystanie z suszarki bębnowej</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-3-1-answer correct" data-bs-dismiss="modal">Pranie pełnego bębna ubrań w niskiej temperaturze</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-3-1-answer">Używanie dużo detergentu</button>
+                        </div >
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade quiz-3 display-120" id="quiz-3-2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel-1">Pytanie 3</h1>
+                    </div>
+                    <div class="modal-body">
+                        <p> 
+                            Które urządzenie można zastąpić bardziej energooszczędnym odpowiednikiem?
+                        </p>
+                        <div  class="list-group">
+                            <button type="button" class="list-group-item list-group-item-action quiz-3-2-answer correct" data-bs-dismiss="modal">Żarówkę żarową</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-3-2-answer">Żarówkę halogenową</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-3-2-answer">Żarówkę LED</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-3-2-answer">Lampę naftową</button>
+                        </div >
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade quiz-3 display-100" id="quiz-3-3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel-1">Pytanie 4</h1>
+                    </div>
+                    <div class="modal-body">
+                        <p> 
+                            Jakie korzyści niesie ze sobą stosowanie energooszczędnych okien?
+                        </p>
+                        <div  class="list-group">
+                            <button type="button" class="list-group-item list-group-item-action quiz-3-3-answer">Zwiększają koszty ogrzewania</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-3-3-answer">Zwiększają ilość naturalnego światła</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-3-3-answer">Sprawiają, że pomieszczenia są bardziej podatne na wahania temperatury</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-3-3-answer correct" data-bs-dismiss="modal">Poprawiają izolację termiczną</button>
+                        </div >
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade quiz-3 display-80" id="quiz-3-4" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel-1">Pytanie 5</h1>
+                    </div>
+                    <div class="modal-body">
+                        <p> 
+                            Która z podanych elektrowni jest największą elektrownią w Polsce pod względem produkcji energii?
+                        </p>
+                        <div  class="list-group">
+                            <button type="button" class="list-group-item list-group-item-action quiz-3-4-answer">Elektrownia Połaniec</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-3-4-answer correct" data-bs-dismiss="modal">Elektrownia Bełchatów</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-3-4-answer">Elektrownia Opole</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-3-4-answer">Elektrownia Kozienice</button>
+                        </div >
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade quiz-3 display-60" id="quiz-3-5" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel-1">Pytanie 6</h1>
+                    </div>
+                    <div class="modal-body">
+                        <p> 
+                            Do czego służy biomasa?
+                        </p>
+                        <div  class="list-group">
+                            <button type="button" class="list-group-item list-group-item-action quiz-3-5-answer">Do wytwarzania energii w elektrowniach fotowoltaicznych</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-3-5-answer">Do produkcji turbin wiatrowych</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-3-5-answer correct" data-bs-dismiss="modal">Do produkcji energii elektrycznej, energii cieplnej oraz do wytwarzania biopaliw</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-3-5-answer">Do ekologicznego oczyszczania wody</button>
+                        </div >
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade quiz-3 display-40" id="quiz-3-6" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel-1">Pytanie 7</h1>
+                    </div>
+                    <div class="modal-body">
+                        <p> 
+                            Ile średnio energii może produkować pojedyncza morska turbina wiatrowa?
+                        </p>
+                        <div  class="list-group">
+                            <button type="button" class="list-group-item list-group-item-action quiz-3-6-answer">Około 2 MW</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-3-6-answer">Około 4 MW</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-3-6-answer">Około 20 MW</button>
+                            <button type="button" class="list-group-item list-group-item-action quiz-3-6-answer correct" data-bs-dismiss="modal">Około 8 MW</button>
+                        </div >
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- --------------------------------------------------------------------------------------------------------------------------------- -->
+
+        <div id="wrongAnswerToast" class="toast align-items-center bg-danger position-fixed end-0 m-2 p-1" style="top: 7%; z-index: 9999;" role="alert" aria-live="assertive" aria-atomic="true" data-bs-config='{"delay":2000}'>
+            <div class="d-flex">
+                <div class="toast-body text-white">
+                    Oops, twoja odpowiedź jest niepoprawna.
+                </div>
+                <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+
+        <div id="correctAnswerToast" class="toast align-items-center bg-success position-fixed end-0 m-2 p-1" style="top: 7%; z-index: 9999;" role="alert" aria-live="assertive" aria-atomic="true" data-bs-config='{"delay":2000}'>
+            <div class="d-flex">
+                <div class="toast-body text-white">
+                    Twoja odpowiedź była poprawna.
+                </div>
+                <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+
+
+        <div id="overlay" hidden style="
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255, 255, 255, 0));
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9990;">
+        </div>
+
+        <div class="modal fade" id="score-board" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel-0" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Twój wynik</h5>
+                    </div>
+                    <div class="modal-body">
+                        <p id="level-score">Wynik poziomu: 25</p>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center">
+                        <button type="button" id="btn-save-game" class="btn btn-primary" data-bs-dismiss="modal">Ok</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <script type="importmap">
+        {
+            "imports": {
+                "greengame-api-client": "https://unpkg.com/greengame-api-client@latest"
+            }
+        }
+        </script>
+        <script src="script.js" type="module"></script>
+    </body>
+</html>

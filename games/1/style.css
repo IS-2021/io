@@ -1,0 +1,257 @@
+body {
+  display: flex;
+  background-color: rgb(255, 255, 255);
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.game-container {
+  position: absolute;
+  width: 1000px;
+  height: 720px;
+  font-size: 300px;
+  padding-left: 2px;
+  text-align: center;
+  color: yellow;
+  text-shadow:
+    -1px -1px 0 white,
+    1px -1px 0 white,
+    -1px  1px 0 white,
+    1px  1px 0 white;
+  outline: black solid 5px;
+  background-image: url('assets/background.png');
+  background-size: cover;
+}
+
+.player {
+  position: absolute;
+  left: 500px;
+  top: 650px;
+  width: 50px;
+  height: 70px;
+  background-image: url('assets/ship.png');
+}
+
+.invader {
+  position: absolute;
+  width: 64px;
+  height: 64px;
+}
+
+.score-container {
+  position: absolute;
+  left: 1020px;
+  width: 206px;
+  height: 720px;
+  outline: black solid 5px;
+  background: #000;
+  background: linear-gradient(to bottom, #000040, #000000, #000040);
+}
+
+.score {
+  position: relative;
+  height: 100px;
+  outline: black solid 5px;
+  color: yellow;
+  font-size: 80px;
+  padding-left: 2px;
+  text-shadow:
+    -1px -1px 0 white,
+     1px -1px 0 white,
+    -1px  1px 0 white,
+     1px  1px 0 white;
+}
+
+.chosen-laser {
+  position: relative;
+  height: 200px;
+  outline: black solid 5px;
+}
+
+.laser {
+  position: absolute;
+  width: 5px;
+  height: 20px;
+  outline: white solid 2px;
+  border-radius: 20%;
+}
+
+.showcase {
+  position: relative;
+  margin-left: 3px;
+  float: left;
+  top: 8px;
+  width: 65px;
+  height: 190px;
+  background-color: black;
+}
+
+.laser-showcase {
+  position: absolute;
+  left: 17px;
+  width: 31px;
+  height: 180px;
+  top: 5px;
+  border-radius: 20%;
+  outline: white solid 2px;
+}
+
+.heat {
+  position: relative;
+  height: 420px;
+  outline: black solid 5px;
+}
+
+.heat-info {
+  position: relative;
+  height: 75px;
+  outline: black solid 5px;
+  color: yellow;
+  font-size: 75px;
+  padding-left: 5px;
+  text-shadow:
+    -1px -1px 0 white,
+     1px -1px 0 white,
+    -1px  1px 0 white,
+     1px  1px 0 white;
+}
+
+.heat-bar {
+  position: absolute;
+  height: 345px;
+  width: 170px;
+  left: 18px;
+  outline: black solid 5px;
+  background: #000;
+  background: linear-gradient(to bottom, #d80606, #ff6600, #fcef00);
+}
+
+.heat-overlay {
+  position: absolute;
+  height: 345px;
+  width: 170px;
+  left: 18px;
+  outline: black solid 5px;
+  background: #000;
+  background: linear-gradient(to bottom, #ffffff, #c5c5c5, #aaaaaa);
+}
+
+.menu-holder {
+  position: absolute;
+  width: 1000px;
+  height: 720px;
+  font-size: 100px;
+  padding-left: 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: yellow;
+  text-shadow:
+          -1px -1px 0 white,
+          1px -1px 0 white,
+          -1px  1px 0 white,
+          1px  1px 0 white;
+  outline: black solid 5px;
+  background-image: url('assets/background.png');
+  background-size: cover;
+}
+
+.title {
+  font-size: 100px;
+}
+
+
+.button {
+  position: relative;
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+  width: 200px;
+  height: 100px;
+  float: left;
+  text-shadow:
+          -1px -1px 0 white,
+          1px -1px 0 white,
+          -1px  1px 0 white,
+          1px  1px 0 white;
+  outline: black solid 5px;
+}
+
+.button2 {
+  position: relative;
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 100px;
+  float: left;
+  text-shadow:
+          -1px -1px 0 white,
+          1px -1px 0 white,
+          -1px  1px 0 white,
+          1px  1px 0 white;
+  outline: black solid 5px;
+}
+
+.buttons {
+  display: flex;
+  margin-top: 50px;
+}
+
+.start-container {
+  position: absolute;
+  left: 1020px;
+  width: 206px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  height: 720px;
+  outline: black solid 5px;
+  background: #000;
+  background: linear-gradient(to bottom, #000040, #000000, #000040);
+}
+
+.score2 {
+  position: relative;
+  color: yellow;
+  font-size: 200px;
+  padding-left: 2px;
+  text-shadow:
+          -1px -1px 0 white,
+          1px -1px 0 white,
+          -1px  1px 0 white,
+          1px  1px 0 white;
+}
+
+.instruction-holder {
+  font-size: 60px;
+  align-items: normal;
+  justify-content: normal;
+  display: block;
+}
+
+.text {
+  margin-left: 10px;
+  font-size: 25px;
+  text-shadow: none;
+  color: #eee163;
+}
+
+.inner-instruction-holder {
+  display: flex;
+}
+
+.page {
+  margin-left: 5%;
+}
+
+.enemy {
+  position: absolute;
+  width: 50px;
+  height: 64px;
+}
